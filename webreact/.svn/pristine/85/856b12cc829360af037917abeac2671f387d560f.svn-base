@@ -1,0 +1,34 @@
+import React,{Component} from 'react';
+import axios from 'axios';
+import server from '../../servers/index';
+import './index.css';
+
+export default class Header extends Component{
+    constructor(){
+        super();
+        this.state = {
+            title:""
+        }
+    }
+    componentWillMount(){
+        console.log(111);
+        /*axios.get(server.IP+"order/getOrder",{
+            params:{
+                name:'111',
+            }
+        })
+            .then(function(res){
+                this.setState({title:res});
+            })
+            .catch(function(error){
+                console.log(error)
+            })*/
+    }
+    render(){
+        return (
+            <div className="header_box">
+                <div className="logo"><img src="#" alt="img"/><span>{this.state.title}</span></div>
+            </div>
+        )
+    }
+}

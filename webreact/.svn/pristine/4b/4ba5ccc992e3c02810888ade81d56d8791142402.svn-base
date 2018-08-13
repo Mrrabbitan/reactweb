@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>Hello Mr/Mrs OpenLayers + React!</title>
+</head>
+<body>
+<div id="app"></div>
+
+<!-- Main -->
+<script src="./build/app.js"></script>
+</body>
+</html>

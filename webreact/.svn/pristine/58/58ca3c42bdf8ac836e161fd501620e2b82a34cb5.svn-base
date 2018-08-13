@@ -1,0 +1,15 @@
+import React,{Component} from 'react';
+import Map from './Map/index';
+import './index.css';
+
+export default class Content extends Component{
+    render(){
+        return (
+            <div className="content_box">
+                <Map/>
+
+                <div></div>
+            </div>
+        )
+    }
+}

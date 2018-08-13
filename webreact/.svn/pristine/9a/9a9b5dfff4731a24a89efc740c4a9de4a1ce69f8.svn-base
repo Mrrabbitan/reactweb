@@ -1,0 +1,88 @@
+{
+  "_from": "metalsmith@1.6.0",
+  "_id": "metalsmith@1.6.0",
+  "_inBundle": false,
+  "_integrity": "sha1-NrBWM3zQTIpVS489Bg45RQ8syz0=",
+  "_location": "/metalsmith",
+  "_phantomChildren": {
+    "escape-string-regexp": "1.0.5",
+    "mkdirp": "0.5.1",
+    "rimraf": "2.6.2",
+    "sigmund": "1.0.1"
+  },
+  "_requested": {
+    "type": "version",
+    "registry": true,
+    "raw": "metalsmith@1.6.0",
+    "name": "metalsmith",
+    "escapedName": "metalsmith",
+    "rawSpec": "1.6.0",
+    "saveSpec": null,
+    "fetchSpec": "1.6.0"
+  },
+  "_requiredBy": [
+    "/openlayers"
+  ],
+  "_resolved": "http://registry.npm.taobao.org/metalsmith/download/metalsmith-1.6.0.tgz",
+  "_shasum": "36b056337cd04c8a554b8f3d060e39450f2ccb3d",
+  "_spec": "metalsmith@1.6.0",
+  "_where": "C:\\Users\\zhongdianke\\Desktop\\react\\my-app\\node_modules\\openlayers",
+  "bin": {
+    "metalsmith": "bin/metalsmith"
+  },
+  "bugs": {
+    "url": "https://github.com/segmentio/metalsmith/issues"
+  },
+  "bundleDependencies": false,
+  "dependencies": {
+    "absolute": "0.0.1",
+    "async": "~0.9.0",
+    "chalk": "^0.5.0",
+    "clone": "^0.1.11",
+    "co-fs-extra": "0.0.2",
+    "commander": "^2.6.0",
+    "fs-extra": "~0.10.0",
+    "gnode": "^0.1.0",
+    "gray-matter": "^2.0.0",
+    "is": "^2.2.0",
+    "is-utf8": "~0.2.0",
+    "recursive-readdir": "^1.2.1",
+    "rimraf": "^2.2.8",
+    "stat-mode": "^0.2.0",
+    "thunkify": "^2.1.2",
+    "unyield": "0.0.1",
+    "ware": "^1.2.0"
+  },
+  "deprecated": false,
+  "description": "An extremely simple, pluggable static site generator.",
+  "devDependencies": {
+    "assert-dir-equal": "~1.0.1",
+    "co-mocha": "^1.0.1",
+    "metalsmith-drafts": "0.0.1",
+    "metalsmith-markdown": "0.2.1",
+    "mocha": "^1.21.4"
+  },
+  "homepage": "https://github.com/segmentio/metalsmith#readme",
+  "keywords": [
+    "static",
+    "file",
+    "site",
+    "website",
+    "blog",
+    "generator",
+    "markdown",
+    "jekyll",
+    "wintersmith",
+    "blacksmith"
+  ],
+  "license": "MIT",
+  "name": "metalsmith",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/segmentio/metalsmith.git"
+  },
+  "scripts": {
+    "test": "make test"
+  },
+  "version": "1.6.0"
+}

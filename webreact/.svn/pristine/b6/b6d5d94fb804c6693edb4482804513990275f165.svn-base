@@ -1,0 +1,53 @@
+#map{
+    width:100%;
+    height:100%;
+}
+
+.ol-mouse-position{
+    height: 20px;
+    width: 250px;
+    z-index: 99;
+    position: absolute;
+    bottom:0px;
+    right: 10px;
+    color:black;
+    font-size: 16px;
+}
+
+.ol-zoom{
+    height: 24px;
+    width: 24px;
+    z-index: 99;
+    position: absolute;
+    left:10px;
+    top: 10px;
+    color:black;
+    font-size: 14px;
+
+}
+
+.ol-rotate{
+    height: 24px;
+    width: 24px;
+    z-index: 99;
+    position: absolute;
+    right:10px;
+    top: 10px;
+    color:black;
+    font-size: 14px;
+
+
+}
+
+
+.ol-attribution{
+    height: 24px;
+    width: 24px;
+    z-index: 99;
+    position: absolute;
+    left:10px;
+    bottom: 10px;
+    color:black;
+    font-size: 14px;
+
+}

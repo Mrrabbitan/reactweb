@@ -1,0 +1,22 @@
+import React,{Component} from 'react';
+import Map from './Map/index';
+import GlobalPortInfo from '../../Components/Content/GlobalPortInfo/index';
+import './index.css';
+
+export default class Content extends Component{
+    render(){
+        return (
+            <div className="content_box">
+                <Map/>
+<<<<<<< .mine
+				{/*ÕÅÏÖ³¬ ×ó²à¹¦ÄÜ²Ëµ¥-È«Çò¸Û¿ÚĞÅÏ¢×ÜÀÀ*/}
+                <GlobalPortInfo/>
+                <div></div>
+=======
+                {/*å¼ ç°è¶… å·¦ä¾§åŠŸèƒ½èœå•-å…¨çƒæ¸¯å£ä¿¡æ¯æ€»è§ˆ*/}
+                <GlobalPortInfo/>
+>>>>>>> .r1617
+            </div>
+        )
+    }
+}

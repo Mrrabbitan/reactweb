@@ -1,0 +1,22 @@
+import React,{Component} from 'react';
+import Map from './Map/index';
+import GlobalPortInfo from '../../Components/Content/GlobalPortInfo/index';
+import './index.css';
+import PopupLayer from '../../Components/Content/GlobalPortInfo/popuplayer';
+
+
+
+export default class Content extends Component{
+    render(){
+        return (
+            <div className="content_box">
+                <Map/>
+                {/*张现超 左侧功能菜单-全球港口信息总览*/}
+                <GlobalPortInfo/>
+                {/*anzp 港口图标点击出现弹窗-全球港口信息总览*/}
+                <PopupLayer/>
+                
+            </div>
+        )
+    }
+}

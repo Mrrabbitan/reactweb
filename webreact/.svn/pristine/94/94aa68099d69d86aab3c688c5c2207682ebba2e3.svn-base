@@ -1,0 +1,38 @@
+{
+  "_from": "https://github.com/hegemonic/taffydb/tarball/master",
+  "_id": "taffydb@2.6.2",
+  "_inBundle": false,
+  "_integrity": "sha512-YmLguanub6obaZ2bmEItkvAc6EgUcVkxOi90tmnHUUQAFKy5owpf8RS6UTdNMSalh6vBYDEL2GlQ61rcnkN7jQ==",
+  "_location": "/taffydb",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "remote",
+    "raw": "taffydb@https://github.com/hegemonic/taffydb/tarball/master",
+    "name": "taffydb",
+    "escapedName": "taffydb",
+    "rawSpec": "https://github.com/hegemonic/taffydb/tarball/master",
+    "saveSpec": "https://github.com/hegemonic/taffydb/tarball/master",
+    "fetchSpec": "https://github.com/hegemonic/taffydb/tarball/master"
+  },
+  "_requiredBy": [
+    "/jsdoc"
+  ],
+  "_resolved": "https://github.com/hegemonic/taffydb/tarball/master",
+  "_spec": "taffydb@https://github.com/hegemonic/taffydb/tarball/master",
+  "_where": "C:\\Users\\zhongdianke\\Desktop\\react\\my-app\\node_modules\\jsdoc",
+  "bugs": {
+    "url": "https://github.com/hegemonic/taffydb/issues"
+  },
+  "bundleDependencies": false,
+  "deprecated": false,
+  "description": "An open-source library that brings database features into your JavaScript applications.",
+  "homepage": "https://github.com/hegemonic/taffydb#readme",
+  "license": "BSD-2-Clause",
+  "main": "taffy.js",
+  "name": "taffydb",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/hegemonic/taffydb.git"
+  },
+  "version": "2.6.2"
+}

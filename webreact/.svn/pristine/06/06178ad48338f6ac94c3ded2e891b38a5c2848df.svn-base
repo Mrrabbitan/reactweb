@@ -1,0 +1,42 @@
+import React,{Component} from 'react';
+import Map from './Map/index';
+import GlobalPortInfo from '../../Components/Content/GlobalPortInfo/index';
+import './index.css';
+import PopupLayer from '../../Components/Content/GlobalPortInfo/popuplayer';
+import httpServer from '../../servers/index';
+
+
+
+export default class Content extends Component{
+    constructor(){
+        super();
+        this.state = {
+            liveShipTotal:0,
+            shipData:null,
+        }
+    }
+    componentDidMount(){
+        var self = this;
+        httpServer.getRealtimeShipStatistics({},function(data){
+            self.setState(
+                {
+                liveShipTotal:data.data.workShip.ALL,
+                shipData:data.data}
+            );
+        })
+    }
+    render(){
+        console.log(1111111111)
+        return (
+
+            <div className="content_box">
+                <Map/>
+                {/*张现超 左侧功能菜单-全球港口信息总览*/}
+                <GlobalPortInfo liveShipTotal={this.state.liveShipTotal} shipData={this.state.shipData}/>
+                {/*anzp 港口图标点击出现弹窗-全球港口信息总览*/}
+                <PopupLayer/>
+                
+            </div>
+        )
+    }
+}

@@ -1,0 +1,72 @@
+{
+  "_from": "qwest@^4.4.5",
+  "_id": "qwest@4.5.0",
+  "_inBundle": false,
+  "_integrity": "sha1-8zF0OiaMR0qTESu9MNbFi6+hpcg=",
+  "_location": "/qwest",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "range",
+    "registry": true,
+    "raw": "qwest@^4.4.5",
+    "name": "qwest",
+    "escapedName": "qwest",
+    "rawSpec": "^4.4.5",
+    "saveSpec": null,
+    "fetchSpec": "^4.4.5"
+  },
+  "_requiredBy": [
+    "/react-openlayers"
+  ],
+  "_resolved": "http://registry.npm.taobao.org/qwest/download/qwest-4.5.0.tgz",
+  "_shasum": "f331743a268c474a93112bbd30d6c58bafa1a5c8",
+  "_spec": "qwest@^4.4.5",
+  "_where": "C:\\Users\\zhongdianke\\Desktop\\react\\my-app\\node_modules\\react-openlayers",
+  "author": {
+    "name": "Aurélien Delogu",
+    "email": "pyrsmk@dreamysource.fr",
+    "url": "http://dreamysource.fr"
+  },
+  "bugs": {
+    "url": "https://github.com/pyrsmk/qwest/issues",
+    "email": "dev@dreamysource.fr"
+  },
+  "bundleDependencies": false,
+  "dependencies": {
+    "jquery-param": "^0.1.2",
+    "pinkyswear": "^2.2.2"
+  },
+  "deprecated": false,
+  "description": "Ajax library with XHR2, promises and request limit",
+  "devDependencies": {
+    "browserify": "^11.1.0",
+    "gulp": "^3.9.0",
+    "gulp-derequire": "^2.1.0",
+    "gulp-jshint": "^1.11.2",
+    "gulp-rename": "^1.2.2",
+    "gulp-replace": "^0.5.3",
+    "gulp-shell": "^0.4.2",
+    "gulp-sizereport": "^1.1.2",
+    "gulp-uglify": "^1.2.0",
+    "jshint-stylish": "^2.0.1",
+    "lodash": "^3.10.1",
+    "merge2": "^0.3.6",
+    "resolve": "^1.1.6",
+    "through2": "^2.0.0"
+  },
+  "homepage": "http://dreamysource.io/project/qwest",
+  "keywords": [
+    "ajax",
+    "request",
+    "promises",
+    "xhr"
+  ],
+  "license": "MIT",
+  "main": "src/qwest.js",
+  "name": "qwest",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pyrsmk/qwest.git"
+  },
+  "version": "4.5.0"
+}

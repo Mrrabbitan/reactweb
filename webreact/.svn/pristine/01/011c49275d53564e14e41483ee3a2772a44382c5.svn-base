@@ -1,0 +1,21 @@
+import axios from 'axios';
+import sever from './globaldefine';
+
+
+const httpServer = {
+    app1:function(params,callback){
+         setTimeout(function(){
+            var a = {data:{"country":"CN","grid_pos":"121.37180328369139,31.551622958913143|121.32167816162108,31.479623233453637|121.4919662475586,31.218086583475127|121.8174362182617,31.303195078289704|121.79752349853514,31.40874013690849|121.55101776123047,31.572685550720422|121.43291473388672,31.615965936476073|121.37386322021484,31.55513372117204|121.37180328369139,31.551622958913143","mt_pos":"121.601/31.381445","country_english_name":"China","name":"shanghai","port_id":"12982","scale":"very large","country_chinese_name":"中国","port_chaname":"上海港","type":"port","port_continent":"亚洲"},}
+            callback(a);
+        },300) 
+       /*  axios.get(sever.portAddress+'shiptail/service/platInfo/getAll',params)
+            .then(function (res) {
+               console.log(JSON.stringify(res));
+                callback(res);
+            }).catch(function (error) {
+                console.log(error);
+            }); */
+    }
+}
+
+export default httpServer;

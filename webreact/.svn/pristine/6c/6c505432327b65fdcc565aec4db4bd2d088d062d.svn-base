@@ -1,0 +1,60 @@
+{
+  "_from": "pixelworks@1.0.0",
+  "_id": "pixelworks@1.0.0",
+  "_inBundle": false,
+  "_integrity": "sha1-9WRyJNcYKvJMWScpIiaqs39xH3o=",
+  "_location": "/pixelworks",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "version",
+    "registry": true,
+    "raw": "pixelworks@1.0.0",
+    "name": "pixelworks",
+    "escapedName": "pixelworks",
+    "rawSpec": "1.0.0",
+    "saveSpec": null,
+    "fetchSpec": "1.0.0"
+  },
+  "_requiredBy": [
+    "/openlayers"
+  ],
+  "_resolved": "http://registry.npm.taobao.org/pixelworks/download/pixelworks-1.0.0.tgz",
+  "_shasum": "f5647224d7182af24c5927292226aab37f711f7a",
+  "_spec": "pixelworks@1.0.0",
+  "_where": "C:\\Users\\zhongdianke\\Desktop\\react\\my-app\\node_modules\\openlayers",
+  "bugs": {
+    "url": "https://github.com/tschaub/pixelworks/issues"
+  },
+  "bundleDependencies": false,
+  "deprecated": false,
+  "description": "Utilities for working with ImageData in Workers",
+  "devDependencies": {
+    "browserify": "^10.2.4",
+    "chai": "^3.0.0",
+    "eslint": "^0.24.0",
+    "eslint-config-tschaub": "^1.0.0",
+    "karma": "^0.12.37",
+    "karma-browserify": "^4.2.1",
+    "karma-chrome-launcher": "^0.2.0",
+    "karma-mocha": "^0.2.0",
+    "karma-sauce-launcher": "^0.2.14",
+    "mocha": "^2.2.5",
+    "sinon": "^1.15.4"
+  },
+  "homepage": "https://github.com/tschaub/pixelworks#readme",
+  "license": "MIT",
+  "main": "lib/index.js",
+  "name": "pixelworks",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/tschaub/pixelworks.git"
+  },
+  "scripts": {
+    "bundle": "mkdir -p dist && browserify lib/index.js --standalone pixelworks > dist/pixelworks.js",
+    "prepublish": "npm run bundle",
+    "pretest": "eslint lib test examples",
+    "start": "karma start",
+    "test": "karma start --single-run"
+  },
+  "version": "1.0.0"
+}

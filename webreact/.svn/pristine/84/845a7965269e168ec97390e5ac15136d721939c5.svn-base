@@ -1,0 +1,88 @@
+{
+  "_from": "is@^2.2.0",
+  "_id": "is@2.2.1",
+  "_inBundle": false,
+  "_integrity": "sha1-WwVXo9xoCJ2Xjs0RhMyPxSmDegQ=",
+  "_location": "/is",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "range",
+    "registry": true,
+    "raw": "is@^2.2.0",
+    "name": "is",
+    "escapedName": "is",
+    "rawSpec": "^2.2.0",
+    "saveSpec": null,
+    "fetchSpec": "^2.2.0"
+  },
+  "_requiredBy": [
+    "/metalsmith"
+  ],
+  "_resolved": "http://registry.npm.taobao.org/is/download/is-2.2.1.tgz",
+  "_shasum": "5b0557a3dc68089d978ecd1184cc8fc529837a04",
+  "_spec": "is@^2.2.0",
+  "_where": "C:\\Users\\zhongdianke\\Desktop\\react\\my-app\\node_modules\\metalsmith",
+  "author": {
+    "name": "Enrico Marino",
+    "url": "http://onirame.com"
+  },
+  "bugs": {
+    "url": "https://github.com/enricomarino/is/issues"
+  },
+  "bundleDependencies": false,
+  "contributors": [
+    {
+      "name": "Jordan Harband",
+      "url": "https://github.com/ljharb"
+    }
+  ],
+  "dependencies": {},
+  "deprecated": false,
+  "description": "the definitive JavaScript type testing library",
+  "devDependencies": {
+    "covert": "1.0.0",
+    "foreach": "~2.0.5",
+    "jscs": "~1.10.0",
+    "tape": "~3.5.0"
+  },
+  "engines": {
+    "node": "*"
+  },
+  "homepage": "https://github.com/enricomarino/is",
+  "keywords": [
+    "util",
+    "type",
+    "test"
+  ],
+  "license": "MIT",
+  "main": "index.js",
+  "name": "is",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/enricomarino/is.git"
+  },
+  "scripts": {
+    "coverage": "covert test/index.js",
+    "coverage-quiet": "covert test/index.js --quiet",
+    "lint": "jscs *.js */*.js",
+    "test": "npm run lint && node test/index.js"
+  },
+  "testling": {
+    "files": "test/index.js",
+    "browsers": [
+      "iexplore/6.0..latest",
+      "firefox/3.0",
+      "firefox/15.0..latest",
+      "firefox/nightly",
+      "chrome/4.0",
+      "chrome/22.0..latest",
+      "chrome/canary",
+      "opera/10.0..latest",
+      "opera/next",
+      "safari/5.0.5..latest",
+      "ipad/6.0..latest",
+      "iphone/6.0..latest"
+    ]
+  },
+  "version": "2.2.1"
+}

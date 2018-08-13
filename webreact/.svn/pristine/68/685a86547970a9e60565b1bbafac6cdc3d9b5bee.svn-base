@@ -1,0 +1,62 @@
+{
+  "_from": "jquery-param@^0.1.2",
+  "_id": "jquery-param@0.1.2",
+  "_inBundle": false,
+  "_integrity": "sha1-F7GHH9eQfgNwZGS7b2ZIW5ua8pM=",
+  "_location": "/jquery-param",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "range",
+    "registry": true,
+    "raw": "jquery-param@^0.1.2",
+    "name": "jquery-param",
+    "escapedName": "jquery-param",
+    "rawSpec": "^0.1.2",
+    "saveSpec": null,
+    "fetchSpec": "^0.1.2"
+  },
+  "_requiredBy": [
+    "/qwest"
+  ],
+  "_resolved": "http://registry.npm.taobao.org/jquery-param/download/jquery-param-0.1.2.tgz",
+  "_shasum": "17b1871fd7907e03706464bb6f66485b9b9af293",
+  "_spec": "jquery-param@^0.1.2",
+  "_where": "C:\\Users\\zhongdianke\\Desktop\\react\\my-app\\node_modules\\qwest",
+  "author": {
+    "name": "KNOWLEDGECODE"
+  },
+  "bugs": {
+    "url": "https://github.com/knowledgecode/jquery-param/issues"
+  },
+  "bundleDependencies": false,
+  "deprecated": false,
+  "description": "A function that is equivalent of jQuery.param",
+  "devDependencies": {
+    "expect.js": "^0.3.1",
+    "jquery": "^1.11.3",
+    "jsdom": "^3.1.2",
+    "mocha": "^2.2.5",
+    "mocha-phantomjs": "^3.5.3"
+  },
+  "homepage": "https://github.com/knowledgecode/jquery-param",
+  "keywords": [
+    "jquery",
+    "param",
+    "equivalent",
+    "jquery.param",
+    "serialize",
+    "post"
+  ],
+  "license": "MIT",
+  "main": "jquery-param.js",
+  "name": "jquery-param",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/knowledgecode/jquery-param.git"
+  },
+  "scripts": {
+    "compile": "./compile",
+    "test": "mocha test/test.js && mocha-phantomjs test/test.html"
+  },
+  "version": "0.1.2"
+}

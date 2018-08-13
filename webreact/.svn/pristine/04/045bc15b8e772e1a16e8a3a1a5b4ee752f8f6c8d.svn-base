@@ -1,0 +1,52 @@
+import React,{Component} from 'react';
+import server from '../../../servers/index';
+import './index.css';
+import ol from 'openlayers';
+// const ol = require("openlayers");
+window.ol = ol;
+export default class Map extends Component{
+    componentDidMount(){
+        let ol = window.ol;
+        //地图初始化
+        var layer_custom_dayan = new ol.layer.Tile({ //在geoserver中获取图层，将图层中的图像展示到html界面中，此图层即为海图内容——————————————————————————————————
+            visible : true,
+            source : new ol.source.TileWMS({
+                url : server.webAddress + '/geoserver/ws_Mosaic/wms',
+                params : {
+                    'FORMAT' : "image/png",
+                    'VERSION' : '1.1.1',
+                    tiled : true,
+                    STYLES : '',
+                    LAYERS : 'ws_Mosaic:Groups002'
+                }
+            })
+        });
+        var map = new ol.Map({
+            layers : [layer_custom_dayan],
+            interactions : ol.interaction.defaults().extend([ new ol.interaction.Select({
+                condition : function(evt) {
+                    return evt.type == 'clicksouth';
+                },
+            }) ]),
+            target : document.getElementById('map'),
+            view : new ol.View({
+                projection : 'EPSG:3857',
+                center:[0,0],
+                zoom:3,
+                minZoom : 3,
+                maxZoom : 15,
+            }),
+
+        });
+    }
+
+
+
+    render(){
+        return (
+            <div id="map">
+
+            </div>
+        )
+    }
+}

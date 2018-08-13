@@ -1,0 +1,145 @@
+import React,{Component} from 'react';
+import server from '../../../../servers/globaldefine';
+
+import ol from 'openlayers';
+import './port.css';
+import axios from 'axios';
+
+
+
+export default class Port extends Component{
+    componentDidMount(){
+        var portStylesan = {
+            'portwu' : new ol.style.Style({
+                image : new ol.style.Icon({
+                    anchor : [ 0.5, 0.5 ],
+                    src : '../../../Assets/image/contient/wuan.png'
+                })
+            }),	
+
+        }
+    function portControllerAN1() {
+        //增加港口的远距离图标港口———————————————————————————————————————————————————————————————————————
+	    this.portAll = new ol.source.Vector();
+	    this.portLayer = new ol.layer.Vector({
+		visible : true,
+		source : this.portAll,
+		style : function(feature) {
+			return portStylesan[feature.get('type')];
+		}
+	});
+    }
+    
+    portControllerAN1.prototype.initPortLayerAn = function(seamap){
+     seamap.addLayer(this.portLayer);
+
+    }
+
+    portControllerAN1.prototype.getport = function(port) { //目前港口的关联网络图
+        var anzp = this
+        axios.get(`http://192.168.11.202:7075/cetc/shiptail/service/platInfo/getAll`)
+
+            .then(function(res){
+                console.log("error");
+               
+                
+                }).catch(function(error){
+
+                    console.log(error);
+                    
+                    });
+    }; 
+   /*  portControllerAN1.prototype.creatport = function(data){
+        var anzp=this;
+        
+        var len = data.length;
+        for(var i=0 ;i<len;i++){
+            var arr=[];
+            var portEname=data[i].name;
+            var portorname=data[i].orport;
+            var portdename=data[i].deport;
+            var portpoint=data[i].mt_pos;
+            var portlocaion=portpoint.split('/');
+            var loc=ol.proj.transform([parseFloat(portlocaion[0]), parseFloat(portlocaion[1])], 'EPSG:4326', 'EPSG:3857');
+        
+            
+            arr.push(loc);
+            arr.push(disinfopositionGlobal);
+            
+            var port_english_name_space = data[i].country_english_name;
+    
+            var port_english_name_space2 = port_english_name_space.replace(/(^\s*)|(\s*$)/g, ""); //去掉所有空格————————————————————————————————————————————
+            var disInfo = "<div id='linedetail' style='color:#ffffff;height:0px;width:200px;margin:0px;padding:0px;border-radius:4px;'>" +
+            "<div style='height:25px;width:200px;background:#007bb2;position:absolute;left:0px;top:0px;text-align:center;color:white;line-height:25px;border-radius:4px;border-top:2px solid #00ffff;border-right:2px solid #00ffff;border-left:2px solid #00ffff'>"
+            + "<img style='height:25px;width:45px;position:absolute;left:0px;border-radius:6px;' src='countrypic/" + port_english_name_space2 + ".jpg'/>"
+            + "港口标牌" + "</div>" +
+            //详情的内容——————————————
+            "<div id='jbxx' style='height:230px;width:200px;background:rgba(0,148,215,0.4);position:absolute;left:0px;top:25px;display:block;border-radius:4px;border-bottom:2px solid #00ffff;border-right:2px solid #00ffff;border-left:2px solid #00ffff'>" +
+            "<div style='height:180px;width:196px;'>" +
+            "<div style='height:22px;width:200px;float:left;overflow:hidden;text-align:left;margin-left:10px;'>" + "中文名:" + data[i].port_chaname + "</div>" +
+            "<div style='height:22px;width:200px;float:left;overflow:hidden;text-align:left;margin-left:10px;'>" + "英文名:" + data[i].name + "</div>" +
+            "<div style='height:22px;width:200px;float:left;text-align:left;margin-left:10px;'>" + "经度:" + portlocaion[0] + "</div>" +
+            "<div style='height:22px;width:200px;float:left;text-align:left;margin-left:10px;'>" + "纬度:" + portlocaion[1] + "</div>" +
+            "<div style='height:22px;width:200px;float:left;text-align:left;margin-left:10px;'>" + "国家代码:" + data[i].country + "</div>" +
+            "<br>" +
+            "<div id='portdetailan' style='height:80px;width:285px;float:left;text-align:left;margin-left:10px;line-height:22px;'>" + "</div>" +
+            "<button style='margin-left:25px;'><a  href='" + webAddresssong + "/weball/portPage.html?mmsi=" + data[i].name + "'>港口详情</a></button>" +
+            "<button style='margin-left:5px;'><a  href='" + webAddresssong + "/weball/netDetail.html?name=" + data[i].name + "'>港口网络</a></button>" + "<br>" + "<br>"
+            + "</div>"
+            + "</div>"
+            + "</div>";
+            
+            var disline = "<div style='position:absolute;left:0px;top:0px;'>" +
+            "<div style='height:30px;width:352px;box-shadow: none;padding:0px;font-size:14px;background: linear-gradient(180deg, rgba(31, 115, 207, 1) 0%, rgba(31, 115, 207, 1) 0%, rgba(40, 94, 181, 1) 100%, rgba(40, 94, 181, 1) 100%);color:#fff;text-align: center; margin:0px;box-sizing: border-box;border-width: 1px;border-style: solid;border-color: rgba(0, 153, 255, 1);border-radius: 0px;'>" +
+            "<div style='margin:1px;padding:3px;height:30px;width:auto'>" + "<p style='margin:-5px;padding:0px;height:30px;width:auto;line-height:30px'>" + "<span style='height:30px;width:auto;line-height:30px'>" + portorname + "--" + portdename +"</span>" + "</p>" + "</div>" + "</div>" +
+            "<div style='width: 352px;height: 80px;background: linear-gradient(180deg, rgba(31, 115, 207, 1) 0%, rgba(31, 115, 207, 1) 0%, rgba(40, 94, 181, 1) 100%, rgba(40, 94, 181, 1) 100%);box-sizing: border-box;border-width: 1px;border-style: solid;border-color: rgba(121, 121, 121, 1);border-radius: 0px;box-shadow: none;color: #FFFFFF;text-align: left;line-height: 22px;'>" +
+            
+            "<div style='width:50%;height:80px;margin:0px;float:left;text-align:center;font-size:14px;line-height:70px;'>" + "<p style='color:#BFD8F4;font-size:13px;margin-top:10px;'>" +
+            "<span style='padding:4px 15px 4px 15px;background:#2661b9;border:0.5px solid #00ccff;'>" + "货运量" + "</span>" + "<br/>" + "<span style='color:#0fc;font-size:20px;'>" + data[i].total_ton + "吨" + "</span>" + "</p>" + "</div>" +
+            "<div style='width:50%;height:70px;margin:0px;float:left;text-align:center;font-size:14px;line-height:70px;'>" + "<p style='color:#BFD8F4;font-size:13px;margin-top:10px;'>" +
+            "<span style='padding:4px 15px 4px 15px;background:#2661b9;border:0.5px solid #00ccff;'>" + "大宗商品" + "</span>" + "<br/>" + "<span style='color:#0fc;font-size:20px;'>" + data[i].total_ton + "吨" + "</span>" + "</p>" + "</div>" +
+            "</div>"
+            
+            var typeStyle; 
+            if(data[i].port_continent=='亚洲'){
+                typeStyle='portYZ';
+            }else if(data[i].port_continent=='欧洲'){
+                typeStyle='portoz';
+            }else if(data[i].port_continent=='非洲'){
+                typeStyle='portfz';
+            }else if(data[i].port_continent=='大洋洲'){
+                typeStyle='portdyz';
+            }else if(data[i].port_continent=='南美洲'){
+                typeStyle='portnmz';
+            }else if(data[i].port_continent=='北美洲'){
+                typeStyle='portbmz';
+            }else if(data[i].port_continent==null){
+                typeStyle='portwu';
+            }
+            var point = new ol.Feature({
+                type : typeStyle,
+                disInfo : disInfo,
+                geometry : new ol.geom.Point(loc)
+            });
+            var line = new ol.Feature({
+                type : 'portline',
+                name : '关联关系',
+                disInfo : disline,
+                geometry : new ol.geom.LineString(arr),
+                finished : false,
+            });
+            anzp.endpointsource.addFeature(point);
+            anzp.centertoedge.addFeature(line);
+        }	
+    }
+ */
+
+    }
+    render(){
+        return (
+            <div className="port-detail">
+                
+            </div>
+        )
+    }
+}

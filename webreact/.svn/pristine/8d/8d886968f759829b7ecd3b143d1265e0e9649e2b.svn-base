@@ -1,0 +1,83 @@
+Html Webpack Plugin:
+<pre>
+  Error: Child compilation failed:
+  Entry module not found: Error: Can't resolve '/Users/ahocevar/projects/ol-mapb  ox-style/examples/examples/tilejson.html' in '/Users/ahocevar/projects/ol-mapb  ox-style/examples':
+  Error: Can't resolve '/Users/ahocevar/projects/ol-mapbox-style/examples/exampl  es/tilejson.html' in '/Users/ahocevar/projects/ol-mapbox-style/examples'
+  
+  - compiler.js:72 childCompiler.runAsChild
+    [ol-mapbox-style]/[html-webpack-plugin]/lib/compiler.js:72:16
+  
+  - Compiler.js:238 compile
+    [ol-mapbox-style]/[webpack]/lib/Compiler.js:238:11
+  
+  - Compiler.js:486 hooks.afterCompile.callAsync.err
+    [ol-mapbox-style]/[webpack]/lib/Compiler.js:486:14
+  
+  
+  - Hook.js:35 AsyncSeriesHook.lazyCompileHook [as _callAsync]
+    [ol-mapbox-style]/[tapable]/lib/Hook.js:35:21
+  
+  - Compiler.js:483 compilation.seal.err
+    [ol-mapbox-style]/[webpack]/lib/Compiler.js:483:30
+  
+  
+  - Hook.js:35 AsyncSeriesHook.lazyCompileHook [as _callAsync]
+    [ol-mapbox-style]/[tapable]/lib/Hook.js:35:21
+  
+  - Compilation.js:957 hooks.optimizeAssets.callAsync.err
+    [ol-mapbox-style]/[webpack]/lib/Compilation.js:957:35
+  
+  
+  - Hook.js:35 AsyncSeriesHook.lazyCompileHook [as _callAsync]
+    [ol-mapbox-style]/[tapable]/lib/Hook.js:35:21
+  
+  - Compilation.js:948 hooks.optimizeChunkAssets.callAsync.err
+    [ol-mapbox-style]/[webpack]/lib/Compilation.js:948:32
+  
+  
+  - Hook.js:35 AsyncSeriesHook.lazyCompileHook [as _callAsync]
+    [ol-mapbox-style]/[tapable]/lib/Hook.js:35:21
+  
+  - Compilation.js:943 hooks.additionalAssets.callAsync.err
+    [ol-mapbox-style]/[webpack]/lib/Compilation.js:943:36
+  
+  
+  - Hook.js:35 AsyncSeriesHook.lazyCompileHook [as _callAsync]
+    [ol-mapbox-style]/[tapable]/lib/Hook.js:35:21
+  
+  - Compilation.js:939 hooks.optimizeTree.callAsync.err
+    [ol-mapbox-style]/[webpack]/lib/Compilation.js:939:32
+  
+  
+  - Hook.js:35 AsyncSeriesHook.lazyCompileHook [as _callAsync]
+    [ol-mapbox-style]/[tapable]/lib/Hook.js:35:21
+  
+  - Compilation.js:881 Compilation.seal
+    [ol-mapbox-style]/[webpack]/lib/Compilation.js:881:27
+  
+  - Compiler.js:480 hooks.make.callAsync.err
+    [ol-mapbox-style]/[webpack]/lib/Compiler.js:480:17
+  
+  
+  - Compilation.js:749 _addModuleChain
+    [ol-mapbox-style]/[webpack]/lib/Compilation.js:749:12
+  
+  - Compilation.js:628 errorAndCallback.bail.err
+    [ol-mapbox-style]/[webpack]/lib/Compilation.js:628:6
+  
+  - Compilation.js:661 moduleFactory.create
+    [ol-mapbox-style]/[webpack]/lib/Compilation.js:661:14
+  
+  - NormalModuleFactory.js:358 factory
+    [ol-mapbox-style]/[webpack]/lib/NormalModuleFactory.js:358:22
+  
+  - NormalModuleFactory.js:118 resolver
+    [ol-mapbox-style]/[webpack]/lib/NormalModuleFactory.js:118:21
+  
+  - NormalModuleFactory.js:198 asyncLib.parallel
+    [ol-mapbox-style]/[webpack]/lib/NormalModuleFactory.js:198:22
+  
+  - async.js:2772 
+    [ol-mapbox-style]/[neo-async]/async.js:2772:7
+  
+</pre>

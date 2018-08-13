@@ -1,0 +1,16 @@
+import React,{Component} from 'react';
+import Map from './Map/index';
+import './index.css';
+
+export default class Content extends Component{
+    render(){
+        return (
+            <div className="content_box">
+                <Map/>
+				{/*张现超 左侧功能菜单-全球港口信息总览*/}
+                <GlobalPortInfo/>
+                <div></div>
+            </div>
+        )
+    }
+}

@@ -1,0 +1,63 @@
+{
+  "_from": "co-fs-extra@0.0.2",
+  "_id": "co-fs-extra@0.0.2",
+  "_inBundle": false,
+  "_integrity": "sha1-As+1zVwksl9ogNPmAqebvjpA+TQ=",
+  "_location": "/co-fs-extra",
+  "_phantomChildren": {
+    "graceful-fs": "4.1.11",
+    "mkdirp": "0.5.1",
+    "ncp": "0.6.0",
+    "rimraf": "2.6.2"
+  },
+  "_requested": {
+    "type": "version",
+    "registry": true,
+    "raw": "co-fs-extra@0.0.2",
+    "name": "co-fs-extra",
+    "escapedName": "co-fs-extra",
+    "rawSpec": "0.0.2",
+    "saveSpec": null,
+    "fetchSpec": "0.0.2"
+  },
+  "_requiredBy": [
+    "/metalsmith"
+  ],
+  "_resolved": "http://registry.npm.taobao.org/co-fs-extra/download/co-fs-extra-0.0.2.tgz",
+  "_shasum": "02cfb5cd5c24b25f6880d3e602a79bbe3a40f934",
+  "_spec": "co-fs-extra@0.0.2",
+  "_where": "C:\\Users\\zhongdianke\\Desktop\\react\\my-app\\node_modules\\metalsmith",
+  "author": {
+    "name": "GKuChan",
+    "email": "gkuchan_root@outlook.com"
+  },
+  "bugs": {
+    "url": "https://github.com/GKuChan/co-fs-extra/issues"
+  },
+  "bundleDependencies": false,
+  "dependencies": {
+    "co-fs": "1.2.0",
+    "fs-extra": "0.12.0",
+    "thunkify": "2.1.2"
+  },
+  "deprecated": false,
+  "description": "fs-extra for 'co'",
+  "devDependencies": {
+    "co": "~2.0.0",
+    "mocha": "~1.10.0",
+    "should": "~1.2.2"
+  },
+  "homepage": "https://github.com/GKuChan/co-fs-extra#readme",
+  "keywords": [
+    "co",
+    "fs",
+    "fs-extra"
+  ],
+  "license": "MIT",
+  "name": "co-fs-extra",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GKuChan/co-fs-extra.git"
+  },
+  "version": "0.0.2"
+}

@@ -1,0 +1,40 @@
+import ol from 'openlayers';
+import axios from 'axios';
+import httpServer from '../../../servers';
+
+
+var portStylesan = {
+    'portwu' : new ol.style.Style({
+        image : new ol.style.Icon({
+            anchor : [ 0.5, 0.5 ],
+            src : '../../../Assets/image/contient/wuan.png'
+        })
+    }),	
+
+}
+function portControllerAN1() {
+//增加港口的远距离图标港口———————————————————————————————————————————————————————————————————————
+this.portAll = new ol.source.Vector();
+this.portLayer = new ol.layer.Vector({
+visible : true,
+source : this.portAll,
+style : function(feature) {
+    return portStylesan[feature.get('type')];
+}
+});
+}
+
+portControllerAN1.prototype.initPortLayerAn = function(seamap){
+seamap.addLayer(this.portLayer);
+
+}
+
+portControllerAN1.prototype.getport = function(port) { //目前港口的关联网络图
+
+httpServer.app1({},function(data){
+    console.log(data)
+})
+}; 
+let PortController = new portControllerAN1();
+
+export default PortController;

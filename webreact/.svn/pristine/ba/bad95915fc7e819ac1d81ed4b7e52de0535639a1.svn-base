@@ -1,0 +1,147 @@
+{
+  "_from": "ol-mapbox-style@^2.1.1",
+  "_id": "ol-mapbox-style@2.11.2",
+  "_inBundle": false,
+  "_integrity": "sha1-JbSbHJSQbhl71LXtA43Tb1DMNZc=",
+  "_location": "/ol-mapbox-style",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "range",
+    "registry": true,
+    "raw": "ol-mapbox-style@^2.1.1",
+    "name": "ol-mapbox-style",
+    "escapedName": "ol-mapbox-style",
+    "rawSpec": "^2.1.1",
+    "saveSpec": null,
+    "fetchSpec": "^2.1.1"
+  },
+  "_requiredBy": [
+    "/react-openlayers"
+  ],
+  "_resolved": "http://registry.npm.taobao.org/ol-mapbox-style/download/ol-mapbox-style-2.11.2.tgz",
+  "_shasum": "25b49b1c94906e197bd4b5ed038dd36f50cc3597",
+  "_spec": "ol-mapbox-style@^2.1.1",
+  "_where": "C:\\Users\\zhongdianke\\Desktop\\react\\my-app\\node_modules\\react-openlayers",
+  "author": {
+    "name": "Andreas Hocevar",
+    "email": "andreas.hocevar@gmail.com"
+  },
+  "bugs": {
+    "url": "https://github.com/boundlessgeo/ol-mapbox-style/issues"
+  },
+  "bundleDependencies": false,
+  "contributors": [
+    {
+      "name": "Attila Berényi",
+      "email": "aberenyi@gislab.hu"
+    },
+    {
+      "name": "Bart van den Eijnden",
+      "email": "bartvde@boundlessgeo.com"
+    },
+    {
+      "name": "Dan 'Ducky' Little",
+      "email": "danlittle@yahoo.com"
+    },
+    {
+      "name": "Yancy Matherne",
+      "email": "ymatherne@boundlessgeo.com"
+    },
+    {
+      "name": "Christian Mayer",
+      "email": "chris@meggsimum.de"
+    },
+    {
+      "name": "James Milner",
+      "email": "jamesmilner22@hotmail.com"
+    },
+    {
+      "name": "Adrien Pompée",
+      "email": "adrien.pompee@atmosphere.aero"
+    },
+    {
+      "name": "Torben Barsballe",
+      "email": "tbarsballe@boundlessgeo.com"
+    },
+    {
+      "name": "Petr Sloup",
+      "email": "petr.sloup@klokantech.com"
+    },
+    {
+      "name": "Antti Risteli",
+      "email": "antti@kiinnost.us"
+    }
+  ],
+  "dependencies": {
+    "@mapbox/mapbox-gl-style-spec": "^9.0.1",
+    "mapbox-to-css-font": "^2.1.0",
+    "webfont-matcher": "^1.1.0"
+  },
+  "deprecated": false,
+  "description": "Create OpenLayers maps from Mapbox Style objects",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
+    "babel-jest": "^23.0.0-alpha.0",
+    "babel-loader": "^7.1.4",
+    "babel-preset-env": "^1.6.1",
+    "canvas": "^1.6.8",
+    "deep-freeze": "0.0.1",
+    "documentation": "^4.0.0-rc.1",
+    "eslint": "^4.10.0",
+    "eslint-config-openlayers": "^7.0.0",
+    "isomorphic-fetch": "^2.2.1",
+    "jest": "^20.0.4",
+    "jest-cli": "^21.2.1",
+    "json5": "^0.5.1",
+    "mapbox-gl-styles": "^2.0.2",
+    "mkdirp": "^0.5.1",
+    "nock": "^9.2.3",
+    "ol": "^4.6.5",
+    "regenerator-runtime": "^0.11.1",
+    "should": "^11.2.1",
+    "should-approximately-deep": "^1.1.0",
+    "webpack": "^4.1.1",
+    "webpack-cli": "^2.0.12",
+    "webpack-dev-server": "^3.1.1"
+  },
+  "homepage": "https://github.com/boundlessgeo/ol-mapbox-style#readme",
+  "jest": {
+    "setupFiles": [
+      "<rootDir>/env-setup.js"
+    ],
+    "transformIgnorePatterns": [
+      "node_modules/(?!(ol|mapbox-to-ol-style)/)"
+    ],
+    "coveragePathIgnorePatterns": [
+      "env-setup.js",
+      "/node_modules/"
+    ]
+  },
+  "keywords": [
+    "openlayers",
+    "mapbox",
+    "vector tiles"
+  ],
+  "license": "BSD-2-Clause",
+  "main": "index.js",
+  "name": "ol-mapbox-style",
+  "peerDependencies": {
+    "ol": "^4.6.5"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/boundlessgeo/ol-mapbox-style.git"
+  },
+  "scripts": {
+    "build": "webpack-cli --config ./webpack.config.olms.js",
+    "cover": "jest --coverage",
+    "doc": "documentation readme -s API index.js",
+    "lint": "eslint __test__ index.js webpack.config.js",
+    "prepublish": "npm run doc",
+    "pretest": "npm run lint",
+    "start": "webpack-dev-server --config ./webpack.config.js",
+    "test": "jest"
+  },
+  "version": "2.11.2"
+}

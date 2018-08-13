@@ -1,0 +1,78 @@
+{
+  "_from": "https://github.com/ariya/esprima/tarball/49a2eccb243f29bd653b11e9419241a9d726af7c",
+  "_id": "esprima@1.1.0-dev-harmony",
+  "_inBundle": false,
+  "_integrity": "sha512-hDw2rCzqN6L/78k6mSEagCgl/OiY0tX0VRch6tjeqJQlA46OVYVRsJqa007NnUj+AqEqENBKp4UdHN0NIlFSWA==",
+  "_location": "/jsdoc/esprima",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "remote",
+    "raw": "esprima@https://github.com/ariya/esprima/tarball/49a2eccb243f29bd653b11e9419241a9d726af7c",
+    "name": "esprima",
+    "escapedName": "esprima",
+    "rawSpec": "https://github.com/ariya/esprima/tarball/49a2eccb243f29bd653b11e9419241a9d726af7c",
+    "saveSpec": "https://github.com/ariya/esprima/tarball/49a2eccb243f29bd653b11e9419241a9d726af7c",
+    "fetchSpec": "https://github.com/ariya/esprima/tarball/49a2eccb243f29bd653b11e9419241a9d726af7c"
+  },
+  "_requiredBy": [
+    "/jsdoc"
+  ],
+  "_resolved": "https://github.com/ariya/esprima/tarball/49a2eccb243f29bd653b11e9419241a9d726af7c",
+  "_spec": "esprima@https://github.com/ariya/esprima/tarball/49a2eccb243f29bd653b11e9419241a9d726af7c",
+  "_where": "C:\\Users\\zhongdianke\\Desktop\\react\\my-app\\node_modules\\jsdoc",
+  "bin": {
+    "esparse": "./bin/esparse.js",
+    "esvalidate": "./bin/esvalidate.js"
+  },
+  "bugs": {
+    "url": "https://github.com/ariya/esprima/issues"
+  },
+  "bundleDependencies": false,
+  "deprecated": false,
+  "description": "ECMAScript parsing infrastructure for multipurpose analysis",
+  "devDependencies": {
+    "complexity-report": "~0.6.1",
+    "eslint": "~0.1.0",
+    "istanbul": "~0.1.27",
+    "jslint": "~0.1.9",
+    "json-diff": "~0.3.1",
+    "regenerate": "~0.5.4",
+    "unicode-6.3.0": "~0.1.0"
+  },
+  "engines": {
+    "node": ">=0.4.0"
+  },
+  "homepage": "http://esprima.org",
+  "licenses": [
+    {
+      "type": "BSD",
+      "url": "http://github.com/ariya/esprima/raw/master/LICENSE.BSD"
+    }
+  ],
+  "main": "esprima.js",
+  "maintainers": [
+    {
+      "name": "Ariya Hidayat",
+      "email": "ariya.hidayat@gmail.com",
+      "url": "http://ariya.ofilabs.com"
+    }
+  ],
+  "name": "esprima",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/ariya/esprima.git"
+  },
+  "scripts": {
+    "analyze-complexity": "node tools/list-complexity.js",
+    "analyze-coverage": "node node_modules/istanbul/lib/cli.js cover test/runner.js",
+    "benchmark": "node test/benchmarks.js",
+    "benchmark-quick": "node test/benchmarks.js quick",
+    "check-complexity": "node node_modules/complexity-report/src/cli.js --maxcc 31 --silent -l -w esprima.js",
+    "check-coverage": "node node_modules/istanbul/lib/cli.js check-coverage --statement -8 --branch -28 --function 99.69",
+    "complexity": "npm run-script analyze-complexity && npm run-script check-complexity",
+    "coverage": "npm run-script analyze-coverage && npm run-script check-coverage",
+    "lint": "node tools/check-version.js && node_modules/eslint/bin/eslint.js esprima.js && node_modules/jslint/bin/jslint.js esprima.js",
+    "test": "npm run-script lint && node test/run.js && npm run-script coverage && npm run-script complexity"
+  },
+  "version": "1.1.0-dev-harmony"
+}

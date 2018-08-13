@@ -1,0 +1,13 @@
+import React from 'react';
+import './index.css';
+
+export default class SearchInput extends React.Component{
+    render(){
+        return (
+            <div className="serachInput_box">
+                <input type="text" placeholder="请输入港口名称"/>
+                <span className="searchInput_icon"></span>
+            </div>
+        )
+    }
+}

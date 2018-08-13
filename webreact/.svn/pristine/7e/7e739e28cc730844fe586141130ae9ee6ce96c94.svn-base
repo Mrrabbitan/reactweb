@@ -1,0 +1,35 @@
+.header_box{
+    width:100%;
+    height:69px;
+    background-color: #1b52df;
+    display:flex;
+    justify-content: flex-start;
+    align-items: center;
+    background: url(../../Assets/image/topmenu2.png);
+}
+.header_box>.logo{
+    width:380px;
+    height:69px;
+    margin-left:100px;
+    font-size:28px;
+    color:white;
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 69px;
+    font-weight: bold;
+}
+.header_box>.logo>img{
+    height: 50px;
+    width: 50px;
+    margin-top: 10px;
+    float: left;
+}
+.header_box>.logo>img>span{
+margin-top: 0px;
+float: left;
+margin-left: 40px;
+}
+
+
+
+
+

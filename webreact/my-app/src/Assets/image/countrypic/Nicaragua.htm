@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<!--STATUS OK-->
+<html>
+
+
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+<meta name="referrer" content="always" />
+<meta name="description" content="尼加拉瓜国旗">
+<title>尼加拉瓜图片_百度百科</title>
+<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+<link rel="icon" sizes="any" mask href="//www.baidu.com/img/baidu.svg">
+
+<meta name="keywords" content="尼加拉瓜 尼加拉瓜_图片 百度百科 百科 baike 词条图片">
+<meta name="image" content="http://baike.bdimg.com/cms/static/baike.png">
+<meta itemprop="image" content="http://baike.bdimg.com/cms/static/baike.png">
+
+<!--[if lte IE 9]>
+<script>
+    (function() {
+      var e = "abbr,article,aside,audio,canvas,datalist,details,dialog,eventsource,figure,footer,header,hgroup,mark,menu,meter,nav,output,progress,section,time,video".split(","),
+        i = e.length;
+      while (i--) {
+        document.createElement(e[i]);
+      }
+    })();
+  </script>
+<![endif]-->
+<link rel="stylesheet" type="text/css" href="http://baike.bdimg.com/static/wiki-common/pkg/wiki-common-base_b4e62b7.css"/><link rel="stylesheet" type="text/css" href="http://baike.bdimg.com/static/wiki-album/pkg/wiki-album-picture_fe7e092.css"/></head>
+<body class="w-small">
+
+
+<script>
+        var imageResize = function(event) {
+            var picture = document.getElementById('imgPicture');
+            var parent = document.getElementById('picture');
+            var pHeight = document.body.clientHeight - 102;
+            parent.style.height = pHeight + 'px';
+            var rWidth = picture.width,
+                rHeight = picture.height,
+                pWidth = parent.offsetWidth;
+
+                var rateW = rWidth / pWidth,
+                    rateH = rHeight / pHeight;
+                var w = rWidth,
+                    h = rHeight;
+
+                if (rateW > 1 || rateH > 1) {
+                    if (rateW > rateH) {
+                        w = pWidth;
+                        h = rHeight / rateW;
+                    } else {
+                        h = pHeight;
+                        w = rWidth / rateH;
+                    }
+                }
+                        
+            picture.style.width = w + 'px';
+            picture.style.height = h + 'px';
+            picture.style.marginTop = (pHeight - h) / 2 + 'px';
+            picture.style.visibility = 'visible';
+        };
+
+        // 以下代码的功能是：在页面加载前，判断url中的对应值是否等于hash值，如不等，则改变url重新加载
+        // 添加代码原因：
+        //     1) 之前的代码逻辑是：url会具体指定到某张图片，前端在｀切换相册｀时，使用ajax获取数据，并不断更新hash值，但当用户
+        //        ｀刷新页面｀或｀点击返回词条按钮｀然后再｀点击浏览器后退键｀时，uri中的url和hash值不同，源代码会出现bug,导致
+        //        '上／下一图册'，'向上／下箭头'点击无效（具体原因请view代码）
+        //     2) hash值的使用无意义，页面刷新后并不能让用户回到之前访问的图片/图册
+        // 故作此修改。
+        // 个人认为比较合适的解决方法是：
+        //     1）图册页的图片数据是后端同步打过来的。在词条页面中，图册url不要具体到某张图片，到图册即可，由前端使用hash值加上
+        //        smarty的方法来控制具体到哪张图片，在切换图册时，刷新浏览器，改变url。
+        //     2) 图册页不需要同步的图片数据，全部由前端根据uri利用ajax获取。
+        // COMMENT BY YUHUI
+
+
+        //在此处不知道怎么使用require，所以自己写了一个将hash值转换为对象的函数
+        //另外，在 wiki-common:widget/util/url.js 下有url相关函数
+        //eg: hashStr = '#aid=19973219&pic=f7' => hashObj = {aid: '19973219', pic: 'f7'};
+        //COMMENT BY YUHUI
+        function makeHashIntoObj (hashStr) {
+            if (hashStr[0] === '#') {
+                hashStr = hashStr.substr(1);
+            }
+            var hashObj = {};
+            var hashArr = hashStr.split('&');
+            var tempArr = [];
+            for (var i = 0; i < hashArr.length; i++) {
+                tempArr = hashArr[i].split('=');
+                hashObj[tempArr[0]] = tempArr[1];
+            }
+            return hashObj;
+        }
+        // locationArr = ['', 'pic', $lemmaTitle, $newLemmaId, albumId, picSign];
+        var locationArr = window.location.pathname.split('/');
+        var hashObj = makeHashIntoObj(window.location.hash);
+        var picSign = locationArr[5];
+        var albumId = locationArr[4];
+        var picSignInHash = hashObj['pic'];
+        var albumIdInHash = hashObj['aid'];
+        if (!!picSignInHash && !!albumIdInHash && !!picSign && !!albumId) {
+            if (picSign != picSignInHash || albumId != albumIdInHash) {
+                locationArr[5] = picSignInHash;
+                locationArr[4] = albumIdInHash;
+                window.location.pathname = locationArr.join('/');
+            }
+        }
+    </script>
+
+
+<div id="picture-dialog" class="picture-dialog">
+<div class="header">
+<a class="logo" target="_blank" href="/">
+<span class="cmn-baike-logo white"><em class="cmn-icon cmn-icons cmn-icons_logo-bai"></em><em class="cmn-icon cmn-icons cmn-icons_logo-du"></em><em class="cmn-icon cmn-icons cmn-icons_logo-baike"></em></span>
+</a>
+<div class="breadcrumb">
+<a target="_blank" class="album-name" href="/pic/%E5%B0%BC%E5%8A%A0%E6%8B%89%E7%93%9C/164882">尼加拉瓜图册</a>&nbsp;>&nbsp;<span class="album-desc">词条图片</span>
+</div>
+<a class="return-back" href="/subview/4788/4788.htm">返回词条</a>
+<div style="clear: both"></div>
+</div>
+<div class="thumbnail" style="z-index: 2; width: 80px; top: 50%; margin-top: -269.5px; right: 12.5%; margin-right: -80px">
+<a class="prev-album" data-album="867719"></a>
+<div class="pic-slider">
+<div class="prev-pic"></div>
+<div class="pic-scroller">
+<div class="pic-list">
+
+<a class="pic-item selected" title="尼加拉瓜国旗" data-index="0" data-sign="6a600c338744ebf84ea9a68fd9f9d72a6159a7a2" href="/pic/%E5%B0%BC%E5%8A%A0%E6%8B%89%E7%93%9C/164882/0/6a600c338744ebf84ea9a68fd9f9d72a6159a7a2">
+<img src="http://e.hiphotos.baidu.com/baike/w%3D150/sign=ec7c5e814c086e066aa83b4e32097b5a/6a600c338744ebf84ea9a68fd9f9d72a6159a7a2.jpg" alt="尼加拉瓜国旗" style="display: block;width:134px;height:80px;top:0px;left:-27px;">
+<div class="seleced-cover"></div>
+</a>
+
+<a class="pic-item " title="尼加拉瓜" data-index="1" data-sign="8644ebf81a4c510fabc8003b6459252dd42aa587" href="/pic/%E5%B0%BC%E5%8A%A0%E6%8B%89%E7%93%9C/164882/0/8644ebf81a4c510fabc8003b6459252dd42aa587">
+<img src="http://c.hiphotos.baidu.com/baike/w%3D150/sign=3e39b91719950a7b75354ac13ad1625c/8644ebf81a4c510fabc8003b6459252dd42aa587.jpg" alt="尼加拉瓜" style="display: block;width:121px;height:80px;top:0px;left:-20px;">
+</a>
+
+<a class="pic-item " title="尼加拉瓜国境图" data-index="2" data-sign="11794d43ba86bf639213c643" href="/pic/%E5%B0%BC%E5%8A%A0%E6%8B%89%E7%93%9C/164882/0/11794d43ba86bf639213c643">
+<img src="http://b.hiphotos.baidu.com/baike/w%3D150/sign=2f7210e70a7b02080cc93be452d8f25f/eaf81a4c510fd9f9965e6d2b252dd42a2834a422.jpg" alt="尼加拉瓜国境图" style="display: block;width:82px;height:80px;top:0px;left:-1px;">
+</a>
+
+<a class="pic-item " title="尼加拉瓜国旗" data-index="3" data-sign="10dfa9ec8a136327129c4dd8908fa0ec09fac7ec" href="/pic/%E5%B0%BC%E5%8A%A0%E6%8B%89%E7%93%9C/164882/0/10dfa9ec8a136327129c4dd8908fa0ec09fac7ec">
+<img src="http://a.hiphotos.baidu.com/baike/w%3D150/sign=9b880d9e42a98226b8c12f22ba83b97a/10dfa9ec8a136327129c4dd8908fa0ec09fac7ec.jpg" alt="尼加拉瓜国旗" style="display: block;width:121px;height:80px;top:0px;left:-20px;">
+</a>
+
+<a class="pic-item " title="尼加拉瓜国徽" data-index="4" data-sign="ac2fc3c4bf3354ed38db4935" href="/pic/%E5%B0%BC%E5%8A%A0%E6%8B%89%E7%93%9C/164882/0/ac2fc3c4bf3354ed38db4935">
+<img src="http://g.hiphotos.baidu.com/baike/s%3D220/sign=1d3761a98c5494ee8322081b1df4e0e1/3ac79f3df8dcd10054481837728b4710b8122fd4.jpg" alt="尼加拉瓜国徽" style="display: block;width:80px;height:80px;top:0px;left:0px;">
+</a>
+
+<a class="pic-item " title="尼加拉瓜士兵" data-index="5" data-sign="8367d1fc73e4f5abb801a03a" href="/pic/%E5%B0%BC%E5%8A%A0%E6%8B%89%E7%93%9C/164882/0/8367d1fc73e4f5abb801a03a">
+<img src="http://f.hiphotos.baidu.com/baike/h%3D160/sign=dcc64cd3828ba61ec0eecc29713597cc/d833c895d143ad4bbce00cd982025aafa50f06d8.jpg" alt="尼加拉瓜士兵" style="display: block;width:80px;height:118px;top:0px;left:0px;">
+</a>
+
+<a class="pic-item " title="尼加拉瓜" data-index="6" data-sign="71cf3bc79f3df8dc9ba0cf4cce11728b46102849" href="/pic/%E5%B0%BC%E5%8A%A0%E6%8B%89%E7%93%9C/164882/0/71cf3bc79f3df8dc9ba0cf4cce11728b46102849">
+<img src="http://c.hiphotos.baidu.com/baike/w%3D150/sign=c6f4e103f31f3a295ac8d1cba927bce3/71cf3bc79f3df8dc9ba0cf4cce11728b46102849.jpg" alt="尼加拉瓜" style="display: block;width:134px;height:80px;top:0px;left:-27px;">
+</a>
+
+<a class="pic-item " title="尼加拉瓜" data-index="7" data-sign="73ca591076a52cbcc2ce795d" href="/pic/%E5%B0%BC%E5%8A%A0%E6%8B%89%E7%93%9C/164882/0/73ca591076a52cbcc2ce795d">
+<img src="http://h.hiphotos.baidu.com/baike/w%3D150/sign=54e7ab82d562853592e0d624a0ee76f2/838ba61ea8d3fd1f8e83734a304e251f95ca5f3c.jpg" alt="尼加拉瓜" style="display: block;width:107px;height:80px;top:0px;left:-13px;">
+</a>
+</div>
+</div>
+<div class="next-pic"></div>
+</div>
+<a class="next-album" data-album="2851648" title="尼加拉瓜">
+<img src="http://g.hiphotos.baidu.com/baike/s%3D290/sign=ad9b013af736afc30a0c386c831beb85/0bd162d9f2d3572cbf0bd0268a13632763d0c35b.jpg" alt="尼加拉瓜"/>
+<span>下一图册</span>
+</a>
+<div class="bottom"></div>
+</div>
+<div class="picture-wrap">
+
+<div id="picture" class="picture" style="left:14.5%; top:62px; width:71%; height:600px">
+<img id="imgPicture" src="http://e.hiphotos.baidu.com/baike/c0%3Dbaike92%2C5%2C5%2C92%2C30/sign=80e2c27ae6cd7b89fd6132d16e4d29c2/6a600c338744ebf84ea9a68fd9f9d72a6159a7a2.jpg" onload="imageResize()" style="visibility:hidden"/>
+<div id="picture-msg-tip" class="msg-tip yahei" style="display:none">
+<a class="close"></a>
+<span class="msg-tip-text"></span>
+</div>
+</div>
+</div>
+<div class="picture-footer yahei">
+<div class="footer-wrap" style="width:1000px; left:50%; margin-left:-500px">
+<div class="description">
+<span class="number">
+<span style="color:#b9bbbf">1</span>/<span style="color:#427cb8">8</span>
+</span>
+<span class="text">尼加拉瓜国旗</span>
+</div>
+<a class="tool-button doubt j-doubt-link" target="_blank" href="/wikiui/doubt?lemmaId=164882&picUrl=http://e.hiphotos.baidu.com/baike/c0%253Dbaike92%252C5%252C5%252C92%252C30/sign%3D80e2c27ae6cd7b89fd6132d16e4d29c2/6a600c338744ebf84ea9a68fd9f9d72a6159a7a2.jpg" nslog-type="10300106">质疑</a>
+<a class="tool-button info">信息</a>
+
+<a class="tool-button origin" target="_blanck" href="http://e.hiphotos.baidu.com/baike/c0%3Dbaike92%2C5%2C5%2C92%2C30/sign=80e2c27ae6cd7b89fd6132d16e4d29c2/6a600c338744ebf84ea9a68fd9f9d72a6159a7a2.jpg">原图</a>
+<div class="info-panel">
+<div class="image-size">
+<span>图片尺寸</span>
+<span class="size">796X476</span>
+</div>
+<div class="album-info">
+<span class="from-text">来自</span>
+<span class="album-text">
+<a class="lemma-name" target="_blank" href="/subview/4788/4788.htm">
+尼加拉瓜词条</a>-<a class="album-name" target="_blank" href="/pic/%E5%B0%BC%E5%8A%A0%E6%8B%89%E7%93%9C/164882">词条图片</a>
+</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+    //科学百科任务的词条所有提交,需要自动审核对其做忽略处理. 所以删除图片/绿色通道等规则也不适用于这类词条, 所以把它置顶处理
+    </body><script type="text/javascript" src="http://baike.bdimg.com/static/wiki-common/pkg/wiki-common_sync_js_0_29c88fe.js"></script>
+<script type="text/javascript" src="http://baike.bdimg.com/static/wiki-album/pkg/wiki-album-picture_951f31b.js"></script>
+<script type="text/javascript">!function(){        var $ = require('wiki-common:widget/lib/jquery/jquery.js'),
+            urlExt = require('wiki-common:widget/util/url.js'),
+            nslog = require("wiki-common:widget/component/nslog/nslog.js"),
+            PictureDialog = require('wiki-album:widget/picture/pictureDialog/pictureDialog.js');
+        
+        // 百科质疑，增加质疑入口--当前页面链接
+        // var doubtLink = $('.j-doubt-link').attr('href') + '&albumUrl=' + window.location.href;
+        // $('.j-doubt-link').attr('href', doubtLink);
+
+
+        var hash = window.location.hash.substr(1);
+        var albumId = urlExt.getQuery('aid', hash);
+        var pictureSign = urlExt.getQuery('pic', hash);
+        var useHash = !!albumId && albumId != '' && !!pictureSign && pictureSign != '';
+        albumId = useHash ? albumId : '0';
+        pictureSign = useHash ? pictureSign : '6a600c338744ebf84ea9a68fd9f9d72a6159a7a2';
+
+        var pageAlbumId = "0";
+        var pagePicSign = "6a600c338744ebf84ea9a68fd9f9d72a6159a7a2";
+
+        var useHash = (!!albumId && albumId != "") && (!!pictureSign && pictureSign != "" && pictureSign != pagePicSign);
+        if (useHash) {
+                            window.location.href = '/pic/%E5%B0%BC%E5%8A%A0%E6%8B%89%E7%93%9C/164882/' +albumId+ '/' + pictureSign;
+                    }
+
+        PictureDialog.getInstance().show({
+            albums: {"2851648":{"desc":"\u5c3c\u52a0\u62c9\u74dc","coverpic":"0bd162d9f2d3572cbf0bd0268a13632763d0c35b","coverwidth":152,"coverheight":220,"coverurl":"http:\/\/g.hiphotos.baidu.com\/baike\/s%3D290\/sign=ad9b013af736afc30a0c386c831beb85\/0bd162d9f2d3572cbf0bd0268a13632763d0c35b.jpg","total":12,"sign":2851648,"next":294650,"prev":0},"294650":{"desc":"\u5c3c\u52a0\u62c9\u74dc\u65c5\u6e38\u98ce\u666f\u76f8\u518c","coverpic":"0eb30f2442a7d93394b65c1bad4bd11373f001bf","coverwidth":800,"coverheight":600,"coverurl":"http:\/\/e.hiphotos.baidu.com\/baike\/s%3D290\/sign=793c1892d1c8a786ba2a4d075709c9c7\/0eb30f2442a7d93394b65c1bad4bd11373f001bf.jpg","total":7,"prev":2851648,"sign":294650,"next":442360},"442360":{"desc":"\u5c3c\u52a0\u62c9\u74dc\u666f\u533a\u56fe\u518c","coverpic":"3b87e950352ac65c77d5aa99fbf2b21192138a0c","coverwidth":1000,"coverheight":687,"coverurl":"http:\/\/h.hiphotos.baidu.com\/baike\/s%3D290\/sign=f662593608fa513d55aa6bd70d6f554c\/3b87e950352ac65c77d5aa99fbf2b21192138a0c.jpg","total":2,"prev":294650,"sign":442360,"next":464713},"464713":{"desc":"\u7cbe\u5f69\u56fe\u518c2","coverpic":"0b55b319ebc4b7454f7c73eccffc1e178b82155b","coverwidth":399,"coverheight":600,"coverurl":"http:\/\/e.hiphotos.baidu.com\/baike\/s%3D290\/sign=cf280dc99245d688a702b5ad94c07dab\/0b55b319ebc4b7454f7c73eccffc1e178b82155b.jpg","total":14,"prev":442360,"sign":464713,"next":530188},"530188":{"desc":"\u7cbe\u5f69\u56fe\u518c1","coverpic":"0dd7912397dda144007ce648b2b7d0a20df486d7","coverwidth":600,"coverheight":370,"coverurl":"http:\/\/f.hiphotos.baidu.com\/baike\/s%3D290\/sign=8decf9e909f79052eb1f40373cf2d738\/0dd7912397dda144007ce648b2b7d0a20df486d7.jpg","total":67,"prev":464713,"sign":530188,"next":717585},"717585":{"desc":"\u7cbe\u5f69\u56fe\u518c1","coverpic":"e824b899a9014c083803d55f0a7b02087bf4f414","coverwidth":600,"coverheight":398,"coverurl":"http:\/\/g.hiphotos.baidu.com\/baike\/s%3D290\/sign=fb4e19d973f08202299296367bfafb8a\/e824b899a9014c083803d55f0a7b02087bf4f414.jpg","total":66,"prev":530188,"sign":717585,"next":724901},"724901":{"desc":"\u7cbe\u5f69\u56fe\u518c1","coverpic":"d52a2834349b033b3d3e262015ce36d3d439bd92","coverwidth":600,"coverheight":399,"coverurl":"http:\/\/g.hiphotos.baidu.com\/baike\/s%3D290\/sign=1d7fe51b62d9f2d3241123e699ed8a53\/d52a2834349b033b3d3e262015ce36d3d439bd92.jpg","total":66,"prev":717585,"sign":724901,"next":867719},"867719":{"desc":"\u5c3c\u52a0\u62c9\u74dc\u666f\u70b9\u56fe\u7247","coverpic":"8ad4b31c8701a18b72fc38ac9e2f07082838fe3a","coverwidth":500,"coverheight":333,"coverurl":"http:\/\/f.hiphotos.baidu.com\/baike\/s%3D290\/sign=c0d0f91e7b899e517c8e3d1d72a6d990\/8ad4b31c8701a18b72fc38ac9e2f07082838fe3a.jpg","total":10,"prev":724901,"sign":867719,"next":0},"0":{"desc":"\u8bcd\u6761\u56fe\u7247","coverpic":"6a600c338744ebf84ea9a68fd9f9d72a6159a7a2","coverwidth":796,"coverheight":476,"pictures":[{"desc":"\u5c3c\u52a0\u62c9\u74dc\u56fd\u65d7","width":796,"height":476,"owner":"gjh0927","src":"6a600c338744ebf84ea9a68fd9f9d72a6159a7a2","picId":2163729748,"type":{"view":220,"albumview":120,"oriWithWater":797,"litterImage":200,"authModule":150,"view_new":209,"view_card":268},"sizes":{"220":{"url":"http:\/\/e.hiphotos.baidu.com\/baike\/s%3D220\/sign=7cdde8b0e924b899da3c7e3a5e071d59\/6a600c338744ebf84ea9a68fd9f9d72a6159a7a2.jpg","width":220,"height":131,"size":220},"120":{"url":"http:\/\/e.hiphotos.baidu.com\/baike\/h%3D120\/sign=629f2d344aed2e73e3e9822eb700a16d\/6a600c338744ebf84ea9a68fd9f9d72a6159a7a2.jpg","width":200,"height":120,"size":120},"797":{"url":"http:\/\/e.hiphotos.baidu.com\/baike\/c0%3Dbaike92%2C5%2C5%2C92%2C30\/sign=80e2c27ae6cd7b89fd6132d16e4d29c2\/6a600c338744ebf84ea9a68fd9f9d72a6159a7a2.jpg","width":796,"height":476,"size":797},"200":{"url":"http:\/\/e.hiphotos.baidu.com\/baike\/s%3D200\/sign=7cdde8b0e924b899da3c7e385e071d59\/6a600c338744ebf84ea9a68fd9f9d72a6159a7a2.jpg","width":200,"height":119,"size":200},"150":{"url":"http:\/\/e.hiphotos.baidu.com\/baike\/w%3D150\/sign=ec7c5e814c086e066aa83b4e32097b5a\/6a600c338744ebf84ea9a68fd9f9d72a6159a7a2.jpg","width":150,"height":89,"size":150},"209":{"url":"http:\/\/e.hiphotos.baidu.com\/baike\/w%3D209\/sign=a636a0ac11dfa9ecfd2e51175bd1f754\/6a600c338744ebf84ea9a68fd9f9d72a6159a7a2.jpg","width":209,"height":124,"size":209},"268":{"url":"http:\/\/e.hiphotos.baidu.com\/baike\/w%3D268\/sign=363c0553572c11dfded1b8255b266255\/6a600c338744ebf84ea9a68fd9f9d72a6159a7a2.jpg","width":268,"height":160,"size":268}},"aid":0,"albumDesc":"\u8bcd\u6761\u56fe\u7247","index":1},{"desc":"\u5c3c\u52a0\u62c9\u74dc","width":500,"height":330,"owner":"","src":"8644ebf81a4c510fabc8003b6459252dd42aa587","picId":17479184754,"type":{"view":220,"albumview":120,"oriWithWater":501,"litterImage":200,"authModule":150,"view_new":209,"view_card":268},"sizes":{"220":{"url":"http:\/\/c.hiphotos.baidu.com\/baike\/s%3D220\/sign=9b156f88ad014c081d3b2fa73a7b025b\/8644ebf81a4c510fabc8003b6459252dd42aa587.jpg","width":220,"height":145,"size":220},"120":{"url":"http:\/\/c.hiphotos.baidu.com\/baike\/h%3D120\/sign=38dcf9628fd4b31cef3c90b9b7d6276f\/8644ebf81a4c510fabc8003b6459252dd42aa587.jpg","width":181,"height":120,"size":120},"501":{"url":"http:\/\/c.hiphotos.baidu.com\/baike\/c0%3Dbaike80%2C5%2C5%2C80%2C26\/sign=d929403ad00735fa85fd46ebff3864d6\/8644ebf81a4c510fabc8003b6459252dd42aa587.jpg","width":500,"height":330,"size":501},"200":{"url":"http:\/\/c.hiphotos.baidu.com\/baike\/s%3D200\/sign=9b156f88ad014c081d3b2fa53a7b025b\/8644ebf81a4c510fabc8003b6459252dd42aa587.jpg","width":200,"height":132,"size":200},"150":{"url":"http:\/\/c.hiphotos.baidu.com\/baike\/w%3D150\/sign=3e39b91719950a7b75354ac13ad1625c\/8644ebf81a4c510fabc8003b6459252dd42aa587.jpg","width":150,"height":99,"size":150},"209":{"url":"http:\/\/c.hiphotos.baidu.com\/baike\/w%3D209\/sign=63ee7efd8e13632715edc533a88fa056\/8644ebf81a4c510fabc8003b6459252dd42aa587.jpg","width":209,"height":137,"size":209},"268":{"url":"http:\/\/c.hiphotos.baidu.com\/baike\/w%3D268\/sign=251dc6ceadec8a13141a50e6cf039157\/8644ebf81a4c510fabc8003b6459252dd42aa587.jpg","width":268,"height":176,"size":268}},"aid":0,"albumDesc":"\u8bcd\u6761\u56fe\u7247","index":2},{"desc":"\u5c3c\u52a0\u62c9\u74dc\u56fd\u5883\u56fe","width":700,"height":685,"owner":"","src":"11794d43ba86bf639213c643","picId":1913484353,"type":{"view":220,"albumview":200,"oriWithWater":701,"litterImage":200,"authModule":150,"view_new":209,"view_card":268},"sizes":{"220":{"url":"http:\/\/b.hiphotos.baidu.com\/baike\/s%3D220\/sign=f9eda4734c086e066ea8384932097b5a\/eaf81a4c510fd9f9965e6d2b252dd42a2834a422.jpg","width":220,"height":215,"size":220},"200":{"url":"http:\/\/b.hiphotos.baidu.com\/baike\/s%3D200\/sign=f9eda4734c086e066ea8384b32097b5a\/eaf81a4c510fd9f9965e6d2b252dd42a2834a422.jpg","width":200,"height":195,"size":200},"701":{"url":"http:\/\/b.hiphotos.baidu.com\/baike\/c0%3Dbaike92%2C5%2C5%2C92%2C30\/sign=3afd93230fb30f242197e451a9fcba26\/eaf81a4c510fd9f9965e6d2b252dd42a2834a422.jpg","width":700,"height":685,"size":701},"150":{"url":"http:\/\/b.hiphotos.baidu.com\/baike\/w%3D150\/sign=2f7210e70a7b02080cc93be452d8f25f\/eaf81a4c510fd9f9965e6d2b252dd42a2834a422.jpg","width":150,"height":146,"size":150},"209":{"url":"http:\/\/b.hiphotos.baidu.com\/baike\/w%3D209\/sign=e8988761632762d0803ea3bf99ed0849\/eaf81a4c510fd9f9965e6d2b252dd42a2834a422.jpg","width":209,"height":204,"size":209},"268":{"url":"http:\/\/b.hiphotos.baidu.com\/baike\/w%3D268\/sign=50aba49e8a13632715edc535a98ea056\/eaf81a4c510fd9f9965e6d2b252dd42a2834a422.jpg","width":268,"height":262,"size":268}},"aid":0,"albumDesc":"\u8bcd\u6761\u56fe\u7247","index":3},{"desc":"\u5c3c\u52a0\u62c9\u74dc\u56fd\u65d7","width":500,"height":333,"owner":"","src":"10dfa9ec8a136327129c4dd8908fa0ec09fac7ec","picId":7981386864,"type":{"view":220,"albumview":120,"oriWithWater":501,"litterImage":200,"authModule":150,"view_new":209,"view_card":268},"sizes":{"220":{"url":"http:\/\/a.hiphotos.baidu.com\/baike\/s%3D220\/sign=097db08eb219ebc4c478719bb227cf79\/10dfa9ec8a136327129c4dd8908fa0ec09fac7ec.jpg","width":220,"height":146,"size":220},"120":{"url":"http:\/\/a.hiphotos.baidu.com\/baike\/h%3D120\/sign=a15fc92b83025aafcc327ac9cbecab8d\/10dfa9ec8a136327129c4dd8908fa0ec09fac7ec.jpg","width":180,"height":120,"size":120},"501":{"url":"http:\/\/a.hiphotos.baidu.com\/baike\/c0%3Dbaike80%2C5%2C5%2C80%2C26\/sign=174573e671cf3bc7fc0dc5beb069d1c4\/10dfa9ec8a136327129c4dd8908fa0ec09fac7ec.jpg","width":500,"height":333,"size":501},"200":{"url":"http:\/\/a.hiphotos.baidu.com\/baike\/s%3D200\/sign=097db08eb219ebc4c4787199b227cf79\/10dfa9ec8a136327129c4dd8908fa0ec09fac7ec.jpg","width":200,"height":133,"size":200},"150":{"url":"http:\/\/a.hiphotos.baidu.com\/baike\/w%3D150\/sign=9b880d9e42a98226b8c12f22ba83b97a\/10dfa9ec8a136327129c4dd8908fa0ec09fac7ec.jpg","width":150,"height":99,"size":150},"209":{"url":"http:\/\/a.hiphotos.baidu.com\/baike\/w%3D209\/sign=03c113ac3812b31bc76cca29bf193674\/10dfa9ec8a136327129c4dd8908fa0ec09fac7ec.jpg","width":209,"height":139,"size":209},"268":{"url":"http:\/\/a.hiphotos.baidu.com\/baike\/w%3D268\/sign=864fc956a8773912c4268267c0188675\/10dfa9ec8a136327129c4dd8908fa0ec09fac7ec.jpg","width":268,"height":178,"size":268}},"aid":0,"albumDesc":"\u8bcd\u6761\u56fe\u7247","index":4},{"desc":"\u5c3c\u52a0\u62c9\u74dc\u56fd\u5fbd","width":119,"height":120,"owner":"","src":"ac2fc3c4bf3354ed38db4935","picId":651553262,"type":{"view":220,"albumview":120,"oriWithWater":121,"litterImage":200,"authModule":150,"view_new":209,"view_card":268},"sizes":{"220":{"url":"http:\/\/g.hiphotos.baidu.com\/baike\/s%3D220\/sign=1d3761a98c5494ee8322081b1df4e0e1\/3ac79f3df8dcd10054481837728b4710b8122fd4.jpg","width":119,"height":120,"size":220},"120":{"url":"http:\/\/g.hiphotos.baidu.com\/baike\/pic\/item\/3ac79f3df8dcd10054481837728b4710b8122fd4.jpg","width":119,"height":120,"size":120},"121":{"url":"http:\/\/g.hiphotos.baidu.com\/baike\/c0%3Dbaike52%2C5%2C5%2C52%2C17\/sign=c6dde1bd033b5bb5aada28ac57babe5c\/3ac79f3df8dcd10054481837728b4710b8122fd4.jpg","width":119,"height":120,"size":121},"200":{"url":"http:\/\/g.hiphotos.baidu.com\/baike\/s%3D200\/sign=1d3761a98c5494ee832208191df4e0e1\/3ac79f3df8dcd10054481837728b4710b8122fd4.jpg","width":119,"height":120,"size":200},"150":{"url":"http:\/\/g.hiphotos.baidu.com\/baike\/s%3D150\/sign=41b826f8b48f8c54e7d3c12a0a282dee\/3ac79f3df8dcd10054481837728b4710b8122fd4.jpg","width":119,"height":120,"size":150},"209":{"url":"http:\/\/g.hiphotos.baidu.com\/baike\/w%3D209\/sign=63581e3549540923aa69647eab59d1dc\/3ac79f3df8dcd10054481837728b4710b8122fd4.jpg","width":119,"height":120,"size":209},"268":{"url":"http:\/\/g.hiphotos.baidu.com\/baike\/w%3D268\/sign=b0365897cb1349547e1eef626e4f92dd\/3ac79f3df8dcd10054481837728b4710b8122fd4.jpg","width":119,"height":120,"size":268}},"aid":0,"albumDesc":"\u8bcd\u6761\u56fe\u7247","index":5},{"desc":"\u5c3c\u52a0\u62c9\u74dc\u58eb\u5175","width":222,"height":327,"owner":"","src":"8367d1fc73e4f5abb801a03a","picId":696251245,"type":{"view":220,"albumview":160,"oriWithWater":328,"litterImage":200,"authModule":150,"view_new":209,"view_card":268},"sizes":{"220":{"url":"http:\/\/f.hiphotos.baidu.com\/baike\/s%3D220\/sign=ca75b63e7f3e6709ba0042fd0bc69fb8\/d833c895d143ad4bbce00cd982025aafa50f06d8.jpg","width":149,"height":220,"size":220},"160":{"url":"http:\/\/f.hiphotos.baidu.com\/baike\/w%3D160\/sign=0afab61470cf3bc7e800c9eae101babd\/d833c895d143ad4bbce00cd982025aafa50f06d8.jpg","width":160,"height":235,"size":160},"328":{"url":"http:\/\/f.hiphotos.baidu.com\/baike\/c0%3Dbaike72%2C5%2C5%2C72%2C24\/sign=161f2bce36d12f2eda08a6322eabbe07\/d833c895d143ad4bbce00cd982025aafa50f06d8.jpg","width":222,"height":327,"size":328},"200":{"url":"http:\/\/f.hiphotos.baidu.com\/baike\/s%3D200\/sign=ca75b63e7f3e6709ba0042ff0bc69fb8\/d833c895d143ad4bbce00cd982025aafa50f06d8.jpg","width":135,"height":200,"size":200},"150":{"url":"http:\/\/f.hiphotos.baidu.com\/baike\/h%3D160\/sign=dcc64cd3828ba61ec0eecc29713597cc\/d833c895d143ad4bbce00cd982025aafa50f06d8.jpg","width":108,"height":160,"size":150},"209":{"url":"http:\/\/f.hiphotos.baidu.com\/baike\/w%3D209\/sign=2ae3c63bc8fcc3ceb4c0ce33ab44d6b7\/d833c895d143ad4bbce00cd982025aafa50f06d8.jpg","width":209,"height":307,"size":209},"268":{"url":"http:\/\/f.hiphotos.baidu.com\/baike\/w%3D268\/sign=1f783839b912c8fcb4f3f1cbc40292b4\/d833c895d143ad4bbce00cd982025aafa50f06d8.jpg","width":222,"height":327,"size":268}},"aid":0,"albumDesc":"\u8bcd\u6761\u56fe\u7247","index":6},{"desc":"\u5c3c\u52a0\u62c9\u74dc","width":544,"height":326,"owner":"","src":"71cf3bc79f3df8dc9ba0cf4cce11728b46102849","picId":16868810826,"type":{"view":220,"albumview":120,"oriWithWater":545,"litterImage":200,"authModule":150,"view_new":209,"view_card":268},"sizes":{"220":{"url":"http:\/\/c.hiphotos.baidu.com\/baike\/s%3D220\/sign=e5f18633b78f8c54e7d3c22d0a282dee\/71cf3bc79f3df8dc9ba0cf4cce11728b46102849.jpg","width":220,"height":131,"size":220},"120":{"url":"http:\/\/c.hiphotos.baidu.com\/baike\/h%3D120\/sign=d1f03a2fd66285358de0d623a0ee76f2\/71cf3bc79f3df8dc9ba0cf4cce11728b46102849.jpg","width":200,"height":120,"size":120},"545":{"url":"http:\/\/c.hiphotos.baidu.com\/baike\/c0%3Dbaike80%2C5%2C5%2C80%2C26\/sign=7e3b76d658b5c9ea76fe0bb1b450dd65\/71cf3bc79f3df8dc9ba0cf4cce11728b46102849.jpg","width":544,"height":326,"size":545},"200":{"url":"http:\/\/c.hiphotos.baidu.com\/baike\/s%3D200\/sign=e5f18633b78f8c54e7d3c22f0a282dee\/71cf3bc79f3df8dc9ba0cf4cce11728b46102849.jpg","width":200,"height":119,"size":200},"150":{"url":"http:\/\/c.hiphotos.baidu.com\/baike\/w%3D150\/sign=c6f4e103f31f3a295ac8d1cba927bce3\/71cf3bc79f3df8dc9ba0cf4cce11728b46102849.jpg","width":150,"height":89,"size":150},"209":{"url":"http:\/\/c.hiphotos.baidu.com\/baike\/w%3D209\/sign=147ff85cc81349547e1eef646f4f92dd\/71cf3bc79f3df8dc9ba0cf4cce11728b46102849.jpg","width":209,"height":125,"size":209},"268":{"url":"http:\/\/c.hiphotos.baidu.com\/baike\/w%3D268\/sign=7e082b328eb1cb133e693b15e55656da\/71cf3bc79f3df8dc9ba0cf4cce11728b46102849.jpg","width":268,"height":160,"size":268}},"aid":0,"albumDesc":"\u8bcd\u6761\u56fe\u7247","index":7},{"desc":"\u5c3c\u52a0\u62c9\u74dc","width":300,"height":225,"owner":"","src":"73ca591076a52cbcc2ce795d","picId":1088731087,"type":{"view":220,"albumview":120,"oriWithWater":301,"litterImage":200,"authModule":150,"view_new":209,"view_card":268},"sizes":{"220":{"url":"http:\/\/h.hiphotos.baidu.com\/baike\/s%3D220\/sign=f966cb6eb9389b503cffe750b534e5f1\/838ba61ea8d3fd1f8e83734a304e251f95ca5f3c.jpg","width":220,"height":165,"size":220},"120":{"url":"http:\/\/h.hiphotos.baidu.com\/baike\/h%3D120\/sign=848148ef2edda3cc14e4bc2231e83905\/838ba61ea8d3fd1f8e83734a304e251f95ca5f3c.jpg","width":160,"height":120,"size":120},"301":{"url":"http:\/\/h.hiphotos.baidu.com\/baike\/c0%3Dbaike72%2C5%2C5%2C72%2C24\/sign=a4d412646b600c33e474d69a7b253a6a\/838ba61ea8d3fd1f8e83734a304e251f95ca5f3c.jpg","width":300,"height":225,"size":301},"200":{"url":"http:\/\/h.hiphotos.baidu.com\/baike\/s%3D200\/sign=f966cb6eb9389b503cffe752b534e5f1\/838ba61ea8d3fd1f8e83734a304e251f95ca5f3c.jpg","width":200,"height":150,"size":200},"150":{"url":"http:\/\/h.hiphotos.baidu.com\/baike\/w%3D150\/sign=54e7ab82d562853592e0d624a0ee76f2\/838ba61ea8d3fd1f8e83734a304e251f95ca5f3c.jpg","width":150,"height":112,"size":150},"209":{"url":"http:\/\/h.hiphotos.baidu.com\/baike\/w%3D209\/sign=52a119baaf51f3dec3b2be64adeff0ec\/838ba61ea8d3fd1f8e83734a304e251f95ca5f3c.jpg","width":209,"height":156,"size":209},"268":{"url":"http:\/\/h.hiphotos.baidu.com\/baike\/w%3D268\/sign=01ac7956fdfaaf5184e386b9b45594ed\/838ba61ea8d3fd1f8e83734a304e251f95ca5f3c.jpg","width":268,"height":201,"size":268}},"aid":0,"albumDesc":"\u8bcd\u6761\u56fe\u7247","index":8}],"coverurl":"http:\/\/e.hiphotos.baidu.com\/baike\/s%3D290\/sign=7cdde8b0e924b899da3c7e315e071d59\/6a600c338744ebf84ea9a68fd9f9d72a6159a7a2.jpg","total":8,"prev":867719,"sign":0,"next":2851648}},
+            lemmaId: '4788',
+            subLemmaId: '4788',
+            lemmaTitle: '尼加拉瓜',
+            newLemmaId: '164882',
+            versionId: '',
+            commitId: '',
+            albumId: albumId,
+            picPageType: '0',
+            pictureSign: pictureSign,
+            lemmaName: '尼加拉瓜',
+            crumbClick: function() {
+                nslog(10000201);
+            },
+            pictureChanged: function(albumId, picSign) {
+                window.location.hash = 'aid=' + albumId + '&pic=' + picSign;
+                // 百科质疑入口变化逻辑
+                var doubtLink = '/wikiui/doubt?lemmaId='+ '164882'
+                    + '&fr=albumPicture'
+                    + '&picUrl=' + $('.picture-footer .origin').attr('href')
+                    + '&albumUrl=' + window.location.origin + window.location.pathname;
+
+                $('.j-doubt-link').attr('href', doubtLink);
+            }
+        });    }();
+!function(){      require('wiki-common:widget/component/psLink/psLink.js');
+    }();</script></html>

@@ -1,0 +1,15 @@
+import React,{Component} from 'react';
+import './index.css';
+
+import u44 from '../../Assets/image/u44.png';
+
+
+export default class Header extends Component{
+    render(){
+        return (
+            <div className="header_box">
+                <div className="logo"><img src={u44} alt='img'/><span>全球航运大数据分析平台</span></div>
+            </div>
+        )
+    }
+}

@@ -1,0 +1,12 @@
+.header_box{
+    width:100%;
+    height:50px;
+    background-color: #1b52df;
+    display:flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+.header_box>.logo{
+    width:180px;
+    height:30px;
+}

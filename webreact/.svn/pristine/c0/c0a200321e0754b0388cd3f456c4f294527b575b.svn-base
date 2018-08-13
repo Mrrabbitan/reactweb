@@ -1,0 +1,21 @@
+import axios from 'axios';
+import sever from './globaldefine';
+
+
+const httpServer = {
+    app1:function(params,callback){
+        /* setTimout(function(){
+            var a = {a:1,b:2}
+            callback(a);
+        },300) */
+        axios.get(sever.portAddress+`cetc/shiptail/service/platInfo/getAll`,params)
+            .then(function (res) {
+                // console.log(JSON.stringify(res));
+                callback(res);
+            }).catch(function (error) {
+                console.log(error);
+            });
+    }
+}
+
+export default httpServer;

@@ -1,0 +1,47 @@
+{
+  "_from": "mapbox-to-css-font@^2.1.0",
+  "_id": "mapbox-to-css-font@2.2.0",
+  "_inBundle": false,
+  "_integrity": "sha1-nHrW0ewl+PJ2KC7TFkTby+y/sXA=",
+  "_location": "/mapbox-to-css-font",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "range",
+    "registry": true,
+    "raw": "mapbox-to-css-font@^2.1.0",
+    "name": "mapbox-to-css-font",
+    "escapedName": "mapbox-to-css-font",
+    "rawSpec": "^2.1.0",
+    "saveSpec": null,
+    "fetchSpec": "^2.1.0"
+  },
+  "_requiredBy": [
+    "/ol-mapbox-style"
+  ],
+  "_resolved": "http://registry.npm.taobao.org/mapbox-to-css-font/download/mapbox-to-css-font-2.2.0.tgz",
+  "_shasum": "9c7ad6d1ec25f8f276282ed31644dbcbecbfb170",
+  "_spec": "mapbox-to-css-font@^2.1.0",
+  "_where": "C:\\Users\\zhongdianke\\Desktop\\react\\my-app\\node_modules\\ol-mapbox-style",
+  "author": {
+    "name": "Andreas Hocevar"
+  },
+  "bugs": {
+    "url": "https://github.com/boundlessgeo/mapbox-to-css-font/issues"
+  },
+  "bundleDependencies": false,
+  "deprecated": false,
+  "description": "Utility to convert Mapbox GL Style font names to CSS font definitions",
+  "homepage": "https://github.com/boundlessgeo/mapbox-to-css-font#readme",
+  "keywords": [
+    "mapbox",
+    "font"
+  ],
+  "license": "BSD-2-Clause",
+  "main": "index.js",
+  "name": "mapbox-to-css-font",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/boundlessgeo/mapbox-to-css-font.git"
+  },
+  "version": "2.2.0"
+}
