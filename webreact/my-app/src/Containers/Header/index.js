@@ -1,18 +1,20 @@
 import React,{Component} from 'react';
-import SearchInput from '../../Components/Header/SearchInput/SearchInput';
 import './index.css';
-import u44 from '../../Assets/image/u44.png';
 
 
 export default class Header extends Component{
-    
+    componentDidMount(){
+        
+    }
 
 
     render(){
         return (
             <div className="header_box">
-                <div className="logo"><img src={u44} alt='img'/><span>全球航运大数据分析平台</span></div>
-                <SearchInput/>
+                <div className="header_left">
+                    <span className="ship_logo"></span>
+                </div>
+                <div className="header_right"></div>
             </div>
         )
     }

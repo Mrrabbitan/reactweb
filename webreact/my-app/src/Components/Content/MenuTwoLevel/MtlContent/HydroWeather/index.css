@@ -1,0 +1,12 @@
+.hw_box{
+    width:100%;
+    color:#fff;
+}
+.hw_choice_btn_box{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.hw_choice_btn_box>span{
+    margin-bottom:10px;
+}

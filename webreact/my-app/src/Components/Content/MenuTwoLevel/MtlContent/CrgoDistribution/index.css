@@ -1,0 +1,12 @@
+.cd_box{
+    width:100%;
+    color:#fff;
+}
+.cd_choice_btn_box{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.cd_choice_btn_box>span{
+    margin-bottom:10px;
+}

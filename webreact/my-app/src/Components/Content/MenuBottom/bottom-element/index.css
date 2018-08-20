@@ -1,0 +1,10 @@
+#bottomele{
+    background: url("../../../../Assets/image/shipping_pic/light_button.png") no-repeat;
+    height:100%;
+    width:69px;
+    float:left;
+    font-size: 14px;
+    color:white;
+   padding: 4px 1px 4px 1px;
+    vertical-align: center;
+}

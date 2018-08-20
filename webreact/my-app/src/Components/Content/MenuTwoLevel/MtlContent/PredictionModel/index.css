@@ -1,0 +1,185 @@
+#predictionmodel{
+    width:100%;
+
+}
+
+.prearrship{
+    color: white;
+    font-size: 16px;
+    font-weight: 800;
+    display: block;
+    height: 20px;
+    line-height: 20px;
+    width:100%;
+}
+
+.second_boat{
+    font-size: 14px;
+    color: white;
+    margin-top: -5px;
+    height:18px;
+    width: 100%;
+}
+#find_ship{
+    height: 30px;
+    width:100%;
+
+}
+.choosetime{
+    color:white;
+    font-size:14px;
+    display:block;
+    float:left;
+    width:50%;
+    height:18px;
+    margin-top:10px;
+}
+#selectbutton{
+    display: block;
+    float: left;
+    background:#1faafb;
+    height:18px;
+    width: 50%;
+    color:white;
+    font-size:14px;
+    text-align: center;
+    border-radius:2px;
+    line-height:18px;
+    margin-top:10px;
+    cursor:pointer;
+}
+#selectbutton1{
+    display: block;
+    float: right;
+    background:#1faafb;
+    height:18px;
+    width: 50%;
+    color:white;
+    font-size:14px;
+    text-align: center;
+    border-radius:2px;
+    line-height:18px;
+    margin-top: 10px;
+}
+
+
+
+#datechoose{
+    height:120px;
+    width:100%;
+    background: #012f6c;
+    background-size: 100% 100%;
+    
+    margin-top:30px;
+    border: 1px solid #1ca9fb;
+}
+.start_time{
+    height:18px;
+    font-size: 14px;
+    width: 100%;
+    display: block;
+    color: white;
+    padding-left: 10px;
+
+}
+.end_time{
+    height:18px;
+    font-size: 14px;
+    width: 100%;
+    display: block;
+    color: white;
+    padding-left: 10px;
+    
+}
+#start_timetable{
+    height:40px;
+    width: 100%;
+
+}
+#end_timetable{
+    height:40px;
+    width: 100%;
+}
+.shiptype{
+    height:18px;
+    width:100%;
+    font-size:14px;
+    color:white;
+    display:block;
+    margin-top:7px;
+}
+
+
+
+.cd_choice_btn_box{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    background: #012f6c;
+    background-size: 100% 100%;
+    margin-top:10px;
+    border: 1px solid #1ca9fb;
+    padding:3px;
+    margin-bottom: 10px;
+}
+.cd_choice_btn_box>span{
+    margin-bottom:10px;
+}
+
+#desport{
+height:60px;
+width:100%;
+
+
+}
+.surebutton{
+    height: 40px;
+    width: 123px;
+    margin-top:10px;
+    background: url("../../../../../Assets/image/shipping_pic/big_button.png") no-repeat;
+    color: black;
+    text-align:center;
+    font-size:14px;
+    line-height:29px;
+    cursor: pointer;
+}
+
+#situationpredic{
+    margin-top: 10px;
+    color: white;
+    font-size: 16px;
+    font-weight: 800;
+    display: block;
+    height: 20px;
+    line-height: 20px;
+    width:60%;
+    float:left;
+}
+.dayslater7{
+    margin-top: 10px;
+    height:20px;
+    font-size: 12px;
+    color:#1ca9fb;
+    line-height:20px;
+    float:right;
+    display:block;
+}
+
+
+.betweenline{
+    height:2px;
+    width:100%; 
+    background:url("../../../../../Assets/image/shipping_pic/collepse.png");
+}
+
+#predictweather{
+    width:100%;
+    height:100px;
+
+}
+#predictwenzi{
+    overflow: hidden;
+    margin-bottom:10px;
+}
+
+

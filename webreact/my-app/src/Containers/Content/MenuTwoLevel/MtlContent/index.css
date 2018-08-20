@@ -1,0 +1,8 @@
+.mtlc_box{
+    width:100%;
+    padding:10px;
+	z-index: 100;
+}
+.mtlc_box>div{
+    /*display:none;*/
+}

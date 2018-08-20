@@ -1,42 +1,35 @@
 import React,{Component} from 'react';
-import Map from './Map/index';
-import GlobalPortInfo from '../../Components/Content/GlobalPortInfo/index';
+import Map from '../../Components/Map/Map';
 import './index.css';
+import MenuLeft from "../../Components/Content/MenuLeft/MenuLeft"
+import MenuRight from "../../Components/Content/MenuRight/MenuRight"
+import MenuBottom from "../../Components/Content/MenuBottom/MenuBottom"
+import MenuTwoLevel from "./MenuTwoLevel/MenuTwoLevel";
+import {connect} from "react-redux";
 
-import httpServer from '../../servers/index';
 
 
-
-export default class Content extends Component{
+class Content extends Component{
     constructor(){
         super();
-        this.state = {
-            liveShipTotal:0,
-            shipData:null,
-        }
-    }
-    componentDidMount(){
-        var self = this;
-        httpServer.getRealtimeShipStatistics({},function(data){
-            self.setState(
-                {
-                liveShipTotal:data.data.workShip.ALL,
-                shipData:data.data
-            }
-            );
-        })
+
     }
     render(){
-        
         return (
-
             <div className="content_box">
                 <Map/>
-                {/*张现超 左侧功能菜单-全球港口信息总览*/}
-                <GlobalPortInfo liveShipTotal={this.state.liveShipTotal} shipData={this.state.shipData}/>
-                {/*anzp 港口图标点击出现弹窗-全球港口信息总览*/}
-                
+                <MenuLeft/>
+                <MenuTwoLevel/>
+                <MenuRight/>           
+                <MenuBottom/>
             </div>
         )
     }
 }
+export default connect(/* 连接react组件与redux store */
+    (state) => {
+        return {
+            state: state /* 输出的全部对象，整个content内部的对象包含http与html */
+        }
+    }
+)(Content)

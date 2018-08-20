@@ -1,37 +1,57 @@
 .header_box{
     width:100%;
-    height:66px;
-    background-color: #1b52df;
+    height:49px;
     display:flex;
-    justify-content: flex-start;
+    background:url("../../Assets/image/shipping_pic/banner1.png");
+    justify-content: space-between;
+    /* align-items: center; */
+    position:relative;
+    z-index:1000;
+}
+
+
+
+
+
+
+/* .header_box{
+    background:url("../../Assets/image/shipping_pic/banner1.png");
+    height: 49px;
+    width: 100%;
+    z-index: 1;
+} */
+.header_right{
+    background:url("../../Assets/image/shipping_pic/banner2.png") no-repeat;
+    height: 49px;
+    width: 1157px;
+    z-index:9;
+    /* z-index:10;
+    position: absolute;
+    left: 630px;
+    top: 0px; */
+}
+.header_left{
+    background:url("../../Assets/image/shipping_pic/banner_logo.png") no-repeat;
+    height: 66px;
+    width: 412px;
+    display:flex;
     align-items: center;
-    background: url(../../Assets/image/topmenu2.png) no-repeat;
-    box-shadow: 10px;
-
+    position: relative;
+    z-index:10;
+    /* z-index: 10;
+    position: absolute;
+    left: 0px;
+    top: 0px; */
 }
-.header_box>.logo{
-    width:380px;
-    height:66px;
-    margin-left:100px;
-    font-size:28px;
-    color:white;
-    font-family: Arial, Helvetica, sans-serif;
-    line-height: 69px;
-    font-weight: bold;
+.ship_logo{
+    display:inline-block;
+    background:url("../../Assets/image/shipping_pic/title1.png") no-repeat;
+    height: 48px;
+    width: 368px;
+    margin-left:40px;
+    /* z-index: 11;
+    position: absolute;
+    left: 24px;
+    top: 12px; */
 }
-.header_box>.logo>img{
-    height: 50px;
-    width: 50px;
-    margin-top: 10px;
-    float: left;
-}
-.header_box>.logo>img>span{
-margin-top: 0px;
-float: left;
-margin-left: 40px;
-}
-
-
-
-
 

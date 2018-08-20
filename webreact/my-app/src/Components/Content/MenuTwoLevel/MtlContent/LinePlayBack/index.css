@@ -1,0 +1,67 @@
+#tailreviewan{
+    width: 100%;
+    color:white;
+    font-size: 14px;
+}
+
+#aimadded{
+    width:100%;
+    font-size: 14px;
+    
+    
+}
+
+#overviewbox{
+    width:100%;
+    height:120px;
+    border:1px solid white;
+    
+}
+
+
+.secondspot{
+    color:#2eb0fb;
+    font-size: 12px;
+    font-size: 12px;
+margin-left:6px;
+}
+#startbutton{
+    background: url("../../../../../Assets/image/shipping_pic/big_button.png") no-repeat;
+    width: 100%;
+    height:28px;
+    margin-top:6px;
+    margin-bottom: 6px;
+    color:black;
+    text-align: center;
+    line-height: 28px;
+    cursor: pointer;
+}
+
+#stopbutton{
+    background: url("../../../../../Assets/image/shipping_pic/big_button.png") no-repeat;
+    width: 100%;
+    height:28px;
+    margin-top:6px;
+    margin-bottom: 6px;
+    color:black;
+    text-align: center;
+    line-height: 28px;
+    cursor: pointer;
+}
+
+#spotbox{
+    width:100%;
+    height:120px;
+    border:1px solid white;
+
+}
+
+.datalistpic{
+    float:right;
+    width:12px;
+    height:12px;
+    background: url("../../../../../Assets/image/shipping_pic/list.png");
+    display:inline-block;
+    margin-top:-18px;
+    margin-right:6px;
+}
