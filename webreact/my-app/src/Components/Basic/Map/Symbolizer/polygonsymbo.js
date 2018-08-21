@@ -11,7 +11,7 @@ import ol from 'openlayers'
         var name = feature.get('name');
         var red = lstyle / 100 * 255;
         var greed = (1 - lstyle / 100) * 255;
-        var color = ol.color.asArray([ red, greed, 223, 0.5 ]);
+        var color = ol.color.asArray([ 233, 30, 99, 1 ]);
         var text = new ol.style.Text({
             textAlign : "center",
             textBaseline : "middle",
@@ -34,9 +34,29 @@ import ol from 'openlayers'
             fill : fill,
             text : text,
         })
-    }
+    },
 
-
+    "indexSeaArea" : function(feature){
+        return  new ol.style.Style({
+            fill: new ol.style.Fill({ //矢量图层填充颜色，以及透明度
+              color: 'rgba(255, 255, 255, 0.3)'
+            }),
+            stroke: new ol.style.Stroke({ //边界样式
+              color: '#319FD3',
+              width: 1
+            }),
+            text: new ol.style.Text({ //文本样式
+              font: '12px Calibri,sans-serif',
+              fill: new ol.style.Fill({
+                color: '#000'
+              }),
+              stroke: new ol.style.Stroke({
+                color: '#fff',
+                width: 3
+              })
+            })
+          })
+    },
 
 
  }

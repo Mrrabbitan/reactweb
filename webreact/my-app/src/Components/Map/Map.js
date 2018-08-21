@@ -52,7 +52,8 @@ class Map extends Component {
         let [StraitSource, StraitLayer] = simpleLayer.sourceLayer(map, true);
         //添加Layer，放置关系网路
         let [relationSource, relationLayer] = simpleLayer.sourceLayer(map, true);
-
+        //添加海区图层
+        let [seaareaSource, seaareaLayer] = simpleLayer.sourceLayer(map, true);
 
 
         this.mapObj = {
@@ -66,7 +67,9 @@ class Map extends Component {
             "straitsource":StraitSource, 
             "portLayer": portLayer,
             relationSource,
-            relationLayer
+            relationLayer,
+            seaareaSource,
+            seaareaLayer,
         }
         //添加地图的时间监听
         new mapListener(this.mapObj);

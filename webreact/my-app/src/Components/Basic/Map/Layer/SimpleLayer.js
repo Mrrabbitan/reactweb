@@ -40,7 +40,7 @@ class SimpleLayer{
                    return lineSymbo[feature.get('type')];
                }else if(feature.getGeometry().getType() == "Polygon"){
                    //面的样式
-                   return polygonSymbo['indexStrait'](feature);
+                   return polygonSymbo[feature.get('type')](feature);
                     /* 面的样式结束 */
                }
             }

@@ -2,7 +2,7 @@ import React,{Component} from 'react';
 import Map from '../../Components/Map/Map';
 import './index.css';
 import MenuLeft from "../../Components/Content/MenuLeft/MenuLeft"
-import MenuRight from "../../Components/Content/MenuRight/MenuRight"
+import MenuRight from "./MenuRight/MenuRight"
 import MenuBottom from "../../Components/Content/MenuBottom/MenuBottom"
 import MenuTwoLevel from "./MenuTwoLevel/MenuTwoLevel";
 import {connect} from "react-redux";

@@ -9,6 +9,7 @@ import Straitserver from '../../axios/straitserver';
 import simplePolygon from '../../Components/Basic/Map/Geometry/simplePolygon'
 import lineHtmlTemplate from '../../Components/Basic/Map/Geometry/LineHtmlTemplate';
 import simpleLine from '../../Components/Basic/Map/Geometry/SimpleLine';
+import seaareaServer from '../../axios/seaareaServer';
 class MapListener{
 
     constructor(state){
@@ -19,6 +20,7 @@ class MapListener{
         this.loadAllPort();
         this.loadStrait();
         this.loadRelation();
+        this.loadSeaArea();
     }
 
     /***
@@ -45,7 +47,6 @@ class MapListener{
         //加载全球海峡数据
         Straitserver.loadallstrait({},function(data){
             data.data.forEach((item)=>{/* 循环取数据 */
-                console.log(item);
                 var lonlat = item.centPos;
                 var lonlatdes = lonlat.substring(lonlat.indexOf("(")+1,lonlat.indexOf(")"));
                 var lonlatfin=lonlatdes.split("\s");
@@ -60,18 +61,49 @@ class MapListener{
                     arr.push(coord);
                     
                 })
-               
-                simplePolygon.createAndAddMap(self.mapObj.straitsource,50,arr);
+              
+                simplePolygon.createAndAddMap(self.mapObj.straitsource,50,arr,'indexStrait');
                
             })
         })
     }
+/* 
+增加港区内容
+
+*/
+        loadSeaArea(){
+        let self = this;
+        seaareaServer.loadAllSeaarea({},function(data){
+            data.data.forEach((item)=>{
+                let seaarea=item.multiGeometry;
+                let border = seaarea.multiGeometry;
+                let outlineborder = border[0].outerBoundaryIs[0].coordinates;
+                let arr=[];
+                let seaareaborder=outlineborder.split(',');
+                for (var i=0;i<seaareaborder.length;i++){
+                    var arrcode=[seaareaborder[i],seaareaborder[++i]];
+                    var coord=toolMap.transform(arrcode[0],arrcode[1]);
+                    arr.push(coord);
+                    
+                }
+                /* console.log(arr); */
+                simplePolygon.createAndAddMap1(self.mapObj.seaareaSource, 50, arr,'indexSeaArea');
+                
+            })
+
+
+        })
+        
+        }
+
+
+
 
 
     /***
      * 加载港口之间的关系网络图
      */
-    loadRelation(){
+        loadRelation(){
         let self = this;
         portAndBerthServer.loadStraitRelation(function(data){
             
@@ -79,7 +111,7 @@ class MapListener{
             data.portGird.map((item) => {
                 var disInfo = lineHtmlTemplate.relationTemplate(item);
                 var coord = toolMap.transform(item.longitudedecimal, item.latitudeDecimal);
-                console.log(coord);
+                
                 simpleFeature.createAndAddPointFeature(self.mapObj.relationSource, "shipleavingport", disInfo, coord);
             });
             //添加关系网络线
@@ -122,7 +154,7 @@ class MapListener{
         }else if(newZoomLevel < 6){
             self.mapObj.portLayer.setVisible(false);
         }
-        console.log(newZoomLevel);
+        
     }
 }
 export default MapListener;
