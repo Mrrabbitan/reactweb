@@ -55,13 +55,13 @@
     bottom: 10px;
     color:black;
     font-size: 14px;
-
 }
-
 .popover-body{
     height:1px !important;
     width:1px !important;
-
 }
-
+#popup.popup-seaarea{/* 保留原始id 添加新的classname */
+    left:-50px;
+    bottom:10px;
+}
 

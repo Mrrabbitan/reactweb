@@ -3,7 +3,7 @@ import Straitserver from '../axios/straitserver';
 
 
 
-export const initMap = (map) => {return {type : "INITMAP",map}};
+export const initMap = (mapListener) => {return {type : "INITMAP",mapListener}};
 
 export const loadAllPort = () => (dispatch) => {
     portAndBerthServer.loadAllPort({},function(data){

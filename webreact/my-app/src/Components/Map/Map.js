@@ -42,19 +42,18 @@ class Map extends Component {
         let map = olMap.baiscMap([layer_custom_dayan], "map", Centercoord, 3, 15, 4);
         //创建弹出框的图层
         let [popupElement,popupOverlay] = popup.basicPopup(map,"popup");
-        //将初始化的地图信息存储到Store中
-        this.props.dispatch(mapAction.initMap(map));
-        //创建port图层
-        let [portSource, portLayer] = simpleLayer.sourceLayer(map, false);
         //增加鼠标放入海图获取当前坐标
         map.addControl(addContronl.MousePosition());
         //增加海峡图层
         let [StraitSource, StraitLayer] = simpleLayer.sourceLayer(map, true);
+        //创建port图层
+        let [portSource, portLayer] = simpleLayer.sourceLayer(map, false);
         //添加Layer，放置关系网路
         let [relationSource, relationLayer] = simpleLayer.sourceLayer(map, true);
         //添加海区图层
         let [seaareaSource, seaareaLayer] = simpleLayer.sourceLayer(map, true);
-
+        //添加排放区图层
+        let [dischargeSource, dischargeLayer] = simpleLayer.sourceLayer(map, true);
 
         this.mapObj = {
             "map": map,
@@ -64,17 +63,22 @@ class Map extends Component {
             "portSource": portSource,
             "portLayer": portLayer,
             "straitlayer":StraitLayer,
-            "straitsource":StraitSource, 
-            "portLayer": portLayer,
+            "straitsource":StraitSource,
             relationSource,
             relationLayer,
             seaareaSource,
             seaareaLayer,
+            dischargeSource,
+            dischargeLayer,
         }
         //添加地图的时间监听
-        new mapListener(this.mapObj);
+        let mapListenerToStore = new mapListener(this.mapObj);
+        //将初始化的地图信息存储到Store中
+        this.props.dispatch(mapAction.initMap(mapListenerToStore));
         //加载全球港口数据---DEMO---测试用例先注释看看情况
         /* this.props.dispatch(mapAction.loadAllPort()); */
+
+        //
     }
 
     render() {

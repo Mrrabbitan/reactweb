@@ -2,7 +2,12 @@
     width:100%;
     padding:10px;
 	z-index: 100;
+    height:calc(100% - 32px);
+    overflow-y:auto;
 }
-.mtlc_box>div{
-    /*display:none;*/
+.ps_style .mtlc_box{
+    padding:0;
+}
+.mtlc_box::-webkit-scrollbar{
+    width: 0;
 }

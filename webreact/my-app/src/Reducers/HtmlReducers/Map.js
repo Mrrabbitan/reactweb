@@ -10,23 +10,16 @@ const initState = {
     "mapZoom":4,
     "mapMaxZoom":15,
     "maxMinZoom":3,
-    "map":"",
-    "mapObj":"",
-    layers:[]
+    "mapListener":"",
 };
 
 
 export default (state = initState,action={}) => {
     switch(action.type){
         case "INITMAP":
-            let layers = state.layers;
-            layers.push(action);
             return {
                 ...state,
-                map: action.map,
-                layers: [
-                    ...layers
-                ]
+                mapListener: action.mapListener,
             }
             break;
     }

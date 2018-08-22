@@ -23,7 +23,7 @@ var GPS = {
     },  
   
     /***
-     * 目前在使用
+     * 目前在使用,用在toolmap中
      */
     //WGS-84 to GCJ-02  
     gcj_encrypt: function (wgsLat, wgsLon)  
@@ -32,7 +32,7 @@ var GPS = {
             return [ wgsLat, wgsLon ];  
   
         var d = this.delta(wgsLat, wgsLon);  
-        return [(Number(wgsLat) + Number(d.lat)), (Number( wgsLon) + Number(d.lon) )]; 
+        return [(Number(wgsLat) - Number(d.lat)), (Number( wgsLon) + Number(d.lon) )]; 
     	//return [wgsLat,wgsLon];
     },  
     //GCJ-02 to WGS-84  
@@ -77,8 +77,8 @@ var GPS = {
         var x = gcjLon, y = gcjLat;  
         var z = Math.sqrt(x * x + y * y) + 0.00002 * Math.sin(y * this.x_pi);  
         var theta = Math.atan2(y, x) + 0.000003 * Math.cos(x * this.x_pi);  
-        bdLon = z * Math.cos(theta) + 0.0065;  
-        bdLat = z * Math.sin(theta) + 0.006;  
+        var bdLon = z * Math.cos(theta) + 0.0065;  
+        var bdLat = z * Math.sin(theta) + 0.006;  
         return { 'lat': bdLat, 'lon': bdLon };  
     },  
     //BD-09 to GCJ-02  

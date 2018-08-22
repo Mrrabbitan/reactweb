@@ -1,6 +1,6 @@
 import ol from 'openlayers';
 import toolMap from "../../Map/Other/ToolMap"
-
+import $ from 'jquery';
 /**
  * 地图事件
  */
@@ -44,6 +44,9 @@ class MapEvent{
         this.map.getView().setCenter(pos);
         this.map.getView().setZoom(9);
     };
+
+
+    
 
 }
 export default new MapEvent();

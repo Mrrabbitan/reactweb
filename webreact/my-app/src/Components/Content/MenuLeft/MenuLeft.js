@@ -25,10 +25,20 @@ class MenuLeft extends Component{
     animateFun(){
         $(this.refs.contentleft).animate({left:"-79px"},300);
         $("#mtl_box").animate({left:"0"},300);
+        $("#contentbottom").animate({"width":"100%"},300);
+        setTimeout(()=>{
+            $("#mtl_box").css("height",$("#mtl_box").height()+"px");
+        },1000)
+    }
+    componentDidMount(){
+
     }
     getThisListType(e){
         var type = $(e.currentTarget).attr("id");
         this.props.dispatch(Action.listType(type));
+        if(type=="luxsearch"){
+            $("#mtl_box").addClass("ps_style");
+        }
     }
     componentDidUpdate(){
         console.log(this.props)

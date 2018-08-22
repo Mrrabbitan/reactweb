@@ -5,6 +5,10 @@ import './index.css'
 import DateTime from 'react-datetime';
 import 'moment/locale/zh-cn';
 import 'react-datetime/css/react-datetime.css'
+import $ from 'jquery';
+import {connect} from 'react-redux';
+import * as Action from '../../../../../Actions/DataLayer';
+import shipServer from '../../../../../axios/shipServer';
 
 class DataLayer extends Component{
     constructor(){
@@ -12,9 +16,74 @@ class DataLayer extends Component{
         this.getSelectValue = this.getSelectValue.bind(this);
         this.getInputValue = this.getInputValue.bind(this);
         this.change = this.change.bind(this);
+        this.choiceAllType = this.choiceAllType.bind(this);
+        this.clearChoiceAllType = this.clearChoiceAllType.bind(this);
         this.state = {
-            showOrHide:"none"
+            showOrHide:"none",
+            allData:{
+                ship:[],
+                port:[]
+            }
         }
+    }
+    componentDidMount(){
+        //所有按钮点击效果
+        $("#dl_box .choice_btn").on("click",this.btnStyleFun);
+        //船事件监听
+        $(".dl_choice_ship .choice_btn").on("click",this.shipSelectEventFun.bind(this));
+        //港口事件监听
+        $(".dl_choice_port .choice_btn").on("click",this.portSelectEventFun.bind(this));
+
+    }
+    //所有按钮点击效果
+    btnStyleFun(){
+        //样式修改
+        if($(this).hasClass("choice_btn_active")){
+            $(this).removeClass("choice_btn_active");
+        }else{
+            $(this).addClass("choice_btn_active");
+        }
+    }
+    //船事件监听
+    shipSelectEventFun(){
+        //获取当前选中数据
+        let $choiceBtn = $(".dl_choice_ship").find(".choice_btn");
+        let choiceArr = [];
+        $choiceBtn.map((index,item)=>{
+            if($(item).hasClass("choice_btn_active")){
+                choiceArr.push($(item).attr("data-type"));
+            }
+        });
+        //存入state
+        this.setState({
+            allData:{
+                ...this.state.allData,
+                ship:choiceArr
+            }
+        },()=>{
+            this.getDataDrawLayer();
+        })
+    }
+
+    //港口事件监听
+    portSelectEventFun(){
+        //获取当前选中数据
+        let $choiceBtn = $(".dl_choice_port").find(".choice_btn");
+        let choiceArr = [];
+        $choiceBtn.map((index,item)=>{
+            if($(item).hasClass("choice_btn_active")){
+                choiceArr.push($(item).attr("data-type"));
+            }
+        })
+        //存入state
+        this.setState({
+            allData:{
+                ...this.state.allData,
+                port:choiceArr
+            }
+        },()=>{
+            this.getDataDrawLayer();
+        })
     }
     getSelectValue(aaa){
         console.log(aaa)
@@ -25,12 +94,60 @@ class DataLayer extends Component{
     change(date){
         console.log(date)
     }
-    componentDidUpdate(){
-        console.log(this.props)
+    //全选操作
+    choiceAllType(e){
+        let $eleBox = $(e.currentTarget).parents(".choice_title").next();
+        //全选效果
+        $eleBox.find(".choice_btn").addClass("choice_btn_active");
+        console.log($eleBox)
+        //全选得到数据请求数据
+        //获取当前选中数据
+        let $choiceBtn = $eleBox.find(".choice_btn");
+        let choiceArr = [];
+        $choiceBtn.map((index,item)=>{
+            if($(item).hasClass("choice_btn_active")){
+                choiceArr.push($(item).attr("data-type"));
+            }
+        })
+        //存入state
+        this.setState({
+            allData:{
+                ...this.state.allData,
+                ship:choiceArr
+            }
+        },()=>{
+            this.getDataDrawLayer();
+        })
+    }
+    //清空数据
+    clearChoiceAllType(e){
+        let $eleBox = $(e.currentTarget).parents(".choice_title").next();
+        //取消全选效果
+        $eleBox.find(".choice_btn").removeClass("choice_btn_active");
+        //存入state
+        this.setState({
+            allData:{
+                ...this.state.allData,
+                ship:[]
+            }
+        },()=>{
+            //清除对应图层即可
+            this.clearCanvasLayerFun()
+        })
+    }
+    //获得数据画图层
+    getDataDrawLayer(){
+        shipServer.findByType(this.state.allData,(data)=>{
+            //画图
+            this.props.mapListener.getDataLayer(data);
+        })
+    }
+    clearCanvasLayerFun(){
+        this.props.mapListener.clearCanvasLayer();
     }
     render(){
         return (
-            <div id="dl_box" style={{display:this.props.isShow=="datalayer"?"block":"none"}}>
+            <div id="dl_box">
                 {/*<Select value={'--国家--'} data={[{name:'1',id:'1'},{name:'2',id:'2'},{name:'3',id:'3'}]} getSelectValue={this.getSelectValue} name="select1"/>
                 <Select value={'--国家--'} data={[{name:'11',id:'11'},{name:'22',id:'22'},{name:'33',id:'33'}]} getSelectValue={this.getSelectValue} name="select2"/>
                 <InputSearch placeHolder="输入MMSI" getInputValue={this.getInputValue} name="input1"/>
@@ -39,26 +156,26 @@ class DataLayer extends Component{
                     <div className="choice_title">
                         <span>船舶</span>
                         <div className="showAllAndClear">
-                            <span id="showAllAndClear_all">全选</span>
-                            <span id="showAllAndClear_clear">清空</span>
+                            <span id="showAllAndClear_all" onClick={this.choiceAllType}>全选</span>
+                            <span id="showAllAndClear_clear" onClick={this.clearChoiceAllType}>清空</span>
                         </div>
                     </div>
                     <div className="dl_choice_btn_box">
-                        <span className="choice_btn choice_btn_active">液化气</span>
-                        <span className="choice_btn choice_btn_active">散货</span>
-                        <span className="choice_btn choice_btn_active">化学品</span>
-                        <span className="choice_btn choice_btn_active">油轮</span>
-                        <span className="choice_btn choice_btn_active">集装箱</span>
-                        <span className="choice_btn choice_btn_active">普通货</span>
-                        <span className="choice_btn">冷藏</span>
-                        <span className="choice_btn choice_btn_active">滚装货</span>
-                        <span className="choice_btn">其他</span>
+                        <span className="choice_btn" data-type="0101">液化气</span>
+                        <span className="choice_btn" data-type="02">散货</span>
+                        <span className="choice_btn" data-type="0102">化学品</span>
+                        <span className="choice_btn" data-type="0103">油轮</span>
+                        <span className="choice_btn" data-type="0303">集装箱</span>
+                        <span className="choice_btn" data-type="0301">普通货</span>
+                        <span className="choice_btn" data-type="0304">冷藏</span>
+                        <span className="choice_btn" data-type="0305">滚装货</span>
+                        <span className="choice_btn" data-type="0308">其他</span>
                     </div>
                 </div>
                 <div className="dl_choice_port">
                     <div className="choice_title">港口</div>
                     <div className="dl_choice_btn_box">
-                        <span className="choice_btn choice_btn_active">港口</span>
+                        <span className="choice_btn" data-type="">港口</span>
                     </div>
                 </div>
                 <div className="dl_choice_ploy">
@@ -91,8 +208,25 @@ class DataLayer extends Component{
                     <div className="dl_choice_btn_box">
                     </div>
                 </div>
+                <div className="dl_choice_haiqu">
+                    <div className="choice_title">全球排放区</div>
+                    <div className="dl_choice_btn_box">
+                    </div>
+                </div>
+                <div className="dl_choice_haiqu">
+                    <div className="choice_title">中国排放区</div>
+                    <div className="dl_choice_btn_box">
+                    </div>
+                </div>
             </div>
         )
     }
 }
-export default DataLayer;
+export default connect(
+    (state)=>{
+        return {
+            dataLayer:state.html.dataLayer,
+            mapListener:state.html.map.mapListener
+        }
+    }
+)(DataLayer);

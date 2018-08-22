@@ -1,9 +1,13 @@
 #mtl_box{
     width:145px;
-    height:auto;
+    max-height:calc(100% - 44px);
     background-color:#0048a6;
     position:absolute;
     top:15px;
     left:-145px;
+    /*overflow:hidden;*/
+}
+#mtl_box.ps_style{
+    width:290px;
 }
 

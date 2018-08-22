@@ -8,6 +8,8 @@ class Tool {
      * @param lon  经度
      * @param lat  纬度
      */
+    
+
     transform(lon, lat) {
         return ol.proj.transform([parseFloat(lon), parseFloat(lat)], 'EPSG:4326', 'EPSG:3857');
     }

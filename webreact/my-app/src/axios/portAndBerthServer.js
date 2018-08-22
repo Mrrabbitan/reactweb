@@ -14,7 +14,7 @@ const portAndBerthService = {
         },300)*/
        axios
         .get(sever.portAddress + "shiptail/service/portInfo/getAllPort", params)
-        .then(function(res) {
+        .then(function(res) {           
           callback(res);
         })
         .catch(function(error) {
@@ -53,6 +53,16 @@ const portAndBerthService = {
             callback(a);
         },300)*/
         axios.get(sever.portAddress + "/shiptail/service/portInfo/getStraitRelation")
+            .then(function(res) {
+                callback(res.data);
+            })
+            .catch(function(error) {
+                console.log(error);
+            });
+    },
+    
+    getBerthByPortId: function(params, callback) {
+        axios.get(sever.portAddress + "/shiptail/service/berthInfo/getBerthByPortId", {params})
             .then(function(res) {
                 callback(res.data);
             })

@@ -44,13 +44,26 @@ class HtmlTemplate {
      * @param data
      * @returns {string}
      */
-    createIndexTemplate1(data) {
+    createIndexTemplate1(name) {
+        /* alert('1231231') */
        /* var lonlat = data.mt_pos.split('/');
         var port_english_name_space = data.country_english_name;
         var country_english_name = port_english_name_space.replace(/(^\s*)|(\s*$)/g, "");
         return this.template1(country_english_name, data.name, data.port_chaname, lonlat[0], lonlat[1], data.country);*/
-       return "<div>TODO</div>";
+        let disInfo = `<div>
+                    海区名称:  ${name} 
+                    </div>`
+        return disInfo;
     }
+
+    createBerthDisInfo(data) {
+        var disInfo="<div>";
+        disInfo+="<div>"+"</div>"
+        disInfo+="</div>";      
+        return disInfo;
+     }
+
+
 }
 
 export default new HtmlTemplate();

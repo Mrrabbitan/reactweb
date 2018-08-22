@@ -1,6 +1,6 @@
 class Server {
     constructor() {
-        this.IP = "http://192.168.11.210:9072/";
+        this.IP = "http://192.168.11.202:9072/";
         //http请求地址
         this.portAddress = "http://192.168.11.142:7075/";
         //地图地址

@@ -22,10 +22,11 @@ class MtlContent extends Component {
         }
     }
     componentWillMount(){
-        console.log(this.props.listType)
         if(!this.state.listType) {
             $(".mtlc_box>div").hide();
         }
+    }
+    componentDidMount(){
     }
     render() {
         var dom = '';
