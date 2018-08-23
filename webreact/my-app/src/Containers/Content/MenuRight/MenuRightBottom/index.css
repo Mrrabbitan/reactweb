@@ -1,0 +1,11 @@
+.beb_box{
+    width:389px;
+}
+.beb_box>div>div{
+    height:41px;
+}
+.echart_border{
+    border-bottom:1px solid #1abceb;
+    border-left:1px solid #1abceb;
+    border-right:1px solid #1abceb;
+}

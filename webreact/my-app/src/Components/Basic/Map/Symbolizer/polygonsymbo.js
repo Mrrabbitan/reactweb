@@ -11,7 +11,7 @@ import ol from 'openlayers'
         var name = feature.get('name');
         var red = lstyle / 100 * 255;
         var greed = (1 - lstyle / 100) * 255;
-        var color = ol.color.asArray([ 233, 30, 99, 1 ]);
+        var color = ol.color.asArray([ 233, 30, 99, 0.4 ]);
         var text = new ol.style.Text({
             textAlign : "center",
             textBaseline : "middle",

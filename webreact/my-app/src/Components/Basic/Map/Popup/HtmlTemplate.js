@@ -51,14 +51,14 @@ class HtmlTemplate {
         var country_english_name = port_english_name_space.replace(/(^\s*)|(\s*$)/g, "");
         return this.template1(country_english_name, data.name, data.port_chaname, lonlat[0], lonlat[1], data.country);*/
         let disInfo = `<div>
-                    海区名称:  ${name} 
+                    港口名称:  ${name} 
                     </div>`
         return disInfo;
     }
 
     createBerthDisInfo(data) {
         var disInfo="<div>";
-        disInfo+="<div>"+"</div>"
+        disInfo+="<div>berth</div>"
         disInfo+="</div>";      
         return disInfo;
      }

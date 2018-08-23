@@ -1,8 +1,9 @@
 class dischargetemplate{
-    dischargepop(data){
-        return(
-            "<div>测试排放区的图层添加内容</div>"
-        )
+    dischargepop(name){
+        let disInfo = `<div>
+        海区名称:  ${name} 
+        </div>`
+    return disInfo;
     }
 }
 

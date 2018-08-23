@@ -32,17 +32,17 @@ var GPS = {
             return [ wgsLat, wgsLon ];  
   
         var d = this.delta(wgsLat, wgsLon);  
-        return [(Number(wgsLat) - Number(d.lat)), (Number( wgsLon) + Number(d.lon) )]; 
+        return [(Number(wgsLat) - Number(d.lat)), (Number( wgsLon) + Number(d.lon) )];
     	//return [wgsLat,wgsLon];
     },  
     //GCJ-02 to WGS-84  
     gcj_decrypt: function (gcjLat, gcjLon)  
     {  
         if (this.outOfChina(gcjLat, gcjLon))  
-            return { 'lat': gcjLat, 'lon': gcjLon };  
+            return { 'lat': gcjLat, 'lon': gcjLon };
   
         var d = this.delta(gcjLat, gcjLon);  
-        return { 'lat': (gcjLat - d.lat), 'lon': (gcjLon - d.lon) };  
+        return { 'lat': (gcjLat - d.lat), 'lon': (gcjLon - d.lon) };
     },  
     //GCJ-02 to WGS-84 exactly  
     gcj_decrypt_exact: function (gcjLat, gcjLon)  
@@ -69,7 +69,7 @@ var GPS = {
             if (++i > 10000) break;  
         }  
         //console.log(i);  
-        return { 'lat': wgsLat, 'lon': wgsLon };  
+        return { 'lat': wgsLat, 'lon': wgsLon };
     },  
     //GCJ-02 to BD-09  
     bd_encrypt: function (gcjLat, gcjLon)  
@@ -115,7 +115,7 @@ var GPS = {
         var x = mercatorLon / 20037508.34 * 180.;  
         var y = mercatorLat / 20037508.34 * 180.;  
         y = 180 / this.PI * (2 * Math.atan(Math.exp(y * this.PI / 180.)) - this.PI / 2);  
-        return { 'lat': y, 'lon': x };  
+        return { 'lat': y, 'lon': x };
         /* 
         if (Math.abs(mercatorLon) < 180 && Math.abs(mercatorLat) < 90) 
             return null; 

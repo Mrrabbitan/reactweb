@@ -1,5 +1,6 @@
 import $ from 'jquery';
 import ol from 'openlayers';
+import toolMap from "../Basic/Map/Other/ToolMap";
 
 class ShipDataLayer{
     constructor(map,layer){
@@ -13,7 +14,7 @@ class ShipDataLayer{
    initialize () {
         var map = this.map;
         var canvas = this.canvas = document.createElement('canvas');
-        canvas.id = "abcMapConvas";
+        canvas.className = "shipTypeConvas";
         var ctx = this.ctx = this.canvas.getContext('2d');
         canvas.style.cssText = 'position:absolute;' + 'left:0;' + 'top:0;' + 'z-index:' + this.zIndex + ';';
        this.adjustSize();
@@ -55,13 +56,23 @@ class ShipDataLayer{
     };
 
 
+    /***
+     * 从MapListener中获取数据，并将数据保存至this.data中
+     * @param data
+     */
     renderLayer(data){
         this.data = data;
         this.render(data);
+
     }
 
+    /***
+     * 渲染数据
+     * @param data
+     */
     render(data){
-        this.clearCanvasLayer();
+        var size = this.map.getSize();
+        this.ctx.clearRect(0, 0, size[0], size[1]);
        data.map((item) => {
            //console.log(item);
             this.draw_point(item);
@@ -73,16 +84,19 @@ class ShipDataLayer{
      * @param point  点
      */
     draw_point(point) {
-        //获取画笔
-        //设置绘制颜色
-        var coordinate = ol.proj.transform([point.X/1000000, point.Y/1000000], 'EPSG:4326', 'EPSG:3857');
+        var coordinate = toolMap.transform(point.X/1000000,point.Y/1000000);
         let [X,Y] = this.map.getPixelFromCoordinate([coordinate[0],coordinate[1]]);
+        //设置绘制颜色
         this.ctx.fillStyle="red";
         //绘制成矩形
         this.ctx.fillRect(X,Y,2,2);
     }
 
+    /**
+     * 清除画布
+     */
     clearCanvasLayer(){
+        this.data = null;
         var size = this.map.getSize();
         this.ctx.clearRect(0, 0, size[0], size[1]);
     }

@@ -11,7 +11,8 @@ var pointSymbo = {
         image : new ol.style.Icon({
             anchor : [ 0.5, 0.5 ],
             src : yzan
-        })
+        }),
+        zIndex: 30
     }),
     'shipleavingport' : new ol.style.Style({
         image : new ol.style.Icon({

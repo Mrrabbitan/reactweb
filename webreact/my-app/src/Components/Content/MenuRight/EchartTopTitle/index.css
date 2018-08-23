@@ -1,0 +1,12 @@
+.ett_box{
+    width:100%;
+    height:41px;
+    background: url(../../../../Assets/image/right_pic/echarts_top.png);
+    background-size:100% 100%;
+    margin-bottom:-10px;
+}
+.ett_box>p{
+    text-align:center;
+    color:#fff369;
+    line-height:25px;
+}

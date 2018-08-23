@@ -1,6 +1,7 @@
 import React,{Component} from 'react'
-import TopDataAnalysis from './MenuRightTop/topdataanalysis';
-import BottomEchart from './MenuRightBottom/bottomechart';
+import TopDataAnalysis from './MenuRightTop/TopDataAnalysis';
+import BottomEchartBox from './MenuRightBottom/BottomEchartBox';
+import './index.css'
 
 
 
@@ -9,7 +10,7 @@ class MenuRight extends Component{
         return (
             <div id="contentright">
                 <TopDataAnalysis/>
-                <BottomEchart/>
+                <BottomEchartBox type="1"/>
             </div>
         )
     }

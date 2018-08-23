@@ -44,4 +44,5 @@
 #popup{
     left:-63px;
     bottom:25px;
+    z-index:10000;
 }

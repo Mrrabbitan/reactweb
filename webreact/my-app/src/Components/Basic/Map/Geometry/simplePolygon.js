@@ -62,6 +62,13 @@ createAndAddMap1(source,level,arr,type,disinfo){
 	addFeature:需要将新的source插入到地图中
 	*/
 	
+    /*
+    param level:层级
+    param arr:数据结构为点与点之间连线连成一片区域
+    param disInfo:点击标牌信息
+    param type:暂无意义，传null
+	addFeature:需要将新的source插入到地图中
+    */
 
 	createBerthPolygonAndAddMap(source, level, arr, type, disInfo) {
 		var Polygon2 = this.berthPolygonFeature(level, arr, type, disInfo);

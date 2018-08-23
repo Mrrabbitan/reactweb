@@ -1,0 +1,13 @@
+#contentright{
+    width:398px;
+    max-height:calc(100% - 29px);
+    background-color: #0346a4;
+    border:1px solid #007ff6;
+    position:absolute;
+    right:0;
+    top:0;
+    display:flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+

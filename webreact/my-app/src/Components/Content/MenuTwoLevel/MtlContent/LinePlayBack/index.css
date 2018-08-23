@@ -18,12 +18,15 @@
     
 }
 
+#tailreviewan .common_btn{
+    margin:5px 0;
+}
+
 
 .secondspot{
     color:#2eb0fb;
     font-size: 12px;
-    font-size: 12px;
-margin-left:6px;
+    margin-left:6px;
 }
 #startbutton{
     background: url("../../../../../Assets/image/shipping_pic/big_button.png") no-repeat;
@@ -51,10 +54,50 @@ margin-left:6px;
 
 #spotbox{
     width:100%;
-    height:120px;
+    height:auto;
     border:1px solid white;
-
+    background-color:#013987;
+    padding:8px;
+    color:#fff;
+    font-size:12px;
 }
+#spotbox>p{
+    margin:0;
+}
+.ranger>div{
+    position: relative;
+    z-index: 3;
+    width:107px;
+    margin-left:9px;
+}
+.ranger{
+    width:100%;
+    height:auto;
+    position:relative;
+    margin:5px 0;
+}
+.startRanger,.endRanger{
+    display:inline-block;
+    width:18px;
+    height:18px;
+    text-align:center;
+    line-height: 18px;
+    background-color: #3ff3e3;
+    color:#333;
+    font-size:12px;
+    position: absolute;
+    border-radius: 4px;
+    border:1px solid #4aeba0;
+    top:-7px;
+    z-index:2;
+}
+.startRanger{
+    left:-9px;
+}
+.endRanger{
+    right:-9px;
+}
+
 
 .datalistpic{
     float:right;

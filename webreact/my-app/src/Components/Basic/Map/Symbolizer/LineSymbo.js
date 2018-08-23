@@ -49,6 +49,13 @@ var lineSymbo = {
             width: 4
         }),
         zIndex: 50
+    }),
+    'dischargeLine': new ol.style.Style({
+        stroke: new ol.style.Stroke({
+            color: '#b42a33',
+            width: 4
+        }),
+        zIndex: 50
     })
 
 }

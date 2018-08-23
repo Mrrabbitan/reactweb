@@ -40,6 +40,8 @@ class Map extends Component {
         let Centercoord = staticMapConfig.centerCoord;
         //创建地图
         let map = olMap.baiscMap([layer_custom_dayan], "map", Centercoord, 3, 15, 4);
+        //添加海区图层
+        let [seaareaSource, seaareaLayer] = simpleLayer.sourceLayer(map, true);
         //创建弹出框的图层
         let [popupElement,popupOverlay] = popup.basicPopup(map,"popup");
         //增加鼠标放入海图获取当前坐标
@@ -50,11 +52,17 @@ class Map extends Component {
         let [portSource, portLayer] = simpleLayer.sourceLayer(map, false);
         //添加Layer，放置关系网路
         let [relationSource, relationLayer] = simpleLayer.sourceLayer(map, true);
-        //添加海区图层
-        let [seaareaSource, seaareaLayer] = simpleLayer.sourceLayer(map, true);
-        //添加排放区图层
-        let [dischargeSource, dischargeLayer] = simpleLayer.sourceLayer(map, true);
+         //添加全球排放区图层
+         let [dischargeSource, dischargeLayer] = simpleLayer.sourceLayer(map, true);
+         //添加中国排放区图层
+         let [ChinadischargeSource, ChinadischargeLayer] = simpleLayer.sourceLayer(map, true);
+        //添加泊位图层
+        let [berthSource, berthLayer] = simpleLayer.sourceLayer(map, true);
+        //添加船舶图层,默认不展示
+        let [shipSource, shipLayer] = simpleLayer.sourceLayer(map, false);
 
+
+        
         this.mapObj = {
             "map": map,
             "basicLayer": layer_custom_dayan,
@@ -70,6 +78,13 @@ class Map extends Component {
             seaareaLayer,
             dischargeSource,
             dischargeLayer,
+            shipSource,
+            shipLayer,
+            ChinadischargeSource,
+            ChinadischargeLayer,
+            berthSource,
+            berthLayer
+
         }
         //添加地图的时间监听
         let mapListenerToStore = new mapListener(this.mapObj);

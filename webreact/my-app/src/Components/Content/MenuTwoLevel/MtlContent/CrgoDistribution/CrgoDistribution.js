@@ -48,7 +48,6 @@ class CrgoDistribution extends Component{
                 {/*货*/}
                 <div className="cd_ship">
                     <p className="title_lv1">货</p>
-                    <div className="common_btn">查询2</div>
                     <div className="cd_choice_ship">
                         <div className="choice_title">
                             <span>分类</span>

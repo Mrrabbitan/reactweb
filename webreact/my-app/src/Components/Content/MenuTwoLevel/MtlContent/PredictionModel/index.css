@@ -109,23 +109,6 @@
     margin-top:7px;
 }
 
-
-
-.cd_choice_btn_box{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    background: #012f6c;
-    background-size: 100% 100%;
-    margin-top:10px;
-    border: 1px solid #1ca9fb;
-    padding:3px;
-    margin-bottom: 10px;
-}
-.cd_choice_btn_box>span{
-    margin-bottom:10px;
-}
-
 #desport{
 height:60px;
 width:100%;
