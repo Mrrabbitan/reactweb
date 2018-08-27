@@ -1,10 +1,5 @@
 import axios from 'axios'
-/**
-     * 全球实时船舶统计
-     * @param params
-     * @param callback
-     * @author anzp
-     */
+
 const disChargeServer={
         loadAlldisCharge:function(params, callback){
             axios.get('http://localhost:3000/JSONdoc/globalDischargeAreaSymbol_Area.json',{params})

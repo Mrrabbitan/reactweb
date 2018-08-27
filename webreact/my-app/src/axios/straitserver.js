@@ -1,11 +1,6 @@
 import axios from "axios";
 import sever from "../Config/globaldefine";
-/**
-     * 全球实时船舶统计
-     * @param params
-     * @param callback
-     * @author anzp
-     */
+
 const Straitserver={
 
     loadallstrait:function(params,callback){

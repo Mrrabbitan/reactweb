@@ -547,5 +547,41 @@ class shipAndBerth{
             return "red";
         }
     }
+    tenCountryTranslate(en){
+        switch (en){
+            case "United States Of America":
+                return '美国';
+                break;
+            case "China, People's Republic Of":
+                return '中国';
+                break;
+            case "Japan":
+                return '日本';
+                break;
+            case "Germany":
+                return '德国';
+                break;
+            case "United Kingdom":
+                return '英国';
+                break;
+            case "India":
+                return '印度';
+                break;
+            case "France":
+                return '法国';
+                break;
+            case "Italy":
+                return '意大利';
+                break;
+            case "Canada":
+                return '加拿大';
+                break;
+            case "Brazil":
+                return '巴西';
+                break;
+            default:
+                return ''
+        }
+    }
 }
 export  default  new shipAndBerth();

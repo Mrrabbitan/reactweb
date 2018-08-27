@@ -1,0 +1,67 @@
+#mapBox{
+    width:100%;
+    height:100%;
+}/* mapbox将海图封装进容器内，完成页面的内容可变必须要对box进行宽高的限定 */
+#map{
+    width:100%;
+    height:100%;
+    margin: 0px;
+    padding: 0px;
+}
+
+.ol-mouse-position{
+    height: 20px;
+    width: 250px;
+    z-index: 99;
+    position: absolute;
+    opacity: 0.7;
+    top:898px;
+    right: 310px;
+    color:white;
+    font-size: 14px;
+}
+
+.ol-zoom{
+    height: 24px;
+    width: 24px;
+    z-index: 99;
+    position: absolute;
+    left:10px;
+    top: 10px;
+    color:black;
+    font-size: 14px;
+
+}
+
+.ol-rotate{
+    height: 24px;
+    width: 24px;
+    z-index: 99;
+    position: absolute;
+    right:10px;
+    top: 10px;
+    color:black;
+    font-size: 14px;
+
+
+}
+
+.ol-attribution{
+    height: 24px;
+    width: 24px;
+    z-index: 99;
+    position: absolute;
+    left:10px;
+    bottom: 10px;
+    color:black;
+    font-size: 14px;
+}
+.popover-body{
+    height:1px !important;
+    width:1px !important;
+}
+#popup.popup-seaarea{/* 保留原始id 添加新的classname */
+    left:-50px;
+    bottom:10px;
+}
+

@@ -3,12 +3,7 @@
 
 import axios from 'axios';
 
-/**
-     * 全球实时船舶统计
-     * @param params
-     * @param callback
-     * @author anzp
-     */
+
 const  seaareaServer={
     loadAllSeaarea:function(params,callback){
        

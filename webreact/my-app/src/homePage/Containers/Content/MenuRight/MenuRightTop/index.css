@@ -1,0 +1,43 @@
+.tda_box{
+    width:389px;
+    height:288px;
+    background:url(../../../../../Assets/image/right_pic/num_bg_box.png) no-repeat;
+    margin-top:5px;
+    margin-bottom:5px;
+}
+.tda_title{
+    width:100%;
+    height:27px;
+    font-size:16px;
+    color: #00f7e1;
+    text-align:center;
+}
+.tda_con{
+    width:100%;
+    height:262px;
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+}
+.tda_num_box{
+    width:118px;
+    height:68px;
+    margin:10px 5px 0 5px;
+}
+.tda_num_title{
+    width:100%;
+    height:36px;
+    display:flex;
+    justify-content: space-around;
+    align-items: center;
+    color:#55ddff;
+    font-size:15px;
+    line-height: 34px;
+    cursor: pointer;
+}
+.tda_num_title.active{
+    background: url(../../../../../Assets/image/right_pic/num_active.png);
+    background-size:100% 100%;
+    color:#fff47d;
+}

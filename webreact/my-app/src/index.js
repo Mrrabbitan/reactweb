@@ -1,15 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './Assets/style/index.css';
-import App from './App';
+import './homePage/Style/index.css';
+import App from './homePage/App';
 import registerServiceWorker from './Assets/js/registerServiceWorker';
 import {Provider} from "react-redux";
-import store from './Store/store';
+import store from './homePage/Store/store';
 ReactDOM.render(
     <Provider store={store}>
         <App/>{/* 封装好的方法将store的props传给子组件，虽然看不到，但是封装在probvider的方法中了 */}
     </Provider>
     , document.getElementById('root'));
+
+
+
 registerServiceWorker();/* 用于上线后的环境调试 
 
 

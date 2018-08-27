@@ -1,0 +1,30 @@
+#pm_box{
+    width:100%;
+    height:auto;
+}
+#pm_box>div{
+    width:100%;
+}
+.pm_time_box{
+    width:100%;
+    border:1px solid #037fc7;
+    border-radius: 3px;
+    background-color: #00377f;
+    padding:4px 2px;
+}
+.pm_ship_type_box{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    border-radius: 3px;
+    background-color: #00377f;
+    border:1px solid #037fc7;
+    padding:0 4px;
+    margin-bottom:8px;
+}
+.pm_ship_type_box>span{
+    margin:4px 0;
+}
+#pm_box .common_btn{
+    margin:8px 0;
+}
