@@ -9,9 +9,11 @@ class ShipDataLayer{
         this.canvas = null;
         this.ctx = null;
         this.data = null;
+        this.showFlag = true;
         this.initialize();
     }
    initialize () {
+        var self  = this;
         var map = this.map;
         var canvas = this.canvas = document.createElement('canvas');
         canvas.className = "shipTypeConvas";
@@ -25,11 +27,13 @@ class ShipDataLayer{
            $(canvas).hide();
         });
         map.on("moveend", function() {
-            $(canvas).show();
-            that.adjustSize();
-            if(that.data){
-                that.render(that.data);
-            }
+           if(self.showFlag){
+                $(canvas).show();
+                that.adjustSize();
+                if(that.data){
+                    that.render(that.data);
+                }
+           }
         });
     };
 
@@ -93,12 +97,27 @@ class ShipDataLayer{
     }
 
     /**
-     * 清除画布
+     * 清除画布，并清除缓存数据
      */
     clearCanvasLayer(){
         this.data = null;
         var size = this.map.getSize();
         this.ctx.clearRect(0, 0, size[0], size[1]);
+    }
+
+    /**
+     * 隐藏画布
+     */
+    canvasHide(){
+        this.showFlag = false;
+        $(this.canvas).hide();
+    }
+    /**
+     * 显示画布
+     */
+    canvasShow(){
+        this.showFlag = true;
+        $(this.canvas).show();
     }
 }
 export default ShipDataLayer;

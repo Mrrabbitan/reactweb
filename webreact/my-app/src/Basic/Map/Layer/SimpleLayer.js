@@ -33,8 +33,14 @@ class SimpleLayer{
             style : function(feature) {
                
                if(feature.getGeometry().getType() == "Point"){
-                    //坐标点样式
-                   return pointSymbo[feature.get('type')];
+                   //坐标点样式
+                   let style = pointSymbo[feature.get('type')];
+                   if(feature.get("rotation")){
+                       //设置图片方向
+                       var limage = style.getImage();
+                       limage.setRotation(feature.get('rotation'));
+                   }
+                   return style;
                }else if(feature.getGeometry().getType() == "LineString"){
                    //线的样式
                    return lineSymbo[feature.get('type')];

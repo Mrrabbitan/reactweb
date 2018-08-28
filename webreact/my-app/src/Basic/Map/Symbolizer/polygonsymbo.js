@@ -36,13 +36,17 @@ import ol from 'openlayers'
         })
     },
 
+     /***
+      * 海区样式
+      * @param feature
+      */
     "indexSeaArea" : function(feature){
         return  new ol.style.Style({
-            fill: new ol.style.Fill({ //矢量图层填充颜色，以及透明度
+            /*fill: new ol.style.Fill({ //矢量图层填充颜色，以及透明度
               color: 'rgba(255, 255, 255, 0.3)'
-            }),
+            }),*/
             stroke: new ol.style.Stroke({ //边界样式
-              color: '#319FD3',
+              color: '#4395ba',
               width: 1
             }),
             text: new ol.style.Text({ //文本样式

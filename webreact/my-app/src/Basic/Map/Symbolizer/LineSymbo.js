@@ -43,16 +43,22 @@ var lineSymbo = {
         }),
         zIndex: 10
     }),
+    /**
+     * 排放区样式
+     */
     'lineChoose': new ol.style.Style({
         stroke: new ol.style.Stroke({
-            color: '#7da21d',
+            color: '#65ad9a',
             width: 4
         }),
         zIndex: 50
     }),
+    /**
+     * 中国排放区样式
+     */
     'dischargeLine': new ol.style.Style({
         stroke: new ol.style.Stroke({
-            color: '#b42a33',
+            color: '#65ad9a',
             width: 4
         }),
         zIndex: 50

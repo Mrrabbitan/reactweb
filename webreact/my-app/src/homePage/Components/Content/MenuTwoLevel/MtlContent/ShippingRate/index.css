@@ -10,3 +10,9 @@
 .sr_box>p:hover{
     text-decoration: underline;
 }
+
+.toshowrelayer{
+    font-size:16px;
+    line-height:30px;
+    cursor: pointer;
+}

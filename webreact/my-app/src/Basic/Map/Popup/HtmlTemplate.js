@@ -124,7 +124,47 @@ class HtmlTemplate {
                                 </div>
                                 <div class="content_ship_tab_content">
                                     <div id="content_ship_tab_content_jiben"  class="content_ship_tab_content_active">
-                                    基本信息
+                                           <div>
+                                                   <span class="titleText">国家：</span><span class="contectText" id="popup_ship_COUNTRY"></span>
+                                           </div>
+                                           <div>
+                                                   <span class="titleText">类型：</span><span class="contectText" id="popup_ship_TYPE"></span>
+                                           </div>
+                                           <div>
+                                                   <span class="titleText">IMO：</span><span class="contectText" id="popup_ship_IMO"></span>
+                                           </div>
+                                           <div>
+                                                   <span class="titleText">长宽：</span><span class="contectText" id="popup_ship_WH"></span>
+                                           </div>
+                                           <div>
+                                                   <span class="titleText">呼号：</span><span class="contectText" id="popup_ship_CALLSIGN"></span>
+                                           </div>
+                                           <div>
+                                                   <span class="titleText">吃水：</span><span class="contectText" id="popup_ship_WATER"></span>
+                                           </div>
+                                           <div>
+                                                   <span class="titleText">MMSI：</span><span class="contectText" id="popup_ship_MMSI"></span>
+                                           </div>
+                                           <div>
+                                                   <span class="titleText">船向：</span><span class="contectText" id="popup_ship_C"></span>
+                                           </div>
+                                           <div>
+                                                   <span class="titleText">经度：</span><span class="contectText" id="popup_ship_LNG"></span>
+                                           </div>
+                                           <div>
+                                                   <span class="titleText">纬度：</span><span class="contectText" id="popup_ship_LAT"></span>
+                                           </div>
+                                           <div>
+                                                   <span class="titleText">目的港：</span><span class="contectText" id="popup_ship_objective"></span>
+                                           </div>
+                                           <div>
+                                                   <span class="titleText">ETA：</span><span class="contectText" id="popup_ship_ETA">111</span>
+                                           </div>
+                                           <div class="ship_content_line"></div>
+                                           <div class="ship_content_button">
+                                                    <div class="contectText">记录时间：<span  id="popup_ship_TIME"</span></div>
+                                                     <div class="titleText">更多详情>></div>
+                                           </div>
                                     </div>
                                     <div id="content_ship_tab_content_xiangxi">
                                     详细信息

@@ -511,40 +511,49 @@ class shipAndBerth{
         return typeMap[type] ? typeMap[type] : ''
     }
     /**
-     * 获取船舶首页显示颜色
+     * 获取船舶样式
+     * s_zi
+     * s_hong
+     * s_huang
+     * s_hui
+     * s_ju
+     * s_lan
+     * s_lv
+     * s_tianlan
+     * s_zifen
      * @param type
      * @returns {string}
      */
-    getShipTypeColor(type) {
+    getShipTypeStyle(type) {
         if(type.startsWith("0101")){
             //液化气船
-            return "#8B008B";
+            return "ship_s_zi";
         }else if(type.startsWith("0102")){
             //化学品船
-            return "#00008B";
+            return "ship_s_hong";
         }else if(type.startsWith("0103")){
             //油轮
-            return "#00BFFF";
+            return "ship_s_huang";
         }else if(type.startsWith("02")){
             //散货船
-            return "#00FFFF";
+            return "ship_s_hui";
         }else if(type.startsWith("0301")){
             //普通货船
-            return "#00FF7F";
+            return "ship_s_ju";
         }else if(type.startsWith("0303")){
             //集装箱船
-            return "#FF8C00";
+            return "ship_s_lan";
         }else if(type.startsWith("0304")){
             // 冷藏船
-            return "#A52A2A";
+            return "ship_s_lv";
         }else if(type.startsWith("0305")){
             //滚装货船
-            return "#808080";
+            return "ship_s_tianlan";
         }else if(type.startsWith("0308")){
             // 其他干货船
-            return "#000000";
+            return "ship_s_zifen";
         }else{
-            return "red";
+            return "portwu";
         }
     }
     tenCountryTranslate(en){

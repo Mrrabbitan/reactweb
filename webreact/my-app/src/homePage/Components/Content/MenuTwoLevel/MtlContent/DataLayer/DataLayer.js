@@ -225,12 +225,12 @@ class DataLayer extends Component{
                     </div>
                 </div>
                 <div className="dl_choice_haiqu">
-                    <div className="choice_title active">全球排放区</div>
+                    <div className="choice_title">全球排放区</div>
                     <div className="dl_choice_btn_box">
                     </div>
                 </div>
                 <div className="dl_choice_haiqu">
-                    <div className="choice_title active">中国排放区</div>
+                    <div className="choice_title">中国排放区</div>
                     <div className="dl_choice_btn_box">
                     </div>
                 </div>

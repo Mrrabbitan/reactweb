@@ -88,50 +88,54 @@ const portAndBerthService = {
                 console.log(error);
             });
     },
-
+    /**
+     * 港口图表请求
+     */
     getPortbelongContenent: function(params,callback){
-        /*setTimeout(function(){
+        setTimeout(function(){
             var a = {"data":{"continentPort":[{"count":956},{"continent_name":"欧洲","count":1840},{"continent_name":"北美洲","count":971},{"continent_name":"南美洲","count":456},{"continent_name":"亚洲","count":1488},{"continent_name":"大洋洲","count":286},{"continent_name":"非洲","count":412}],"portStatus":null,"majorEconomies":null},"status":10000}
              callback(a);
-        },300)*/
-        axios.get(sever.portAddress + "shiptail/service/portInfo/getContinentPortDistribution",{params})
+        },300)
+        /*axios.get(sever.portAddress + "shiptail/service/portInfo/getContinentPortDistribution",{params})
         .then(function(res){
             callback(res.data);
         })
         .catch(function(error){
             console.log(error);
-        });
+        });*/
     },
     /**
-     * 港口图表请求
+     * 泊位图表请求
      */
     getWholeWorldBerth(params,callback){
-        setTimeout(function(){
-         var a = {"berthDistribution":null,"berthCount":{"useCount":[{"use_count":0,"final_type":11},{"use_count":0,"final_type":12},{"use_count":0,"final_type":13},{"use_count":0,"final_type":21},{"use_count":0,"final_type":30},{"use_count":0,"final_type":31},{"use_count":0,"final_type":99},{"use_count":0,"final_type":90}],"allCount":[{"count":14217,"final_type":"21"},{"count":5118,"final_type":"31"},{"count":19813,"final_type":"30"},{"count":749,"final_type":"13"},{"count":36,"final_type":"99"},{"count":7375,"final_type":"11"},{"count":181,"final_type":"12"}]}};
-             callback(a);
-         },300)
-       /* axios.get(sever.portAddress + "portInfo/getWholeWorldBerth",{params})
+        // setTimeout(function(){
+        //  var a = {"berthDistribution":[[{"country":"乌克兰"},{"count":26,"name":"集装箱"},{"count":80,"name":"化学品"},{"count":7,"name":"lpg"},{"count":1241,"name":"石油"},{"count":1443,"name":"干散货"}],[{"country":"伊拉克"},{"count":5,"name":"其他"},{"count":11,"name":"化学品"},{"count":2,"name":"lpg"},{"count":6,"name":"集装箱"},{"count":1245,"name":"干散货"},{"count":1254,"name":"石油"}],[{"country":"加拿大"},{"count":1326,"name":"石油"},{"count":245,"name":"化学品"},{"count":1,"name":"lng"},{"count":64,"name":"集装箱"},{"count":1816,"name":"干散货"}],[{"country":"印度"},{"count":20,"name":"lpg"},{"count":62,"name":"集装箱"},{"count":1476,"name":"干散货"},{"count":1297,"name":"石油"},{"count":182,"name":"化学品"},{"count":5,"name":"lng"}],[{"country":"墨西哥"},{"count":111,"name":"化学品"},{"count":1260,"name":"石油"},{"count":50,"name":"集装箱"},{"count":3,"name":"lng"},{"count":1340,"name":"干散货"},{"count":6,"name":"lpg"}],[{"country":"澳大利亚"},{"count":1552,"name":"干散货"},{"count":69,"name":"集装箱"},{"count":1306,"name":"石油"},{"count":10,"name":"lpg"},{"count":10,"name":"lng"},{"count":171,"name":"化学品"}],[{"country":"爱尔兰"},{"count":60,"name":"化学品"},{"count":2,"name":"lpg"},{"count":1244,"name":"石油"},{"count":1288,"name":"干散货"},{"count":11,"name":"集装箱"}],[{"country":"爱沙尼亚"},{"count":1,"name":"lpg"},{"count":9,"name":"集装箱"},{"count":39,"name":"化学品"},{"count":1340,"name":"干散货"},{"count":1231,"name":"石油"}],[{"country":"科威特"},{"count":1,"name":"lng"},{"count":8,"name":"集装箱"},{"count":2,"name":"lpg"},{"count":10,"name":"化学品"},{"count":2,"name":"其他"},{"count":1259,"name":"干散货"},{"count":1251,"name":"石油"}],[{"country":"美国"},{"count":520,"name":"集装箱"},{"count":1209,"name":"化学品"},{"count":4,"name":"lng"},{"count":46,"name":"lpg"},{"count":2091,"name":"石油"},{"count":2941,"name":"干散货"}]],"berthCount":[{"count":14217,"name":"化学品","useCount":0},{"count":5118,"name":"集装箱","useCount":0},{"count":19813,"name":"干散货","useCount":0},{"count":749,"name":"lpg","useCount":0},{"count":36,"name":"其他","useCount":0},{"count":7375,"name":"石油","useCount":0},{"count":181,"name":"lng","useCount":0}]}
+        //      callback(a);
+        //  },300)
+       axios.get(sever.portAddress + "portInfo/getWholeWorldBerth",{params})
         // axios.get(sever.portAddress + "shiptail/service/portInfo/getWholeWorldBerth",{params})
             .then(function(res){
                 callback(res.data);
+                console.log(res)
             })
             .catch(function(error){
                 console.log(error);
-            });*/
+            })
     },
     /*港区图表*/
     getPortDistribution(params,callback){
-        setTimeout(function(){
+        /*setTimeout(function(){
             var a = [[{"country":"中国"},{"count":85,"facility_type":"Both"},{"count":473,"facility_type":"Tanker"},{"count":1028,"facility_type":"Dry Cargo"}],[{"country":"法国"},{"count":218,"facility_type":"Dry Cargo"},{"count":89,"facility_type":"Tanker"},{"count":32,"facility_type":"Both"}],[{"country":"挪威"},{"count":300,"facility_type":"Dry Cargo"},{"count":92,"facility_type":"Tanker"},{"count":52,"facility_type":"Both"}],[{"country":"美国"},{"count":209,"facility_type":"Both"},{"count":1053,"facility_type":"Dry Cargo"},{"count":709,"facility_type":"Tanker"}],[{"country":"日本"},{"count":705,"facility_type":"Dry Cargo"},{"count":321,"facility_type":"Tanker"},{"count":93,"facility_type":"Both"}],[{"country":"加拿大"},{"count":312,"facility_type":"Dry Cargo"},{"count":118,"facility_type":"Tanker"},{"count":51,"facility_type":"Both"}],[{"country":"德国"},{"count":286,"facility_type":"Dry Cargo"},{"count":83,"facility_type":"Tanker"},{"count":29,"facility_type":"Both"}],[{"country":"印度尼西亚"},{"count":184,"facility_type":"Dry Cargo"},{"count":211,"facility_type":"Tanker"},{"count":35,"facility_type":"Both"}],[{"country":"英国"},{"count":391,"facility_type":"Dry Cargo"},{"count":172,"facility_type":"Tanker"},{"count":43,"facility_type":"Both"}],[{"country":"意大利"},{"count":28,"facility_type":"Both"},{"count":229,"facility_type":"Dry Cargo"},{"count":117,"facility_type":"Tanker"}]];
             callback(a);
-        },300);
-        /*axios.get(sever.portAddress + "portInfo/getPortDistribution",{params})
+        },300);*/
+        axios.get(sever.portAddress + "portInfo/getPortDistribution",{params})
          .then(function(res){
          callback(res.data);
+             console.log(res)
          })
          .catch(function(error){
          console.log(error);
-         });*/
+         });
     }
 
 

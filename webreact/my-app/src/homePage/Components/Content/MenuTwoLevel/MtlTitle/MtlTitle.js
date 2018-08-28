@@ -8,6 +8,7 @@ class MtlTitle extends Component{
     constructor(){
         super();
         this.closeMenuTwoLv = this.closeMenuTwoLv.bind(this);
+        this.showoriginLayer =this.showoriginLayer.bind(this);//将点击事件绑定
     }
     closeMenuTwoLv(e){
         console.log("close-----");
@@ -15,6 +16,18 @@ class MtlTitle extends Component{
         this.animateFun();
         //状态清除
         this.props.dispatch(Action.listType(''));
+        //调用函数展现原始图层
+        if(this.props.listType == "shippinglayer"){
+            this.showoriginLayer(e);
+        } 
+        
+    }
+    //展现原始图层的内容
+    showoriginLayer(e){
+        let $this = $(e.currentTarget);
+        this.props.portmaplistener.hideAllLayer();
+        this.props.mapListener.showAllLayer();
+        
     }
     animateFun(){
         $("#mtl_box").animate({left:"-145px"},300);
@@ -69,7 +82,10 @@ class MtlTitle extends Component{
 export default connect(
     (state)=>{
         return {
-            listType:state.html.menuLeft.listType
+            listType:state.html.menuLeft.listType,
+            mapListener:state.html.map.mapListener,
+            portmaplistener:state.html.map.portmaplistener,
+
         }
     }
 )(MtlTitle);

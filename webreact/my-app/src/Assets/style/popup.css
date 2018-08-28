@@ -152,12 +152,41 @@
     color: #71e1ff;
 }
 .content_ship_tab_content>div{
-    height:350px;
+    padding: 10px 30px 5px 30px;
     display: none;
+    position:relative;
 }
 .content_ship_tab_content .content_ship_tab_content_active{
-    display:block;
+    display:flex;
+    flex-wrap: wrap;
 }
+.shipTwoMessageDiv{
+    display: flex;
+    justify-content: space-around;
+}
+/****
+设置基本信息内部div
+ */
+#content_ship_tab_content_jiben>div{
+    width:50%;
+}
+#content_ship_tab_content_jiben .ship_content_line{
+    width: 470px;
+    margin-left: -30px;
+    height:1px;
+    line-height: 1px;
+    border-bottom:  1px solid #3cdde7;
+    position:absolute;
+    bottom:30px;
+}
+#content_ship_tab_content_jiben .ship_content_button{
+    align-items: flex-end;
+    width:100%;
+    display: flex;
+    justify-content: space-between;
+    height: 30px;
+}
+
 #popup{
     z-index:10000;
 }

@@ -1,9 +1,9 @@
 import  portAndBerthServer from '../../axios/portAndBerthServer';
 import Straitserver from '../../axios/straitserver';
 
+export const initMap = (mapListener,portmaplistenerToStore) => {return {type : "INITMAP",mapListener,portmaplistenerToStore}};
 
 
-export const initMap = (mapListener) => {return {type : "INITMAP",mapListener}};
 
 export const loadAllPort = () => (dispatch) => {
     portAndBerthServer.loadAllPort({},function(data){

@@ -22,19 +22,52 @@ const getOption1 = (dataName,dataValue)=> {
                 data: dataName,
                 axisTick: {
                     alignWithLabel: true
+                },
+                axisLabel: {
+                    show: true,
+                    textStyle: {
+                        color: '#fff',
+                        fontSize:'12'
+                    }
+                },
+                axisLine:{
+                    show:true,
+                    lineStyle:{
+                        color:"#0b6ead",
+                    }
                 }
             }
         ],
         yAxis: [
             {
-                type: 'value'
+                type: 'value',
+                name: '数量（个）',
+                nameTextStyle:{
+                    color:"#ffeb00"
+                },
+                axisLabel: {
+                    show: true,
+                    textStyle: {
+                        color: '#44a1c2',
+                        fontSize:'12'
+                    }
+                },
+                axisLine:{
+                    show:true,
+                    lineStyle:{
+                        color:"#0b6ead",
+                    }
+                },
+                splitLine:{
+                    show:false
+                }
             }
         ],
         series: [
             {
-                name: '直接访问',
+                name: '港口',
                 type: 'bar',
-                barWidth: '60%',
+                barWidth: '30%',
                 data: dataValue
             }
         ]
@@ -63,12 +96,45 @@ const getOption2 = (dataName,dataValue)=> {
                 data: dataName,
                 axisTick: {
                     alignWithLabel: true
+                },
+                axisLabel: {
+                    show: true,
+                    textStyle: {
+                        color: '#fff',
+                        fontSize:'12'
+                    }
+                },
+                axisLine:{
+                    show:true,
+                    lineStyle:{
+                        color:"#0b6ead",
+                    }
                 }
             }
         ],
         yAxis: [
             {
-                type: 'value'
+                type: 'value',
+                name:'数量（个）',
+                nameTextStyle:{
+                    color:"#ffeb00"
+                },
+                axisLabel: {
+                    show: true,
+                    textStyle: {
+                        color: '#44a1c2',
+                        fontSize:'12'
+                    }
+                },
+                axisLine:{
+                    show:true,
+                    lineStyle:{
+                        color:"#0b6ead",
+                    }
+                },
+                splitLine:{
+                    show:false
+                }
             }
         ],
         series: [

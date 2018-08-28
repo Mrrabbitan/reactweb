@@ -14,6 +14,8 @@ import simpleLayer from '../../../Basic/Map/Layer/SimpleLayer';
 import seaareaServer from '../../../axios/seaareaServer';
 import GPS from '../../../Basic/Map/Other/geotrans';
 import dischargeServer from '../../../axios/dischargeServer';
+import shipAndBerth from "../../../Assets/js/shipAndBerth";
+import shipServer from "../../../axios/shipServer";
 
 import dischargetemplate from '../../../Basic/Map/Geometry/dischargetemplate';
 
@@ -42,7 +44,7 @@ class MapListener {
             data.data.map((item) => {
                 var disInfo = htmlTemplate.createIndexPortTemplate(item);
                 var coord = toolMap.transform(item.longitudedecimal, item.latitudeDecimal);
-                simpleFeature.createAndAddPortPointFeature(self.mapObj.portInportentSource, "shipleavingport", disInfo, coord, item.portid);
+                simpleFeature.createAndAddPortPointFeature(self.mapObj.portInportentSource, "indexPort6", disInfo, coord, item.portid);
             });
         });
     }
@@ -58,7 +60,7 @@ class MapListener {
             data.data.data.forEach((item) => {
                 var disInfo = htmlTemplate.createIndexPortTemplate(item);
                 var coord = toolMap.transform(item.longitudedecimal, item.latitudedecimal);
-                simpleFeature.createAndAddPortPointFeature(self.mapObj.portSource, "shipleavingport", disInfo, coord, item.portid);
+                simpleFeature.createAndAddPortPointFeature(self.mapObj.portSource, "indexPort10", disInfo, coord, item.portid);
             });
         });
     }
@@ -185,7 +187,6 @@ class MapListener {
     loadRelation() {
         let self = this;
         portAndBerthServer.loadStraitRelation(function (data) {
-
             //加载所有的港口
            /* data.portGird.map((item) => {
                 var disInfo = lineHtmlTemplate.relationTemplate(item);
@@ -211,11 +212,18 @@ class MapListener {
         self.clickSouth = coordinate;
         var pixel = self.mapObj.map.getEventPixel(evt.originalEvent);
         var feature = self.mapObj.map.forEachFeatureAtPixel(pixel, function (feature, layer) {
-            if (layer == self.mapObj.portLayer || layer == self.mapObj.portInportentLayer || layer == self.mapObj.shipLayer) {
+            if (layer == self.mapObj.portLayer || layer == self.mapObj.portInportentLayer ) {
                 //点击港口
                 self.portClick(feature, layer, self.mapObj.popupOverlay.getElement(), self.mapObj.popupOverlay);
                 return "not todo";
-            } else if (layer == self.mapObj.seaareaLayer) {
+            } else if(layer == self.mapObj.shipLayer){
+                //点击船舶
+                let mmsi = feature.get("param");
+                console.log("param:"+mmsi);
+                self.portClick(feature, layer, self.mapObj.popupOverlay.getElement(), self.mapObj.popupOverlay);
+                self.clickShipInfo(mmsi);
+                return "not todo";
+            }else if (layer == self.mapObj.seaareaLayer) {
                 //点击海区
                 self.portClick1(feature, layer, self.mapObj.popupOverlay.getElement(), self.mapObj.popupOverlay);
                 return "not todo";
@@ -262,6 +270,43 @@ class MapListener {
         }
     };
 
+    /***
+     * 点击船舶图标，查询
+     * @param mmsi
+     */
+    clickShipInfo(mmsi){
+        shipServer.getShipDetail({mmsi},function(data){
+            console.log(data);
+            let shipinfo = data.data;
+            let mmsi = shipinfo.mmsi;//mmsi
+            let shipname = shipinfo.shipname;//船名
+            let callsign = shipinfo.callsign;//呼号
+            let imo= shipinfo.imo; //imo
+            let flagcountry = shipinfo.flagcountry;//国旗图标
+            //let buildcountry = getCountryNameByShortName(flagCountry);//船旗国
+            let grosstonnage = shipinfo.grosstonnage;//毛吨
+            let deadweight = shipinfo.deadweight;//载重吨
+            let lengthloa = shipinfo.lengthloa;//长
+            let mouldwidth = shipinfo.mouldwidth;//宽
+            let builddate = shipinfo.builddate;//建造年份
+            let operatorcompany = shipinfo.operatorcompany;//所属公司
+            let type = shipinfo.shiptypecode;//类型
+            $("#popup_ship_COUNTRY").html(flagcountry);
+            $("#popup_ship_TYPE").html(type);
+            $("#popup_ship_IMO").html(imo);
+            $("#popup_ship_WH").html(lengthloa+" * "+mouldwidth);
+            $("#popup_ship_CALLSIGN").html(callsign);
+            $("#popup_ship_WATER").html("待定");
+            $("#popup_ship_MMSI").html(mmsi);
+            $("#popup_ship_C").html("待定");
+            $("#popup_ship_LNG").html("待定");
+            $("#popup_ship_LAT").html("待定");
+            $("#popup_ship_objective").html("待定");
+            $("#popup_ship_ETA").html("待定");
+            $("#popup_ship_TIME").html("待定");
+        })
+    }
+
     portClick1(feature, layer, element, popLayer) {
         $("#popup-content").html(feature.G.disinfo);
         $("#popup").addClass('popup-seaarea');
@@ -279,18 +324,23 @@ class MapListener {
         var self = this;
         var newZoomLevel = self.mapObj.map.getView().getZoom();
         if (newZoomLevel > 8) {
+            //全球港口图层
             self.mapObj.portLayer.setVisible(true);
+            //重要港口图层
+            self.mapObj.portInportentLayer.setVisible(false);
         } else if (newZoomLevel < 8) {
             self.mapObj.portLayer.setVisible(false);
+            self.mapObj.portInportentLayer.setVisible(true);
         }
         //船舶图层显隐
         if (newZoomLevel <= 8) {
             self.mapObj.shipLayer.setVisible(false);
-            $(".shipTypeConvas").show();
-
+            //显示画布，允许重新绘制
+            this.shipDataLayer.canvasShow();
         } else if (newZoomLevel >= 8) {
             self.mapObj.shipLayer.setVisible(true);
-            $(".shipTypeConvas").hide();
+            //隐藏画布，禁止重新绘制
+            this.shipDataLayer.canvasHide();
         }
     }
 
@@ -309,12 +359,11 @@ class MapListener {
      */
     addShip(data) {
         data.map((item) => {
-            console.log(item);
             this.mapObj.shipSource;
             let disInfo = htmlTemplate.createIndexShipTemplate(item);
             let coods = toolMap.transform(item.X / 1000000, item.Y / 1000000)
-            let type = "portwu";
-            simpleFeature.createAndAddParamPointFeature(this.mapObj.shipSource, type, disInfo, coods,item.I)
+            let type = shipAndBerth.getShipTypeStyle(item.shipTypeLS);
+            simpleFeature.createAndAddParamPointFeature(this.mapObj.shipSource, type, disInfo, coods,item.MMSI,Number(item.C)/10)
         });
         console.timeEnd("AddShipLayerTime")
     }
@@ -349,13 +398,42 @@ class MapListener {
                 this.mapObj.seaareaLayer.setVisible(status);
                 break;
             case "全球排放区":
+                //全球排放区，与中国排放区互斥
                 this.mapObj.dischargeLayer.setVisible(status);
+                this.mapObj.ChinadischargeLayer.setVisible(!status);
                 break;
             case "中国排放区":
                 this.mapObj.ChinadischargeLayer.setVisible(status);
+                this.mapObj.dischargeLayer.setVisible(!status);
                 break;
         }
     }
-}
+
+    
+    /**
+     * 显示 航运网络图层
+     */
+    showAllLayer(){
+        this.mapObj.layer_custom_dayan.setVisible(true);
+       
+
+
+        /* instanceof  */
+    }
+
+     /**
+      * 隐藏 航运网络图层
+      */
+     hideAllLayer(){
+        this.mapObj.layer_custom_dayan.setVisible(false);
+        console.log(this.mapObj);
+    }
+
+
+
+
+
+
+}/* 类的结束标签 */
 
 export default MapListener;

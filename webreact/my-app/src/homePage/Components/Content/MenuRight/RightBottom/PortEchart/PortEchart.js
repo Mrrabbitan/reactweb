@@ -56,7 +56,6 @@ class PortEchart extends Component {
             }
         });
         this.setState({dataNameEcharts2, dataValueEcharts2});
-        console.log(dataNameEcharts2)
     }
 
     render() {

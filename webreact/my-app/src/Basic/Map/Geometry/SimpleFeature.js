@@ -1,4 +1,5 @@
 import ol from 'openlayers';
+import pointSymbo from "../Symbolizer/PointSymbo";
 
 class SimpleFeature{
 
@@ -27,12 +28,25 @@ class SimpleFeature{
             geometry : new ol.geom.Point(coord)
         })
     }
-    paramFeature(type,disInfo,coord,param){
+
+    /**
+     * 传递参数，并设置图片角度
+     * @param type
+     * @param disInfo
+     * @param coord
+     * @param param  参数
+     * @param rotation 角度
+     * @returns {Feature|google.maps.Data.Feature}
+     */
+    paramFeature(type,disInfo,coord,param,rotation){
         return new ol.Feature({
             type,
             disInfo,
+            rotation,
             param,
-            geometry : new ol.geom.Point(coord)
+            geometry : new ol.geom.Point(coord),
+
+
         })
     }
 
@@ -41,8 +55,18 @@ class SimpleFeature{
         vectorLayer.addFeature(point);
         return point;
     }
-    createAndAddParamPointFeature(vectorLayer,type,disiInfo,coord,param){
-        let point = this.paramFeature(type,disiInfo,coord,param);
+
+    /**
+     * 传递参数，并设置图片角度
+     * @param type
+     * @param disInfo
+     * @param coord
+     * @param param  参数
+     * @param rotation 角度
+     * @returns {Feature|google.maps.Data.Feature}
+     */
+    createAndAddParamPointFeature(vectorLayer,type,disiInfo,coord,param,rotation){
+        let point = this.paramFeature(type,disiInfo,coord,param,rotation);
         vectorLayer.addFeature(point);
         return point;
     }

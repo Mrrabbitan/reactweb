@@ -30,9 +30,7 @@ class MenuLeft extends Component{
             $("#mtl_box").css("height",$("#mtl_box").height()+"px");
         },1000)
     }
-    componentDidMount(){
-
-    }
+    
     getThisListType(e){
         var type = $(e.currentTarget).attr("id");
         this.props.dispatch(Action.listType(type));
@@ -40,9 +38,7 @@ class MenuLeft extends Component{
             $("#mtl_box").addClass("ps_style");
         }
     }
-    componentDidUpdate(){
-        console.log(this.props)
-    }
+   
     render(){
         return (
             <div id="contentleft" ref="contentleft">
