@@ -426,7 +426,14 @@ class MapListener {
       */
      hideAllLayer(){
         this.mapObj.layer_custom_dayan.setVisible(false);
-        console.log(this.mapObj);
+        this.mapObj.portLayer.setVisible(false);
+        this.mapObj.portInportentLayer.setVisible(false);
+        this.mapObj.straitlayer.setVisible(false);
+        this.mapObj.relationLayer.setVisible(false);
+        this.mapObj.seaareaLayer.setVisible(false);
+        this.mapObj.dischargeLayer.setVisible(false);
+        this.mapObj.shipLayer.setVisible(false);
+        this.mapObj.ChinadischargeLayer.setVisible(false);
     }
 
 

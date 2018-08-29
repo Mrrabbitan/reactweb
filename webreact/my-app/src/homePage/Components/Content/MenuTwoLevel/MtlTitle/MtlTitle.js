@@ -18,15 +18,14 @@ class MtlTitle extends Component{
         this.props.dispatch(Action.listType(''));
         //调用函数展现原始图层
         if(this.props.listType == "shippinglayer"){
-            this.showoriginLayer(e);
+            this.showoriginLayer();
         } 
         
     }
     //展现原始图层的内容
-    showoriginLayer(e){
-        let $this = $(e.currentTarget);
+    showoriginLayer(){
         this.props.portmaplistener.hideAllLayer();
-        this.props.mapListener.showAllLayer();
+        
         
     }
     animateFun(){

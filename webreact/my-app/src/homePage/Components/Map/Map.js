@@ -82,8 +82,6 @@ class Map extends Component {
             portInportentLayer,
             "straitlayer":StraitLayer,
             "straitsource":StraitSource,
-            relationSource,
-            relationLayer,
             seaareaSource,
             seaareaLayer,
             dischargeSource,
@@ -93,7 +91,7 @@ class Map extends Component {
             ChinadischargeSource,
             ChinadischargeLayer,
             berthSource,
-            berthLayer            //TODO
+            berthLayer,            //TODO
 
         }
         //添加地图的时间监听
@@ -115,6 +113,9 @@ class Map extends Component {
         //将图层传入网络中
         this.portMapObj = {
             portlayer_show,
+            mapObj:this.mapObj,
+            relationSource,
+            relationLayer
         }
         //添加关联关系网络的事件监听
         let portmaplistenerToStore = new portmaplistener(this.portMapObj);

@@ -2,23 +2,19 @@ import React,{Component} from 'react';
 
 import './index.css';
 import $ from 'jquery';
-import simpleLayer from '../../../../../../Basic/Map/Layer/SimpleLayer';
 import {connect} from 'react-redux';
 
 class ShippingRate extends Component{
-    constructor(){
-        super();
-    }
+    
     componentDidMount(){
         //数据图层显隐操作
-        $(".toshowrelayer").on("click","",this.showrelationLayer.bind(this));
+        $(".toshowrelayer").on("click",this.showrelationLayer.bind(this));
         
     }
     showrelationLayer(e){
         let $this = $(e.currentTarget);
         if($this.hasClass("active")){
             $this.removeClass("active");
-            this.props.mapListener.hideAllLayer();
         } else {
             $this.addClass("active");
             this.props.portmaplistener.showAllLayer();
