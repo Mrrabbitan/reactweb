@@ -592,5 +592,49 @@ class shipAndBerth{
                 return ''
         }
     }
+    getBerchTypeByBerthCode(code){
+        switch (code) {
+            case '11':
+                return '石油';
+                break;
+            case '12':
+                return 'lng';
+                break;
+            case '13':
+                return 'lpg';
+                break;
+            case '21':
+                return '化学品';
+                break;
+            case '30':
+                return '干散货';
+                break;
+            case '31':
+                return '集装箱';
+                break;
+            case '90':
+                return '混合';
+                break;
+            case '99':
+                return '其他';
+                break;        
+            default:
+                return '';
+                break;
+        }
+    }
+    formatDate(time) {
+        if (time == "") {
+            return "";
+        }
+        var dat = new Date(time * 1000); //生成日期
+        var year = dat.getFullYear(); //取得年
+        var month = dat.getMonth() + 1; //取得月,js从0开始取,所以+1
+        var date1 = dat.getDate(); //取得天
+        var hour = dat.getHours(); //取得小时
+        var minutes = dat.getMinutes(); //取得分钟
+        var second = dat.getSeconds(); //取得秒
+        return year + "-" + month + "-" + date1 + " " + hour + ":" + minutes + ":" + second;
+    }
 }
 export  default  new shipAndBerth();

@@ -155,7 +155,7 @@ class DataLayer extends Component{
             this.props.mapListener.getDataLayer(data);
             var self = this;
             //画船
-            setTimeout(function(){self.props.mapListener.addShip(data)},2000)
+           /* setTimeout(function(){self.props.mapListener.addShip(data)},2000)*/
         })
     }
     clearCanvasLayerFun(){

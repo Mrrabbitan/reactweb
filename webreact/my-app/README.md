@@ -1,5 +1,3 @@
-本项目配置了基于openlayer3、bootstrap-react、jequery-react、popper.js、Axios等多种开源API，项目处于初级阶段，后续会继续更新内容，本次上传将node_module也上传，为后期npm下载不稳定做好备份，有需要的也可以直接下载本项目的node_module作为开源环境参考，版本保存在package.json中
-
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>

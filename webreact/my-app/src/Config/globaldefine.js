@@ -13,6 +13,15 @@ class Server {
         //ws_Mosaic地址
         this.mosaicAddress = this.webAddress + "/geoserver/ws_Mosaic/wms";
     }
+    getUrlParms(name){
+        var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+        var r = window.location.search.substr(1).match(reg);
+        if(r!=null)
+        return unescape(r[2]);
+        return null;
+    }
+    
+
 }
 
 export default new Server();

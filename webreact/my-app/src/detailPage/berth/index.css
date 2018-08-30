@@ -7,8 +7,10 @@
 html,body{
     width:100%;
     height:100%;
+    background-color: #072352;
 }
 #body{
-    width:100%;
-    height:100%;
+    width: 1442px;
+    height: 100%;
+    margin: 0 auto;
 }

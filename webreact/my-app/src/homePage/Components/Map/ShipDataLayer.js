@@ -77,10 +77,12 @@ class ShipDataLayer{
     render(data){
         var size = this.map.getSize();
         this.ctx.clearRect(0, 0, size[0], size[1]);
-       data.map((item) => {
-           //console.log(item);
-            this.draw_point(item);
-        });
+        for(let key in data){
+            console.log(data[key]);
+            JSON.parse(data[key]).map((item) => {
+                this.draw_point(item);
+            });
+        }
     }
 
     /**

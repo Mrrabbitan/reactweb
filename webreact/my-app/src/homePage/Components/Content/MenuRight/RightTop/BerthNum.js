@@ -31,7 +31,7 @@ class BerthNum extends Component{
         return(
             <div className="bn_box">
                 {this.props.type==1?list():otherList()}
-                <span className="bn_units">{this.props.units}</span>
+                <span className="bn_units" onClick={this.handle}>{this.props.units}</span>
             </div>
         )
     }

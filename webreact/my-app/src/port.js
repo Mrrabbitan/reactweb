@@ -1,5 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import App from './detailPage/port/App';
+import {Provider} from "react-redux";
+import store from './homePage/Store/store';
 ReactDOM.render(
-    <div>port</div>
+    <Provider store={store}>
+        <App/>
+    </Provider>
     , document.getElementById('root'));

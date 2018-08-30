@@ -1,0 +1,27 @@
+#seaMap{
+    height: 100%;
+    width: 710px;
+    /* margin-left: 15%; */
+    float: left;
+}
+.ol-overlaycontainer-stopevent
+{
+display:none;
+} 
+
+#berthBasicData{
+    height: 100%;
+    width: 710px;
+    /* margin-left: 15%; */
+    
+    color:#c4f2ff;
+    float: right;
+}
+#firstContainer{
+    height: 300px;
+    width: 100%;
+}
+
+#berthBasicData td{
+    margin-left: 10px;
+}

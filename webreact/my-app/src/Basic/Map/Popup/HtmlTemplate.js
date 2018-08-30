@@ -113,6 +113,34 @@ class HtmlTemplate {
      * @returns {string}
      */
     createIndexShipTemplate(item) {
+        let zuijintingkao = `<table>
+                                <thead>
+                                     <td>港口</td>
+                                    <td>国家</td>
+                                    <td>次数</td>
+                                    <td>停靠时间</td>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>港口</td>
+                                        <td>国家</td>
+                                        <td>次数</td>
+                                        <td>停靠时间</td>
+                                    </tr>
+                                    <tr>
+                                        <td>港口</td>
+                                        <td>国家</td>
+                                        <td>次数</td>
+                                        <td>停靠时间</td>
+                                    </tr>
+                                    <tr>
+                                        <td>港口</td>
+                                        <td>国家</td>
+                                        <td>次数</td>
+                                        <td>停靠时间</td>
+                                    </tr>
+                                </tbody>
+                            </table>`;
         let disInfo = `<div>
                             <div class="content_title">船名</div>
                             <div class="content_bottom">
@@ -158,7 +186,7 @@ class HtmlTemplate {
                                                    <span class="titleText">目的港：</span><span class="contectText" id="popup_ship_objective"></span>
                                            </div>
                                            <div>
-                                                   <span class="titleText">ETA：</span><span class="contectText" id="popup_ship_ETA">111</span>
+                                                   <span class="titleText">ETA：</span><span class="contectText" id="popup_ship_ETA"></span>
                                            </div>
                                            <div class="ship_content_line"></div>
                                            <div class="ship_content_button">
@@ -167,13 +195,42 @@ class HtmlTemplate {
                                            </div>
                                     </div>
                                     <div id="content_ship_tab_content_xiangxi">
-                                    详细信息
+                                            <div class="content_ship_tab_content_two" >
+                                                   <div>
+                                                           <span class="titleText">建造年份：</span><span class="contectText" id="popup_ship_Detail_jznf">111</span>
+                                                   </div>
+                                                   <div>
+                                                           <span class="titleText">船龄：</span><span class="contectText" id="popup_ship_Detail_cl">222</span>
+                                                   </div>
+                                                   <div>
+                                                           <span class="titleText">总吨：</span><span class="contectText" id="popup_ship_Detail_zd">111</span>
+                                                   </div>
+                                                   <div>
+                                                           <span class="titleText">载重吨：</span><span class="contectText" id="popup_ship_Detail_zzd">222</span>
+                                                   </div>
+                                                   <div>
+                                                           <span class="titleText">最大船速：</span><span class="contectText" id="popup_ship_Detail_zdcs">111</span>
+                                                   </div>
+                                                   <div>
+                                                           <span class="titleText">经济船速：</span><span class="contectText" id="popup_ship_Detail_jjcs">222</span>
+                                                   </div>
+                                                   <div>
+                                                           <span class="titleText">船级社：</span><span class="contectText" id="popup_ship_Detail_cjs">111</span>
+                                                   </div>
+                                                   <div>
+                                                           <span class="titleText">船东互保协会：</span><span class="contectText" id="popup_ship_Detail_cdhbxh">222</span>
+                                                   </div>
+                                            </div>
                                     </div>
                                     <div id="content_ship_tab_content_zuijin">
-                                    最近停靠
+                                        ${zuijintingkao}
                                     </div>
                                     <div id="content_ship_tab_content_guiji">
-                                    轨迹
+                                        <div class="content_ship_tab_content_one_center">
+                                            <div><span class="titleText">开始时间：</span><input type="Date"></div>
+                                            <div><span class="titleText">结束时间：</span><input type="Date"></div>
+                                            <div><input type="button" value="查询"  class="titleText"></div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>  

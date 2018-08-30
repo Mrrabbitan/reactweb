@@ -150,6 +150,7 @@
     width:25%;
     text-align: center;
     color: #71e1ff;
+    cursor: pointer;
 }
 .content_ship_tab_content>div{
     padding: 10px 30px 5px 30px;
@@ -163,6 +164,10 @@
 .shipTwoMessageDiv{
     display: flex;
     justify-content: space-around;
+}
+
+#content_ship_tab_content_jiben{
+    width:100%;
 }
 /****
 设置基本信息内部div
@@ -185,6 +190,46 @@
     display: flex;
     justify-content: space-between;
     height: 30px;
+}
+#content_ship_tab_content_zuijin{
+    max-height:250px;
+    overflow-y: auto;
+    padding-bottom: 20px;
+}
+#content_ship_tab_content_zuijin table{
+    width:100%;
+    text-align: center;
+    color: white;
+}
+#content_ship_tab_content_zuijin table td{
+    border: 1px solid white;
+}
+
+.content_ship_tab_content_one_center{
+    display: flex;
+    width:100%;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.content_ship_tab_content_one_center > div{
+    width:100%;
+    display: flex;
+    justify-content: center;
+    margin: 10px 0px;
+
+}
+
+/***
+一行显示2个属性
+ */
+.content_ship_tab_content_two{
+    width:100%;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0px 0px 10px 0px;
+}
+.content_ship_tab_content_two > div{
+    width:50%;
 }
 
 #popup{

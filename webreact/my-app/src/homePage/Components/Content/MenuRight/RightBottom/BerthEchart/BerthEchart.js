@@ -24,10 +24,10 @@ class BerthEchart extends Component{
             let dataArr1 = data.berthCount;//泊位概况
             let dataArr2 = data.berthDistribution;//泊位分布
             if(dataArr1){
-                self.doDataBerthCount(dataArr1);
+                self.doDataBerthCount(dataArr1);//进行一次调用
             }
             if(dataArr2){
-                self.doDataBerthDistribution(dataArr2);
+                self.doDataBerthDistribution(dataArr2);//进行一次调用
             }
         })
     }

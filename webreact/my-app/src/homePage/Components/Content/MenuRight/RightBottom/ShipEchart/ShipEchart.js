@@ -4,6 +4,12 @@ import "./index.css"
 
 
 class ShipEchart extends Component{
+    constructor(){
+        super();
+    }
+    getOption(){
+
+    }
     render(){
         return(
             <div id="se_box">

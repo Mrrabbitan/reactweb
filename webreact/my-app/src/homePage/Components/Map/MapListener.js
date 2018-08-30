@@ -15,6 +15,7 @@ import seaareaServer from '../../../axios/seaareaServer';
 import GPS from '../../../Basic/Map/Other/geotrans';
 import dischargeServer from '../../../axios/dischargeServer';
 import shipAndBerth from "../../../Assets/js/shipAndBerth";
+import dateUtils from "../../../Assets/js/DateUtils";
 import shipServer from "../../../axios/shipServer";
 
 import dischargetemplate from '../../../Basic/Map/Geometry/dischargetemplate';
@@ -35,6 +36,7 @@ class MapListener {
         this.loadDischarge();
         this.loadChinaDischarge();
         this.clickSouth = null;
+        this.shipData = null;
     }
     //加载重要港口信息
     loadInportentPort(){
@@ -277,33 +279,62 @@ class MapListener {
     clickShipInfo(mmsi){
         shipServer.getShipDetail({mmsi},function(data){
             console.log(data);
-            let shipinfo = data.data;
+            let LSDetail = data.data.LSDetail;
+            //船舶档案信息
+            let shipinfo = data.data.detail;
             let mmsi = shipinfo.mmsi;//mmsi
             let shipname = shipinfo.shipname;//船名
             let callsign = shipinfo.callsign;//呼号
             let imo= shipinfo.imo; //imo
             let flagcountry = shipinfo.flagcountry;//国旗图标
             //let buildcountry = getCountryNameByShortName(flagCountry);//船旗国
-            let grosstonnage = shipinfo.grosstonnage;//毛吨
+            let grosstonnage = shipinfo.grosstonnage;//毛吨/总吨
             let deadweight = shipinfo.deadweight;//载重吨
             let lengthloa = shipinfo.lengthloa;//长
             let mouldwidth = shipinfo.mouldwidth;//宽
             let builddate = shipinfo.builddate;//建造年份
             let operatorcompany = shipinfo.operatorcompany;//所属公司
             let type = shipinfo.shiptypecode;//类型
+            //"建造年份:"
+           let launchdate= shipinfo.launchdate;
+            //"船龄:"
+            let buildconverteddate= shipinfo.buildconverteddate;
+            //"最大船速:"
+            let speedmax= shipinfo.speedmax;
+            //"经济船速:"
+            let speedservice= shipinfo.speedservice;
+            //"船级社:"
+            let classname= shipinfo.classname;
+            //"船东互保协会:
+            let pandiclub= shipinfo.pandiclub;
+            let C = Number(LSDetail.C)/10;
+            let X = Number(LSDetail.X)/1000000;
+            let Y = Number(LSDetail.Y)/1000000;
+            let U = LSDetail.U;
+            let G = LSDetail.G;
+            let F = LSDetail.F;
+            let E = LSDetail.E;
             $("#popup_ship_COUNTRY").html(flagcountry);
             $("#popup_ship_TYPE").html(type);
             $("#popup_ship_IMO").html(imo);
             $("#popup_ship_WH").html(lengthloa+" * "+mouldwidth);
             $("#popup_ship_CALLSIGN").html(callsign);
-            $("#popup_ship_WATER").html("待定");
+            $("#popup_ship_WATER").html(F);
             $("#popup_ship_MMSI").html(mmsi);
-            $("#popup_ship_C").html("待定");
-            $("#popup_ship_LNG").html("待定");
-            $("#popup_ship_LAT").html("待定");
-            $("#popup_ship_objective").html("待定");
-            $("#popup_ship_ETA").html("待定");
-            $("#popup_ship_TIME").html("待定");
+            $("#popup_ship_C").html(C);
+            $("#popup_ship_LNG").html(X);
+            $("#popup_ship_LAT").html(Y);
+            $("#popup_ship_objective").html(G);
+            $("#popup_ship_ETA").html(E);
+            $("#popup_ship_TIME").html(dateUtils.formatDate(U));
+            $("#popup_ship_Detail_jznf").html(launchdate);
+            $("#popup_ship_Detail_cl").html(buildconverteddate);
+            $("#popup_ship_Detail_zd").html(grosstonnage);
+            $("#popup_ship_Detail_zzd").html(deadweight);
+            $("#popup_ship_Detail_zdcs").html(speedmax);
+            $("#popup_ship_Detail_jjcs").html(speedservice);
+            $("#popup_ship_Detail_cjs").html(classname);
+            $("#popup_ship_Detail_cdhbxh").html(pandiclub);
         })
     }
 
@@ -332,7 +363,6 @@ class MapListener {
             self.mapObj.portLayer.setVisible(false);
             self.mapObj.portInportentLayer.setVisible(true);
         }
-        //船舶图层显隐
         if (newZoomLevel <= 8) {
             self.mapObj.shipLayer.setVisible(false);
             //显示画布，允许重新绘制
@@ -341,6 +371,8 @@ class MapListener {
             self.mapObj.shipLayer.setVisible(true);
             //隐藏画布，禁止重新绘制
             this.shipDataLayer.canvasHide();
+            //船舶图层显隐
+            self.addShip();
         }
     }
 
@@ -350,6 +382,7 @@ class MapListener {
         //将数据添加到canvas图层中，默认展示
         let self = this;
         this.shipDataLayer.renderLayer(data);
+        this.shipData = data;
         console.timeEnd("AddcanvasLayerTime")
     }
 
@@ -357,18 +390,27 @@ class MapListener {
      * 船舶图层添加
      * @param data
      */
-    addShip(data) {
-        data.map((item) => {
-            this.mapObj.shipSource;
-            let disInfo = htmlTemplate.createIndexShipTemplate(item);
-            let coods = toolMap.transform(item.X / 1000000, item.Y / 1000000)
-            let type = shipAndBerth.getShipTypeStyle(item.shipTypeLS);
-            simpleFeature.createAndAddParamPointFeature(this.mapObj.shipSource, type, disInfo, coods,item.MMSI,Number(item.C)/10)
-        });
+    addShip() {
+        let data =  this.shipData;
+        if(!data){
+            return;
+        }
+        for(let key in data){
+            if(key && data[key] && data[key] != "null") {
+                JSON.parse(data[key]).map((item) => {
+                    this.mapObj.shipSource;
+                    let disInfo = htmlTemplate.createIndexShipTemplate(item);
+                    let coods = toolMap.transform(item.X / 1000000, item.Y / 1000000)
+                    let type = shipAndBerth.getShipTypeStyle(item.shipTypeLS);
+                    simpleFeature.createAndAddParamPointFeature(this.mapObj.shipSource, type, disInfo, coods, item.MMSI, Number(item.C) / 10)
+                });
+            }
+        }
         console.timeEnd("AddShipLayerTime")
     }
 
     clearCanvasLayer() {
+        this.shipData = null;
         this.shipDataLayer.clearCanvasLayer();
     }
 
