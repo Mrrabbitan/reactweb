@@ -1,0 +1,10 @@
+.status_box{
+    width:74px;
+    height:74px;
+    border-radius: 50%;
+    border:3px solid;
+    text-align: center;
+    line-height:70px;
+    font-size:18px;
+    color:#acd6e5;
+}

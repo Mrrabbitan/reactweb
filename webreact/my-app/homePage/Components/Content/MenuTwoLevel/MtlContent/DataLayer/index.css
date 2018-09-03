@@ -1,0 +1,15 @@
+#dl_box{
+    width:100%;
+    position:relative;
+    color:#fff;
+}
+.dl_choice_btn_box{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.dl_choice_btn_box>span{
+    margin-bottom:10px;
+}
+
+

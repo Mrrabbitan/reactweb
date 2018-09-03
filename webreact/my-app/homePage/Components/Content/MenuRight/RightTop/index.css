@@ -1,0 +1,115 @@
+.bn_box{
+    width:118px;
+    height:32px;
+    background: url(../../../../../Assets/image/right_pic/num_box.png) no-repeat;
+    background-size:100% 100%;
+    display:flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding-left:4px;
+}
+.bn_num{
+    display:inline-block;
+    width:14px;
+    height:26px;
+    background:url(../../../../../Assets/image/right_pic/num_big.png) no-repeat 0 0;
+    margin-left:4px;
+}
+.bn_units{
+    display:flex;
+    width:14px;
+    height:26px;
+    text-align:center;
+    color:#bebebe;
+    font-size:12px;
+    margin-left:4px;
+    line-height:13px;
+    align-items: flex-end;
+    justify-content: flex-end;
+}
+[data-num="-1"]{
+    background-position:0 -300px;
+}
+[data-num="0"]{
+    background-position:0 0;
+}
+[data-num="1"]{
+    background-position:0 -30px;
+}
+[data-num="2"]{
+    background-position:0 -60px;
+}
+[data-num="3"]{
+    background-position:0 -90px;
+}
+[data-num="4"]{
+    background-position:0 -120px;
+}
+[data-num="5"]{
+    background-position:0 -150px;
+}
+[data-num="6"]{
+    background-position:0 -180px;
+}
+[data-num="7"]{
+    background-position:0 -210px;
+}
+[data-num="8"]{
+    background-position:0 -240px;
+}
+[data-num="9"]{
+    background-position:0 -270px;
+}
+
+
+
+.btn_small_num{
+    display:inline-block;
+    width:14px;
+    height:26px;
+    margin-top:12px;
+    background:url(../../../../../Assets/image/right_pic/num_small.png) no-repeat 0 0;
+}
+[data-small-num="0"]{
+    background-position:0 0;
+}
+[data-small-num="1"]{
+    background-position:0 -30px;
+}
+[data-small-num="2"]{
+    background-position:0 -60px;
+}
+[data-small-num="3"]{
+    background-position:0 -90px;
+}
+[data-small-num="4"]{
+    background-position:0 -120px;
+}
+[data-small-num="5"]{
+    background-position:0 -150px;
+}
+[data-small-num="6"]{
+    background-position:0 -180px;
+}
+[data-small-num="7"]{
+    background-position:0 -210px;
+}
+[data-small-num="8"]{
+    background-position:0 -240px;
+}
+[data-small-num="9"]{
+    background-position:0 -270px;
+}
+
+.bn_point{
+    width:2px;
+    height:2px;
+    background:url(../../../../../Assets/image/right_pic/num_big.png) no-repeat 0 -330px;
+    margin-top:23px;
+    margin-left:4px;
+}
+
+
+
+
+
