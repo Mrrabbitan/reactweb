@@ -2,7 +2,7 @@ import React,{Component} from 'react';
 import './index.css'
 
 class BerthNum extends Component{
-    constructor(){
+    constructor(){//全局变量加在这个里面
         super();
     }
     render(){
@@ -13,7 +13,7 @@ class BerthNum extends Component{
             for(var n = 0;n<digit-number.length;n++){
                 numContainer.push(<span className="bn_num" key={n+'s'} data-num="-1"></span>)
             }
-            for(var i=0;i<number.length;i++){
+            for(var i = 0;i<number.length;i++){
                 numContainer.push(<span className="bn_num" key={i} data-num={number[i]}></span>);
             }
             return (numContainer);

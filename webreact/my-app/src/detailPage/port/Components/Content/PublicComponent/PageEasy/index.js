@@ -6,10 +6,10 @@ class PageEasy extends Component{
     constructor(props){
         super(props);
         this.state = {
-            total:props.total,
+            total:props.total?props.total:0,
             current:props.current,
             position:props.position,
-            renderPageNum:[]
+            renderPageNum:[],
         }
         this.handlePrevPage = this.handlePrevPage.bind(this);
         this.handlePage = this.handlePage.bind(this);
@@ -52,12 +52,10 @@ class PageEasy extends Component{
                 }
 
             }
-        console.log(Number($(e.currentTarget).val()))
     }
     //渲染页数起止逻辑算法
     renderPage() {
         var groupNum = this.state.current%5==0?Math.floor(this.state.current/5)-1:Math.floor(this.state.current/5);
-        console.log(groupNum);
         if(this.state.total>=groupNum*5){
             return {
                 start:groupNum*5+1,
@@ -79,11 +77,12 @@ class PageEasy extends Component{
     }
     render(){
         //回传页数
-        this.props.onPageChanged(this.state.current);
+        if(this.state.total){
+            this.props.onPageChanged(this.state.current);
+        }
         //渲染页数逻辑
         let pageItem=[];
         let groupIndex = this.renderPage();
-        console.log(groupIndex);
         for(let num = groupIndex.start;num<=groupIndex.end;num++){
             if(num>this.state.total||num<1)continue;
             if(this.state.current==num){

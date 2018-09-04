@@ -11,7 +11,7 @@ import ol from 'openlayers'
         var name = feature.get('name');
         var red = lstyle / 100 * 255;
         var greed = (1 - lstyle / 100) * 255;
-        var color = ol.color.asArray([ 233, 30, 99, 1 ]);
+        var color = ol.color.asArray([ 233, 30, 99, 0.5 ]);
         var text = new ol.style.Text({
             textAlign : "center",
             textBaseline : "middle",
@@ -46,8 +46,9 @@ import ol from 'openlayers'
               color: 'rgba(255, 255, 255, 0.3)'
             }),*/
             stroke: new ol.style.Stroke({ //边界样式
-              color: '#4395ba',
-              width: 1
+              color:'rgba(255, 255, 255, 0.3)',
+              width: 1,
+              opacity: 0.5
             }),
             text: new ol.style.Text({ //文本样式
               font: '12px Calibri,sans-serif',

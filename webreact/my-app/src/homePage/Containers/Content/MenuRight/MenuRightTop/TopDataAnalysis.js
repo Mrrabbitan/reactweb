@@ -31,15 +31,15 @@ class TopDataAnalysis extends Component{
             <div className="tda_con">
                 <div className="tda_num_box">
                     <div className="tda_num_title" data-type="4">
-                        <span className="tda_num_title_text">国家</span><span className="tda_num_title_icon">图</span>
+                        <span className="tda_num_title_text">国家地区</span><span className="tda_num_title_icon">图</span>
                     </div>
-                    <BerthNum number="250" digit="3" units="个" type="1"/>
+                    <BerthNum number="233" digit="3" units="个" type="1"/>
                 </div>
                 <div className="tda_num_box">
                     <div className="tda_num_title active" data-type="1">
                         <span className="tda_num_title_text">港口</span><span className="tda_num_title_icon">图</span>
                     </div>
-                    <BerthNum number="4500" digit="4" units="个" type="1"/>
+                    <BerthNum number="6409" digit="4" units="个" type="1"/>
                 </div>
                 <div className="tda_num_box">
                     <div className="tda_num_title" data-type="8">

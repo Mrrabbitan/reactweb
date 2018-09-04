@@ -48,8 +48,16 @@
     background: linear-gradient(to bottom,#37b3f9,#0792e7);
     border-bottom:  1px solid #3cdde7;
 }
+.ol-popup .content_seaarea{
+    background: linear-gradient(to bottom,#0d60c6,#0c4795);
+    padding: 5px 10px;
+    font-size: 14px;
+    color:white;
+    border-radius:3px;
+}
 .ol-popup .content_content{
     padding: 5px 20px;
+   
  }
 .ol-popup .content_bottom{
     font-size: 15px;

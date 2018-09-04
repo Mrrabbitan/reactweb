@@ -1,11 +1,35 @@
 import React,{Component} from 'react';
 import ReactEcharts from 'echarts-for-react';
 import color from '../color';
+import server from '../../../../../../axios/portAndBerthServer';
 import './index.css'
 
 class BerthClassEchart extends Component{
     constructor(){
         super();
+        this.state = {
+            dataArr:[],
+            typeArr:[]
+        }
+        this.onClickFun = this.onClickFun.bind(this);
+    }
+    componentWillMount(){
+        let self = this;
+        server.selectBerthStatistics({id:this.props.id},function(data){
+            let dataArr = [];
+            let typeArr = [];
+            for(let i=0;i<data.length;i++){
+                typeArr.push(data[i].final_type);
+                dataArr.push({
+                    name:data[i].final_type,
+                    value:data[i].count
+                });
+            }
+            self.setState({dataArr,typeArr})
+        })
+    }
+    onClickFun(e){
+        this.props.berthClick(e.data.name);
     }
     getOption(){
         return {
@@ -29,21 +53,15 @@ class BerthClassEchart extends Component{
                 textStyle:{
                     color:'#ffffff',
                 },
-                data: ['直接访问','邮件营销','联盟广告','视频广告','搜索引擎']
+                data: this.state.typeArr
             },
             series : [
                 {
-                    name: '访问来源',
+                    name: '泊位类型占比',
                     type: 'pie',
                     radius : '55%',
                     center: ['50%', '60%'],
-                    data:[
-                        {value:335, name:'直接访问'},
-                        {value:310, name:'邮件营销'},
-                        {value:234, name:'联盟广告'},
-                        {value:135, name:'视频广告'},
-                        {value:1548, name:'搜索引擎'}
-                    ],
+                    data:this.state.dataArr,
                     itemStyle:{
                         normal:{
                             color:function (params){
@@ -63,6 +81,7 @@ class BerthClassEchart extends Component{
                     option={this.getOption()}
                     style={{height: '100%', width: '100%'}}
                     className='react_for_echarts'
+                    onEvents={{"click":this.onClickFun}}
                 />
             </div>
         )

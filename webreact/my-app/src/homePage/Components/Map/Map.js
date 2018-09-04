@@ -61,7 +61,7 @@ class Map extends Component {
         //增加海峡图层
         let [StraitSource, StraitLayer] = simpleLayer.sourceLayer(map, true);
         //创建port图层
-        let [portSource, portLayer] = simpleLayer.sourceLayer(map, false);
+        let [portSource, portLayer] = simpleLayer.sourceLayer(map, true);
         //创建主要港口图层，默认显示
         let [portInportentSource, portInportentLayer] = simpleLayer.sourceLayer(map, true);
         //添加Layer，放置关系网路
@@ -91,7 +91,9 @@ class Map extends Component {
             ChinadischargeSource,
             ChinadischargeLayer,
             berthSource,
-            berthLayer,            //TODO
+            berthLayer,   
+            //relationSource, 
+            //relationLayer,  首页不需要展示网络      //TODO
 
         }
         //添加地图的时间监听

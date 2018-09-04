@@ -136,9 +136,137 @@ const portAndBerthService = {
          .catch(function(error){
          console.log(error);
          });
+    },
+    /**
+     * 港口基本信息
+     * */
+    selectBasicInfo(params,callback){
+        /*setTimeout(function(){
+         var a = [[{"country":"中国"},{"count":85,"facility_type":"Both"},{"count":473,"facility_type":"Tanker"},{"count":1028,"facility_type":"Dry Cargo"}],[{"country":"法国"},{"count":218,"facility_type":"Dry Cargo"},{"count":89,"facility_type":"Tanker"},{"count":32,"facility_type":"Both"}],[{"country":"挪威"},{"count":300,"facility_type":"Dry Cargo"},{"count":92,"facility_type":"Tanker"},{"count":52,"facility_type":"Both"}],[{"country":"美国"},{"count":209,"facility_type":"Both"},{"count":1053,"facility_type":"Dry Cargo"},{"count":709,"facility_type":"Tanker"}],[{"country":"日本"},{"count":705,"facility_type":"Dry Cargo"},{"count":321,"facility_type":"Tanker"},{"count":93,"facility_type":"Both"}],[{"country":"加拿大"},{"count":312,"facility_type":"Dry Cargo"},{"count":118,"facility_type":"Tanker"},{"count":51,"facility_type":"Both"}],[{"country":"德国"},{"count":286,"facility_type":"Dry Cargo"},{"count":83,"facility_type":"Tanker"},{"count":29,"facility_type":"Both"}],[{"country":"印度尼西亚"},{"count":184,"facility_type":"Dry Cargo"},{"count":211,"facility_type":"Tanker"},{"count":35,"facility_type":"Both"}],[{"country":"英国"},{"count":391,"facility_type":"Dry Cargo"},{"count":172,"facility_type":"Tanker"},{"count":43,"facility_type":"Both"}],[{"country":"意大利"},{"count":28,"facility_type":"Both"},{"count":229,"facility_type":"Dry Cargo"},{"count":117,"facility_type":"Tanker"}]];
+         callback(a);
+         },300);*/
+        axios.get(sever.portAddress + "portInfo/selectBasicInfo/"+params.id)
+            .then(function(res){
+                callback(res.data);
+            })
+            .catch(function(error){
+                console.log(error);
+            });
+    },
+    /**
+     * 港口港区信息
+     * */
+    selectTerminalInfo(params,callback){
+        /*setTimeout(function(){
+         var a = [[{"country":"中国"},{"count":85,"facility_type":"Both"},{"count":473,"facility_type":"Tanker"},{"count":1028,"facility_type":"Dry Cargo"}],[{"country":"法国"},{"count":218,"facility_type":"Dry Cargo"},{"count":89,"facility_type":"Tanker"},{"count":32,"facility_type":"Both"}],[{"country":"挪威"},{"count":300,"facility_type":"Dry Cargo"},{"count":92,"facility_type":"Tanker"},{"count":52,"facility_type":"Both"}],[{"country":"美国"},{"count":209,"facility_type":"Both"},{"count":1053,"facility_type":"Dry Cargo"},{"count":709,"facility_type":"Tanker"}],[{"country":"日本"},{"count":705,"facility_type":"Dry Cargo"},{"count":321,"facility_type":"Tanker"},{"count":93,"facility_type":"Both"}],[{"country":"加拿大"},{"count":312,"facility_type":"Dry Cargo"},{"count":118,"facility_type":"Tanker"},{"count":51,"facility_type":"Both"}],[{"country":"德国"},{"count":286,"facility_type":"Dry Cargo"},{"count":83,"facility_type":"Tanker"},{"count":29,"facility_type":"Both"}],[{"country":"印度尼西亚"},{"count":184,"facility_type":"Dry Cargo"},{"count":211,"facility_type":"Tanker"},{"count":35,"facility_type":"Both"}],[{"country":"英国"},{"count":391,"facility_type":"Dry Cargo"},{"count":172,"facility_type":"Tanker"},{"count":43,"facility_type":"Both"}],[{"country":"意大利"},{"count":28,"facility_type":"Both"},{"count":229,"facility_type":"Dry Cargo"},{"count":117,"facility_type":"Tanker"}]];
+         callback(a);
+         },300);*/
+        axios.get(sever.portAddress + "portInfo/selectTerminalInfo",{params})
+            .then(function(res){
+                callback(res.data);
+            })
+            .catch(function(error){
+                console.log(error);
+            });
+    },
+    /**
+     * 港口泊位分类
+     * */
+    selectBerthlGroup(params,callback){
+        /*setTimeout(function(){
+         var a = [[{"country":"中国"},{"count":85,"facility_type":"Both"},{"count":473,"facility_type":"Tanker"},{"count":1028,"facility_type":"Dry Cargo"}],[{"country":"法国"},{"count":218,"facility_type":"Dry Cargo"},{"count":89,"facility_type":"Tanker"},{"count":32,"facility_type":"Both"}],[{"country":"挪威"},{"count":300,"facility_type":"Dry Cargo"},{"count":92,"facility_type":"Tanker"},{"count":52,"facility_type":"Both"}],[{"country":"美国"},{"count":209,"facility_type":"Both"},{"count":1053,"facility_type":"Dry Cargo"},{"count":709,"facility_type":"Tanker"}],[{"country":"日本"},{"count":705,"facility_type":"Dry Cargo"},{"count":321,"facility_type":"Tanker"},{"count":93,"facility_type":"Both"}],[{"country":"加拿大"},{"count":312,"facility_type":"Dry Cargo"},{"count":118,"facility_type":"Tanker"},{"count":51,"facility_type":"Both"}],[{"country":"德国"},{"count":286,"facility_type":"Dry Cargo"},{"count":83,"facility_type":"Tanker"},{"count":29,"facility_type":"Both"}],[{"country":"印度尼西亚"},{"count":184,"facility_type":"Dry Cargo"},{"count":211,"facility_type":"Tanker"},{"count":35,"facility_type":"Both"}],[{"country":"英国"},{"count":391,"facility_type":"Dry Cargo"},{"count":172,"facility_type":"Tanker"},{"count":43,"facility_type":"Both"}],[{"country":"意大利"},{"count":28,"facility_type":"Both"},{"count":229,"facility_type":"Dry Cargo"},{"count":117,"facility_type":"Tanker"}]];
+         callback(a);
+         },300);*/
+        axios.get(sever.portAddress + "portInfo/selectBerthlGroup",{params})
+            .then(function(res){
+                callback(res.data);
+            })
+            .catch(function(error){
+                console.log(error);
+            });
+    },
+    /**
+     * 港口泊位类型统计
+     * */
+    selectBerthStatistics(params,callback){
+        /*setTimeout(function(){
+         var a = [[{"country":"中国"},{"count":85,"facility_type":"Both"},{"count":473,"facility_type":"Tanker"},{"count":1028,"facility_type":"Dry Cargo"}],[{"country":"法国"},{"count":218,"facility_type":"Dry Cargo"},{"count":89,"facility_type":"Tanker"},{"count":32,"facility_type":"Both"}],[{"country":"挪威"},{"count":300,"facility_type":"Dry Cargo"},{"count":92,"facility_type":"Tanker"},{"count":52,"facility_type":"Both"}],[{"country":"美国"},{"count":209,"facility_type":"Both"},{"count":1053,"facility_type":"Dry Cargo"},{"count":709,"facility_type":"Tanker"}],[{"country":"日本"},{"count":705,"facility_type":"Dry Cargo"},{"count":321,"facility_type":"Tanker"},{"count":93,"facility_type":"Both"}],[{"country":"加拿大"},{"count":312,"facility_type":"Dry Cargo"},{"count":118,"facility_type":"Tanker"},{"count":51,"facility_type":"Both"}],[{"country":"德国"},{"count":286,"facility_type":"Dry Cargo"},{"count":83,"facility_type":"Tanker"},{"count":29,"facility_type":"Both"}],[{"country":"印度尼西亚"},{"count":184,"facility_type":"Dry Cargo"},{"count":211,"facility_type":"Tanker"},{"count":35,"facility_type":"Both"}],[{"country":"英国"},{"count":391,"facility_type":"Dry Cargo"},{"count":172,"facility_type":"Tanker"},{"count":43,"facility_type":"Both"}],[{"country":"意大利"},{"count":28,"facility_type":"Both"},{"count":229,"facility_type":"Dry Cargo"},{"count":117,"facility_type":"Tanker"}]];
+         callback(a);
+         },300);*/
+        axios.get(sever.portAddress + "portInfo/selectBerthStatistics/"+params.id)
+            .then(function(res){
+                callback(res.data);
+            })
+            .catch(function(error){
+                console.log(error);
+            });
+    },
+    /**
+     * 港口泊位类型统计
+     * */
+    selectShipStatus(params,callback){
+        /*setTimeout(function(){
+         var a = [[{"country":"中国"},{"count":85,"facility_type":"Both"},{"count":473,"facility_type":"Tanker"},{"count":1028,"facility_type":"Dry Cargo"}],[{"country":"法国"},{"count":218,"facility_type":"Dry Cargo"},{"count":89,"facility_type":"Tanker"},{"count":32,"facility_type":"Both"}],[{"country":"挪威"},{"count":300,"facility_type":"Dry Cargo"},{"count":92,"facility_type":"Tanker"},{"count":52,"facility_type":"Both"}],[{"country":"美国"},{"count":209,"facility_type":"Both"},{"count":1053,"facility_type":"Dry Cargo"},{"count":709,"facility_type":"Tanker"}],[{"country":"日本"},{"count":705,"facility_type":"Dry Cargo"},{"count":321,"facility_type":"Tanker"},{"count":93,"facility_type":"Both"}],[{"country":"加拿大"},{"count":312,"facility_type":"Dry Cargo"},{"count":118,"facility_type":"Tanker"},{"count":51,"facility_type":"Both"}],[{"country":"德国"},{"count":286,"facility_type":"Dry Cargo"},{"count":83,"facility_type":"Tanker"},{"count":29,"facility_type":"Both"}],[{"country":"印度尼西亚"},{"count":184,"facility_type":"Dry Cargo"},{"count":211,"facility_type":"Tanker"},{"count":35,"facility_type":"Both"}],[{"country":"英国"},{"count":391,"facility_type":"Dry Cargo"},{"count":172,"facility_type":"Tanker"},{"count":43,"facility_type":"Both"}],[{"country":"意大利"},{"count":28,"facility_type":"Both"},{"count":229,"facility_type":"Dry Cargo"},{"count":117,"facility_type":"Tanker"}]];
+         callback(a);
+         },300);*/
+        axios.get(sever.portAddress + "portInfo/selectShipStatus",{params})
+            .then(function(res){
+                callback(res.data);
+            })
+            .catch(function(error){
+                console.log(error);
+            });
+    },
+
+    /**
+     * 港口每月服务时长统计
+     * */
+    getPortServiceTimeOfDay(params,callback){
+        /*setTimeout(function(){
+         var a = [[{"country":"中国"},{"count":85,"facility_type":"Both"},{"count":473,"facility_type":"Tanker"},{"count":1028,"facility_type":"Dry Cargo"}],[{"country":"法国"},{"count":218,"facility_type":"Dry Cargo"},{"count":89,"facility_type":"Tanker"},{"count":32,"facility_type":"Both"}],[{"country":"挪威"},{"count":300,"facility_type":"Dry Cargo"},{"count":92,"facility_type":"Tanker"},{"count":52,"facility_type":"Both"}],[{"country":"美国"},{"count":209,"facility_type":"Both"},{"count":1053,"facility_type":"Dry Cargo"},{"count":709,"facility_type":"Tanker"}],[{"country":"日本"},{"count":705,"facility_type":"Dry Cargo"},{"count":321,"facility_type":"Tanker"},{"count":93,"facility_type":"Both"}],[{"country":"加拿大"},{"count":312,"facility_type":"Dry Cargo"},{"count":118,"facility_type":"Tanker"},{"count":51,"facility_type":"Both"}],[{"country":"德国"},{"count":286,"facility_type":"Dry Cargo"},{"count":83,"facility_type":"Tanker"},{"count":29,"facility_type":"Both"}],[{"country":"印度尼西亚"},{"count":184,"facility_type":"Dry Cargo"},{"count":211,"facility_type":"Tanker"},{"count":35,"facility_type":"Both"}],[{"country":"英国"},{"count":391,"facility_type":"Dry Cargo"},{"count":172,"facility_type":"Tanker"},{"count":43,"facility_type":"Both"}],[{"country":"意大利"},{"count":28,"facility_type":"Both"},{"count":229,"facility_type":"Dry Cargo"},{"count":117,"facility_type":"Tanker"}]];
+         callback(a);
+         },300);*/
+        axios.get(sever.portAddress + "portInfo/getPortServiceTimeOfDay",{params})
+            .then(function(res){
+                callback(res.data);
+            })
+            .catch(function(error){
+                console.log(error);
+            });
+    },
+    /**
+     * 港口每年服务时长统计
+     * */
+    getPortServiceTimeOfYear(params,callback){
+        /*setTimeout(function(){
+         var a = [[{"country":"中国"},{"count":85,"facility_type":"Both"},{"count":473,"facility_type":"Tanker"},{"count":1028,"facility_type":"Dry Cargo"}],[{"country":"法国"},{"count":218,"facility_type":"Dry Cargo"},{"count":89,"facility_type":"Tanker"},{"count":32,"facility_type":"Both"}],[{"country":"挪威"},{"count":300,"facility_type":"Dry Cargo"},{"count":92,"facility_type":"Tanker"},{"count":52,"facility_type":"Both"}],[{"country":"美国"},{"count":209,"facility_type":"Both"},{"count":1053,"facility_type":"Dry Cargo"},{"count":709,"facility_type":"Tanker"}],[{"country":"日本"},{"count":705,"facility_type":"Dry Cargo"},{"count":321,"facility_type":"Tanker"},{"count":93,"facility_type":"Both"}],[{"country":"加拿大"},{"count":312,"facility_type":"Dry Cargo"},{"count":118,"facility_type":"Tanker"},{"count":51,"facility_type":"Both"}],[{"country":"德国"},{"count":286,"facility_type":"Dry Cargo"},{"count":83,"facility_type":"Tanker"},{"count":29,"facility_type":"Both"}],[{"country":"印度尼西亚"},{"count":184,"facility_type":"Dry Cargo"},{"count":211,"facility_type":"Tanker"},{"count":35,"facility_type":"Both"}],[{"country":"英国"},{"count":391,"facility_type":"Dry Cargo"},{"count":172,"facility_type":"Tanker"},{"count":43,"facility_type":"Both"}],[{"country":"意大利"},{"count":28,"facility_type":"Both"},{"count":229,"facility_type":"Dry Cargo"},{"count":117,"facility_type":"Tanker"}]];
+         callback(a);
+         },300);*/
+        axios.get(sever.portAddress + "portInfo/getPortServiceTimeOfYear",{params})
+            .then(function(res){
+                callback(res.data);
+            })
+            .catch(function(error){
+                console.log(error);
+            });
+    },
+
+    /**
+     * 港口停靠船舶统计
+     * */
+    getPortHistoryShip(params,callback){
+        /*setTimeout(function(){
+         var a = [[{"country":"中国"},{"count":85,"facility_type":"Both"},{"count":473,"facility_type":"Tanker"},{"count":1028,"facility_type":"Dry Cargo"}],[{"country":"法国"},{"count":218,"facility_type":"Dry Cargo"},{"count":89,"facility_type":"Tanker"},{"count":32,"facility_type":"Both"}],[{"country":"挪威"},{"count":300,"facility_type":"Dry Cargo"},{"count":92,"facility_type":"Tanker"},{"count":52,"facility_type":"Both"}],[{"country":"美国"},{"count":209,"facility_type":"Both"},{"count":1053,"facility_type":"Dry Cargo"},{"count":709,"facility_type":"Tanker"}],[{"country":"日本"},{"count":705,"facility_type":"Dry Cargo"},{"count":321,"facility_type":"Tanker"},{"count":93,"facility_type":"Both"}],[{"country":"加拿大"},{"count":312,"facility_type":"Dry Cargo"},{"count":118,"facility_type":"Tanker"},{"count":51,"facility_type":"Both"}],[{"country":"德国"},{"count":286,"facility_type":"Dry Cargo"},{"count":83,"facility_type":"Tanker"},{"count":29,"facility_type":"Both"}],[{"country":"印度尼西亚"},{"count":184,"facility_type":"Dry Cargo"},{"count":211,"facility_type":"Tanker"},{"count":35,"facility_type":"Both"}],[{"country":"英国"},{"count":391,"facility_type":"Dry Cargo"},{"count":172,"facility_type":"Tanker"},{"count":43,"facility_type":"Both"}],[{"country":"意大利"},{"count":28,"facility_type":"Both"},{"count":229,"facility_type":"Dry Cargo"},{"count":117,"facility_type":"Tanker"}]];
+         callback(a);
+         },300);*/
+        axios.get(sever.portAddress + "/portInfo/getPortHistoryShip",{params})
+            .then(function(res){
+                callback(res.data);
+            })
+            .catch(function(error){
+                console.log(error);
+            });
     }
-
-
 
 };
 

@@ -1,11 +1,42 @@
 import React,{Component} from 'react';
 import ReactEcharts from 'echarts-for-react';
+import server from '../../../../../../axios/portAndBerthServer';
 import color from '../color';
 import './index.css'
 /*柱状图*/
 class HistroyServiceStaEchart_bar extends Component{
     constructor(){
         super();
+        this.state = {
+            data : [],
+            type : [],
+        }
+    }
+    componentDidMount(){
+        //港口服务时长请求
+        this.getPortServiceTimeOfYearServer(this.props.year);
+    }
+    //港口服务时长请求
+    getPortServiceTimeOfYearServer(year){
+        let self = this;
+        console.log(this.props)
+        server.getPortServiceTimeOfYear({id:this.props.portId,year},(data)=>{
+            console.log(data)
+            self.getPortServiceTimeOfYearData(data)
+        })
+    }
+    getPortServiceTimeOfYearData(dataArr){
+        let data = [];
+        let type = [];
+        for (let i=0;i<dataArr.length;i++){
+            data.push(dataArr[i].count);
+            type.push(Number(dataArr[i].mouth)+'月')
+        }
+        this.setState({data,type})
+    }
+    componentWillReceiveProps(nextProps){
+
+        this.getPortServiceTimeOfYearServer(nextProps.year);
     }
     getOption(){
         return {
@@ -25,7 +56,7 @@ class HistroyServiceStaEchart_bar extends Component{
             xAxis : [
                 {
                     type : 'category',
-                    data : ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+                    data : this.state.type,
                     axisLabel: {
                         show: true,
                         textStyle: {
@@ -64,10 +95,10 @@ class HistroyServiceStaEchart_bar extends Component{
             ],
             series : [
                 {
-                    name:'直接访问',
+                    name:'港口服务时长',
                     type:'bar',
                     barWidth: '60%',
-                    data:[10, 52, 200, 334, 390, 330, 220]
+                    data:this.state.data
                 }
             ]
         };

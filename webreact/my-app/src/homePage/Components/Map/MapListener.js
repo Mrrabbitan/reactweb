@@ -58,6 +58,7 @@ class MapListener {
         var self = this;
         //加载全球港口数据
         portAndBerthServer.loadAllPort({}, function (data) {
+            console.log(data)
             //"portid":10003,"portname":"Funafuti","country":"Tuvalu","latitudedecimal":-8.516666412,"longitudedecimal":179.216666666,"countrycode":"TUV"}
             data.data.data.forEach((item) => {
                 var disInfo = htmlTemplate.createIndexPortTemplate(item);
@@ -100,11 +101,10 @@ class MapListener {
         })
     }
 
-    /* 增加海区内容,将原始数据保存在public的json文件夹下，用于脚手架编译的访问 */
+    /* 增加海区内容,将原始数据保存在public的json文件夹下，用于脚手架编译后的访问 */
     loadSeaArea() {
         let self = this;
         seaareaServer.loadAllSeaarea({}, function (data) {
-
             data.forEach((item) => {
                 let disInfo = htmlTemplate.createIndexTemplate1(item.name);
                 let seaarea = item.multiGeometry;
@@ -120,10 +120,7 @@ class MapListener {
                 }
                 simplePolygon.createAndAddMap1(self.mapObj.seaareaSource, 50, arr, 'indexSeaArea', disInfo);
             })
-
-
         })
-
     }
 
     /*增加排放区内容,将原始数据保存在public的json文件夹下，用于脚手架编译后访问*/
@@ -134,7 +131,7 @@ class MapListener {
                 let area = item.area[0];
                 let disarea = area.line;
                 for (var i = 0; i < disarea.length;) {
-                    let disInfo = htmlTemplate.createIndexTemplate1(item.name);
+                    let disInfo = htmlTemplate.createdischargeTemplate(item.name);
                     let lon = disarea[i].lon;
                     let lat = disarea[i].lat;
                     var next = ++i;
@@ -160,11 +157,11 @@ class MapListener {
         let self = this;
         dischargeServer.loadChinadischarge({}, function (data) {
             data.forEach((item) => {
-
                 let detaildata = item.data;
                 let len = detaildata.length;
                 for (var i = 0; i < len;) {
-                    let disInfo = htmlTemplate.createIndexTemplate1(item.name)
+                    
+                    let disInfo = htmlTemplate.createdischargeTemplate(item.name)
                     let lon = detaildata[i].lon;
                     let lat = detaildata[i].lat;
                     var desplus = ++i;
@@ -214,31 +211,33 @@ class MapListener {
         self.clickSouth = coordinate;
         var pixel = self.mapObj.map.getEventPixel(evt.originalEvent);
         var feature = self.mapObj.map.forEachFeatureAtPixel(pixel, function (feature, layer) {
-            if (layer == self.mapObj.portLayer || layer == self.mapObj.portInportentLayer ) {
+            if (layer === self.mapObj.portLayer || layer === self.mapObj.portInportentLayer ) {
                 //点击港口
                 self.portClick(feature, layer, self.mapObj.popupOverlay.getElement(), self.mapObj.popupOverlay);
                 return "not todo";
-            } else if(layer == self.mapObj.shipLayer){
+            } else if(layer === self.mapObj.shipLayer){
                 //点击船舶
                 let mmsi = feature.get("param");
-                console.log("param:"+mmsi);
                 self.portClick(feature, layer, self.mapObj.popupOverlay.getElement(), self.mapObj.popupOverlay);
                 self.clickShipInfo(mmsi);
                 return "not todo";
-            }else if (layer == self.mapObj.seaareaLayer) {
+            }else if (layer === self.mapObj.seaareaLayer) {
                 //点击海区
-                self.portClick1(feature, layer, self.mapObj.popupOverlay.getElement(), self.mapObj.popupOverlay);
+                self.seaareaClick(feature, layer, self.mapObj.popupOverlay.getElement(), self.mapObj.popupOverlay);
                 return "not todo";
-            } else if (layer == self.mapObj.berthLayer) {
+            } else if (layer === self.mapObj.berthLayer) {
                 //点击泊位
                 self.berthClick(feature, layer, self.mapObj.popupOverlay.getElement(), self.mapObj.popupOverlay, coordinate);
                 return "not todo";
-            }else if(layer == self.mapObj.straitlayer){
+            }else if(layer === self.mapObj.straitlayer){
                 //点击海峡
                 self.portClick(feature, layer, self.mapObj.popupOverlay.getElement(), self.mapObj.popupOverlay);
-                console.log("海峡名称："+feature.get('name'));
+                return "not todo";
+            }else if(layer === self.mapObj.dischargeLayer || layer === self.mapObj.ChinadischargeLayer){
+                self.dischargeClick(feature, layer, self.mapObj.popupOverlay.getElement(), self.mapObj.popupOverlay);
                 return "not todo";
             }
+
         })
         if (feature == null) {
             self.mapObj.popupOverlay.setPosition(undefined);
@@ -338,13 +337,18 @@ class MapListener {
         })
     }
 
-    portClick1(feature, layer, element, popLayer) {
+    seaareaClick(feature, layer, element, popLayer) {
         $("#popup-content").html(feature.G.disinfo);
         $("#popup").addClass('popup-seaarea');
         popLayer.setPosition(this.clickSouth);
 
     };
+    dischargeClick(feature, layer, element, popLayer) {
+        $("#popup-content").html(feature.G.disinfo);
+        $("#popup").addClass('popup-seaarea');
+        popLayer.setPosition(this.clickSouth);
 
+    };
     berthClick(feature, layer, element, popLayer, coordinate) {
         $("#popup-content").html(feature.get('disInfo'));
         popLayer.setPosition(this.clickSouth);
@@ -367,7 +371,7 @@ class MapListener {
             self.mapObj.shipLayer.setVisible(false);
             //显示画布，允许重新绘制
             this.shipDataLayer.canvasShow();
-        } else if (newZoomLevel >= 8) {
+        } else if (newZoomLevel === 8) {
             self.mapObj.shipLayer.setVisible(true);
             //隐藏画布，禁止重新绘制
             this.shipDataLayer.canvasHide();
@@ -422,7 +426,7 @@ class MapListener {
     layerShowOrHideEventFun({type,status}){
         switch(type){
             case "港口":
-                this.mapObj.relationLayer.setVisible(status);
+                //this.mapObj.relationLayer.setVisible(status);
                 this.mapObj.portInportentLayer.setVisible(status);
                 break;
             case "泊位":
@@ -455,28 +459,20 @@ class MapListener {
     /**
      * 显示 航运网络图层
      */
-    showAllLayer(){
+   /*  showAllLayer(){
         this.mapObj.layer_custom_dayan.setVisible(true);
        
 
 
         /* instanceof  */
-    }
+    //} 
 
      /**
       * 隐藏 航运网络图层
       */
-     hideAllLayer(){
-        this.mapObj.layer_custom_dayan.setVisible(false);
-        this.mapObj.portLayer.setVisible(false);
-        this.mapObj.portInportentLayer.setVisible(false);
-        this.mapObj.straitlayer.setVisible(false);
-        this.mapObj.relationLayer.setVisible(false);
-        this.mapObj.seaareaLayer.setVisible(false);
-        this.mapObj.dischargeLayer.setVisible(false);
-        this.mapObj.shipLayer.setVisible(false);
-        this.mapObj.ChinadischargeLayer.setVisible(false);
-    }
+    /*  hideAllLayer(){
+      
+    } */
 
 
 

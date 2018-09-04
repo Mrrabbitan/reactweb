@@ -94,18 +94,38 @@ class HtmlTemplate {
                        </div>`
         return disInfo;
     }
-
+/***
+     * 创建首页海区标牌
+     * @param name 海区名称
+     * @returns {string}
+     */
     createIndexTemplate1(name) {
-        /* alert('1231231') */
        /* var lonlat = data.mt_pos.split('/');
         var port_english_name_space = data.country_english_name;
         var country_english_name = port_english_name_space.replace(/(^\s*)|(\s*$)/g, "");
         return this.template1(country_english_name, data.name, data.port_chaname, lonlat[0], lonlat[1], data.country);*/
-        let disInfo = `<div>
+        let disInfo = `<div class="content_content content_seaarea"> 
                     海区名称:  ${name} 
                     </div>`
         return disInfo;
     }
+
+
+    /***
+     * 创建首页排放区标牌
+     * @param name 排放区名称
+     * @returns {string}
+     */
+    createdischargeTemplate(name) {
+        /* var lonlat = data.mt_pos.split('/');
+         var port_english_name_space = data.country_english_name;
+         var country_english_name = port_english_name_space.replace(/(^\s*)|(\s*$)/g, "");
+         return this.template1(country_english_name, data.name, data.port_chaname, lonlat[0], lonlat[1], data.country);*/
+         let disInfo = `<div class="content_content content_seaarea"> 
+                     排放区名称:  ${name} 
+                     </div>`
+         return disInfo;
+     }
 
     /**
      * 创建船舶的标牌

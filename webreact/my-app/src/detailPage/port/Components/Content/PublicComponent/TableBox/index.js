@@ -6,15 +6,15 @@ class TableBox extends Component {
         super(props);
         this.state = {
             //列数
-            li: props.list,
+            li: 0,
             //高亮列数
-            active:props.active,
+            active:1,
             //表格头文字
-            thead: props.thead,
+            thead: [],
             //字段名称数组
-            fileName: props.fileName,
+            fileName: [],
             //数据
-            data: props.data
+            data: []
         }
     }
 
@@ -24,19 +24,19 @@ class TableBox extends Component {
                 <table>
                     <thead>
                     <tr>
-                        {this.state.thead.map((item, index)=>(
+                        {this.props.thead.map((item, index)=>(
                             <td key={index + 'thead'}>{item}</td>
                         ))}
                     </tr>
                     </thead>
                     <tbody>
                     {
-                        this.state.data.map((item, index)=> {
-                            if (index > this.state.li - 1)return;
+                        this.props.data.map((item, index)=> {
+                            if (index > this.props.li - 1)return;
                             return (
                                 <tr key={index + "tr"}>
-                                    {this.state.fileName.map((fitem, findex)=> {
-                                        if (findex == this.state.active - 1) {
+                                    {this.props.fileName.map((fitem, findex)=> {
+                                        if (findex == this.props.active - 1) {
                                             return (
                                                 <td key={findex + "td"} className="active">{item[fitem]}</td>
                                             )
