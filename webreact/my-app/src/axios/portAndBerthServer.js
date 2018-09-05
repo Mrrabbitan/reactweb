@@ -185,7 +185,7 @@ const portAndBerthService = {
                 console.log(error);
             });
     },
-    /**
+    /* *
      * 港口泊位类型统计
      * */
     selectBerthStatistics(params,callback){

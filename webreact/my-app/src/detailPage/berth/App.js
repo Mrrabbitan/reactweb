@@ -1,6 +1,7 @@
 import React,{Component} from 'react';
 import Header from './Containers/Header/header';
 import Content from './Containers/Content/content';
+import './style/index.css'
 
 class App extends Component{
     constructor(){
@@ -11,7 +12,6 @@ class App extends Component{
     }
     //页面元素加载前
     componentWillMount(){
-
      
     }
     //页面元素加载完成之后

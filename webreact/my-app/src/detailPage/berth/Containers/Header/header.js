@@ -1,6 +1,7 @@
 import React,{Component} from 'react';
-import HeaderTitle from '../Component/Header/Headertitle/HeaderTitle';
-import HeaderWeather from '../Component/Header/Headerweather/HeaderWeather';
+import HeaderTitle from '../../Component/Header/Headertitle/HeaderTitle';
+import HeaderWeather from '../../Component/Header/Headerweather/HeaderWeather';
+import "./index.css"
 
 class header extends Component{
     render(){

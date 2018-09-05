@@ -3,6 +3,9 @@ import Map from '../../../Components/Content/Map'
 import BasicInfo from '../../../Components/Content/BasicInfo'
 import './index.css'
 
+
+
+
 class Basic extends Component{
     render(){
         return (
