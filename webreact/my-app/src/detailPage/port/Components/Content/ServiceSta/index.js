@@ -6,6 +6,11 @@ import HistroyServiceStaEchart_bar from '../../../Components/Content/Echarts/His
 import HistroyServiceStaEchart_line from '../../../Components/Content/Echarts/HistroyServiceStaEchart_line';
 import MonthStopCountEchart from '../../../Components/Content/Echarts/MonthStopCountEchart';
 import HandingEffEchart from '../../../Components/Content/Echarts/HandingEffEchart';
+import DeviceDisplay from './DeviceDisplay';
+import StopType from './StopType';
+import StopTimeEchart from '../Echarts/StopTimeEchart';
+import TaskRateEchart from '../Echarts/TaskRateEchart';
+
 import $ from 'jquery';
 import '../../../style/page.css';
 import './index.css';
@@ -45,7 +50,6 @@ class ServiceSta extends Component{
          * 服务水平部分切换
          * 切换渲染的echarts等再此修改
          * */
-        console.log("renderA")
         let tabContentServiceSta;
         //根据切换来选择渲染某一部分
         if (this.state.tabServiceSta==1){//历史服务水平
@@ -88,6 +92,18 @@ class ServiceSta extends Component{
                 <div id="service_sta">
                     <ModuleTitle title="服务水平" type="2"/>
                     <div className="service_sta_box">
+                        <div className="service_sta_deviceAndStopType_box">
+                            {/*设备*/}
+                            <DeviceDisplay portId={this.props.portId}/>
+                            {/*停靠类型*/}
+                            <StopType portId={this.props.portId}/>
+                        </div>
+                        <div className="service_sta_stopAndRate_box">
+                            {/*待泊时长*/}
+                            <StopTimeEchart/>
+                            {/*作业效率*/}
+                            <TaskRateEchart/>
+                        </div>
                         <TabComponent
                             tabName={["历史服务水平","每月船舶停靠次数","每月停靠数量","装卸效率"]}
                             thisClick={this.tabFunForServiceSta}

@@ -82,7 +82,6 @@ class MonthStopCountEchart extends Component{
                     type:'line',
                     stack: '总量',
                     data:[6, 20, 8, 4,9.5,26,10.3,9.6,5.8,6.2,16.6,16]
-
                 }
             ]
         }

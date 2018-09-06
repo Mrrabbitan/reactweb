@@ -11,12 +11,10 @@ class HistroyServiceStaEchart_pie extends Component{
             data1:[],
             type1:[],
         }
-        console.log("constructor")
     }
     componentDidMount(){
         //港口停靠船舶
         this.getPortHistoryShipServer(this.props.year);
-        console.log("componentWillMount")
     }
     //港口停靠船舶数据请求
     getPortHistoryShipServer(year){
@@ -35,7 +33,6 @@ class HistroyServiceStaEchart_pie extends Component{
             type1.push(data[i].type?data[i].type:'未知');
             data1.push({name:data[i].type?data[i].type:'未知',value:data[i].total});
         }
-        console.log(data1)
         this.setState({data1,type1});
     }
     componentWillReceiveProps(nextProps){
@@ -134,7 +131,6 @@ class HistroyServiceStaEchart_pie extends Component{
         };
     }
     render(){
-        console.log("render")
         return (
             <div id="histroyServiceStaEchart_pie_box">
                     <div className="hsdep_echart_box_tk">
@@ -143,14 +139,14 @@ class HistroyServiceStaEchart_pie extends Component{
                             style={{height: '100%', width: '100%'}}
                             className='react_for_echarts'
                         />
-                </div>
-                <div className="hsdep_echart_box_tk">
-                    <ReactEcharts
-                        option={this.getOption2()}
-                        style={{height: '100%', width: '100%'}}
-                        className='react_for_echarts'
-                    />
-                </div>
+                    </div>
+                    <div className="hsdep_echart_box_tk">
+                        <ReactEcharts
+                            option={this.getOption2()}
+                            style={{height: '100%', width: '100%'}}
+                            className='react_for_echarts'
+                        />
+                    </div>
 
             </div>
         )

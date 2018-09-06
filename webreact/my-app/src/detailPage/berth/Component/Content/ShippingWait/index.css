@@ -1,0 +1,25 @@
+.port_dis_box{
+    padding:10px 0;
+    height:345px;
+    width:100%;
+    display: flex;
+    flex-wrap:wrap;
+    justify-content: space-between;
+}
+
+#Shippingwait_mode{
+    width:49%;
+}
+
+#Shippingwork_mode{
+    width:49%;
+}
+
+.Shipworkchart1{
+    height:300px;
+    width:100%;
+}
+.Shipworkchart2{
+    height:300px;
+    width:100%;
+}

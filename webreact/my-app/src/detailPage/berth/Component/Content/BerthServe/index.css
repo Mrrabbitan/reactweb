@@ -1,3 +1,13 @@
+.port_dis_box_berth_bufen{
+    padding:10px 0;
+    height:265px;
+}
+.berthserve_content{
+    width:100%;
+    height:100%;
+    display:flex;
+    justify-content: space-around;
+}
 .service_sta_deviceAndStopType_box{
     width:100%;
     height:196px;
@@ -7,13 +17,31 @@
     width:50%;
     height:100%;
 }
+.berthserve_box_between_line{
+    height:50%;
+    width:1px;
+    background:#1ecdff;
+    margin-top:50px;
+}
 .device_box{
+    width:40%;
+    height:100%;
     display:flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
+.nightwork_box{
+    width:27%;
+    height:100%;
+    display:flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items: center;
+}
 .stopType_box{
+    width:33%;
+    height:100%;
     display:flex;
     flex-direction: column;
     justify-content: center;
@@ -72,4 +100,55 @@
     display:flex;
     justify-content: space-between;
     margin-bottom:10px;
+}
+
+.nightwork_picshow{
+    width:100%;
+    height:140px;
+    display:flex;
+    flex: wrap;
+    justify-content: space-between;
+}
+
+.nightwork_enterberth{
+    height:100%;
+    width:50%;
+    display: flex;
+    flex-wrap:wrap;
+    justify-content:center;
+}
+
+.nightwork_exitberth{
+    height:100%;
+    width:50%;
+    flex-wrap:wrap;
+    display: flex;
+    justify-content:center;
+}
+
+.outCilcle_nightwork{
+    height:95px;
+    width:95px;
+    border-radius:50%;
+    background:#185e9c;
+    display:flex;
+    justify-content: center;
+    align-items:center;
+}
+.nightwork_text{
+    height:20px;
+    width:100px;
+    color:#1ecdff;
+    text-align:center;
+}
+
+.inLineCircle_nightwork{
+    height:75px;
+    width:75px;
+    border-radius:50%;
+    background:#03a9f4;
+    color:white;
+    font-weight:bold;
+    text-align:center;
+    line-height:75px;
 }

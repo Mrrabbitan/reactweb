@@ -3,6 +3,9 @@ import PortDis from '../../../Components/Content/PortDis';
 import BerthClass from '../../../Components/Content/BerthClass';
 import PortFlow from '../../../Components/Content/PortFlow';
 import ServiceSta from '../../../Components/Content/ServiceSta';
+import PortImportAndExport from '../../../Components/Content/PortImportAndExport';
+import LaneImportAndExport from '../../../Components/Content/LaneImportAndExport';
+
 import {connect} from 'react-redux';
 import '../../../style/page.css';
 import './index.css';
@@ -23,6 +26,10 @@ class Detail extends Component{
                 <PortFlow portId={this.props.portId}/>
                 {/*服务水平*/}
                 <ServiceSta portId={this.props.portId}/>
+                {/*港口进出口*/}
+                <PortImportAndExport portId={this.props.portId}/>
+                {/*进出口航线*/}
+                <LaneImportAndExport portId={this.props.portId}/>
             </div>
         )
     }
