@@ -1,12 +1,51 @@
 import React,{Component} from 'react';
 import ReactEcharts from 'echarts-for-react';
+import server from '../../../../../../axios/portAndBerthServer';
 import color from '../color';
 import './index.css'
 
 class MonthStopCountEchart extends Component{
     constructor(){
         super();
+        this.state = {
+            series:[],
+            type:[]
+        }
     }
+    componentDidMount(){
+        this.getShipStopByPortIdServer();
+    }
+    getShipStopByPortIdServer(){
+        server.getShipStopByPortId({id:this.props.portId},(data)=>{
+            if(data){
+                this.getShipStopByPortIdDataFun(data);
+                console.log(data)
+            }
+
+        })
+    }
+    getShipStopByPortIdDataFun(data) {
+        let series = [];
+        let type = [];
+        console.log(data);
+        for(let i=0;i<data.length;i++){
+            let arr = new Array(12).fill(0);
+            for(let j=0;j<data[i].data.length;j++){
+                arr[data[i].data[j].month-1] = data[i].data[j].count;
+            }
+            series.push({
+                name:data[i].type,
+                type:'line',
+                data:arr
+            })
+            type.push(data[i].type);
+        }
+        this.setState({series,type})
+    }
+    componentDidUpdate(){
+        this.getShipStopByPortIdServer();
+    }
+
     getOption(){
         return {
             color:color,
@@ -21,7 +60,7 @@ class MonthStopCountEchart extends Component{
                 trigger: 'axis'
             },
             legend: {
-                data:['同比','环比'],
+                data:this.state.type,
                 textStyle:{
                     color:'#ffffff',
                 },
@@ -68,22 +107,7 @@ class MonthStopCountEchart extends Component{
                     show: false
                 }
             },
-            series: [
-                {
-                    name:'同比',
-                    type:'line',
-
-                    stack: '总量',
-                    data:[4.6, 3.7, 2.4, 4.4, 1.2, 3.2, 6, 3.2, 0.1, 2.4, 0.3, 2.1]
-
-                },
-                {
-                    name:'环比',
-                    type:'line',
-                    stack: '总量',
-                    data:[6, 20, 8, 4,9.5,26,10.3,9.6,5.8,6.2,16.6,16]
-                }
-            ]
+            series:this.state.series,
         }
     }
     render(){

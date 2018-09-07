@@ -245,7 +245,18 @@ class shippingworkEchart extends Component{
                     zlevel: 2,
                     barGap: '100%',
                     data: [80, 170, 260]
-                }
+                },{
+                    name: '平均时长',
+                    type: 'line',
+                    data: [100,250,450],
+                    itemStyle: {
+                      normal: {
+                        show: true,
+                        color: '#53d0ff'
+                      }
+                    },
+                    smooth: true
+                  },
         
             ]
         }

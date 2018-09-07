@@ -6,7 +6,7 @@ import './index.css'
 import Berthserve from '../../../Component/Content/BerthServe/berthserve';
 import Workingdayforoneyear
     from '../../../Component/Content/Workingdayforoneyear/workingdayforoneyear';
-
+import Workingforthismouth from '../../../Component/Content/Workingdayforthismouth/workingdayforthismouth';
 
 
 class Detail extends Component{
@@ -21,6 +21,8 @@ class Detail extends Component{
                 <Shippingwait/>    
                 {/* 近一年工作天数 */}
                 <Workingdayforoneyear/>  
+                {/* 当月工作时长 */}
+                <Workingforthismouth/>  
             </div>
 
         )

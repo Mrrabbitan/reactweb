@@ -1,7 +1,7 @@
 import React,{Component} from 'react';
 import Header from './Containers/Header/header';
 import Content from './Containers/Content/content';
-import './style/index.css'
+import './style/index.css';
 
 class App extends Component{
     constructor(){

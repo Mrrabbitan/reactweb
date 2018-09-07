@@ -5,16 +5,19 @@ import color from '../color';
 import './index.css'
 /*柱状图*/
 class HistroyServiceStaEchart_pie extends Component{
-    constructor(){
-        super();
+    constructor(props){
+        super(props);
         this.state = {
+            year:props.year,
             data1:[],
             type1:[],
         }
+        //用于
+        this.propsChange = true;
     }
     componentDidMount(){
         //港口停靠船舶
-        this.getPortHistoryShipServer(this.props.year);
+        this.getPortHistoryShipServer(this.state.year);
     }
     //港口停靠船舶数据请求
     getPortHistoryShipServer(year){
@@ -22,6 +25,7 @@ class HistroyServiceStaEchart_pie extends Component{
         server.getPortHistoryShip({id:this.props.portId,year},(data)=>{
             if(data){
                 self.getPortHistoryShipDataFun(data)
+
             }
         })
     }
@@ -33,11 +37,26 @@ class HistroyServiceStaEchart_pie extends Component{
             type1.push(data[i].type?data[i].type:'未知');
             data1.push({name:data[i].type?data[i].type:'未知',value:data[i].total});
         }
-        this.setState({data1,type1});
+        this.propsChange = true;
+        this.setState({data1,type1,year:this.props.year});
     }
     componentWillReceiveProps(nextProps){
-        this.getPortHistoryShipServer(nextProps.year);
+        //props变化不重新渲染
+        this.propsChange = false;
+        if(nextProps.year!=this.props.year){
+            this.getPortHistoryShipServer(nextProps.year);
+        }
     }
+    shouldComponentUpdate(){
+        if(this.propsChange){
+            return true;
+        }
+        return false;
+    }
+    componentDidUpdate(){
+
+    }
+
     getOption1(){
         return {
             color:color,

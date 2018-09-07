@@ -1,15 +1,54 @@
 import React,{Component} from 'react';
 import ReactEcharts from 'echarts-for-react';
+import server from '../../../../../../axios/portAndBerthServer';
 import color from '../color';
 import './index.css'
 /*柱状图*/
 class HistroyServiceStaEchart_line extends Component{
-    constructor(){
-        super();
+    constructor(props){
+        super(props);
+        this.state = {
+            year:props.year,
+            month:props.month,
+            data:[],
+            type:[]
+        }
+        this.propsChange = true;
     }
+    componentDidMount() {
+        this.getPortServiceTimeOfDayServer(this.state.month,this.state.year)
+    }
+    getPortServiceTimeOfDayServer(month,year){
+        server.getPortServiceTimeOfDay({id: this.props.portId, mouth:month-1,year},(data)=>{
+            if(data){
+                this.getPortServiceTimeOfDayData(data)
+            }
+
+        })
+    }
+    componentWillReceiveProps(nextProps){
+        this.propsChange = false;
+        this.getPortServiceTimeOfDayServer(nextProps.month,nextProps.year);
+    }
+    getPortServiceTimeOfDayData(dataArr){
+        let data = [];
+        let type = [];
+        for(let i = 0;i<dataArr.length;i++){
+            data.push(dataArr[i].count);
+            type.push(dataArr[i].day);
+        }
+        this.setState({data,type,year:this.props.year,month:this.props.month});
+    }
+
     getOption(){
         return {
             color:color,
+            title:{
+                text:this.props.month+'月每天时长统计',
+                textStyle:{
+                    color:'#fff'
+                }
+            },
             xAxis: {
                 type: 'category',
                 axisLabel: {
@@ -25,10 +64,12 @@ class HistroyServiceStaEchart_line extends Component{
                         color: "#0b6ead",
                     }
                 },
-                data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+                data: this.state.type
             },
             yAxis: {
                 type: 'value',
+                max:31,
+                min:10,
                 axisLabel: {
                     show: true,
                     textStyle: {
@@ -47,7 +88,7 @@ class HistroyServiceStaEchart_line extends Component{
                 }
             },
             series: [{
-                data: [820, 932, 901, 934, 1290, 1330, 1320],
+                data: this.state.data,
                 type: 'line'
             }]
         };

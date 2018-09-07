@@ -32,7 +32,6 @@ class PortFlow extends Component{
         //港口流量
         server.selectShipStatus({id:this.props.portId,currentPage,flag,number:this.state.pageNumber},(data)=>{
             if(data){
-                console.log(data)
                 self.setState({selectShipStatusData:data.data,selectShipStatusCount:data.count})
             }
         })

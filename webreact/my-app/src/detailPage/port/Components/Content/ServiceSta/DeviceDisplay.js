@@ -14,13 +14,8 @@ class DeviceDisplay extends Component{
     componentDidMount(){
 
         server.getPortFaclityStatistics({id:this.props.portId},(data)=>{
-            console.log(data[0])
             this.setState({data:data[0]})
         })
-    }
-    shouldComponentUpdate(nextProps,nextState){
-        console.log(nextState);
-        return true;
     }
     render(){
         const data = this.state.data;
@@ -36,7 +31,7 @@ class DeviceDisplay extends Component{
                         <DeviceImgInfo deviceImgName={data.grabs>0?'zj':'kk'} deviceName={"爪机"} count={data.grabs+"台"}/>
                         <DeviceImgInfo deviceImgName={data.load_nozzles>0?'zhgz':'kk'} deviceName={"装货管嘴"} count={data.load_nozzles+"个"}/>
                         <DeviceImgInfo deviceImgName={data.vacuator>0?'zkcxj':'kk'} deviceName={"真空抽吸机"} count={data.vacuator+"台"}/>
-                    </div>:''
+                    </div>:<div className="device_img_list_box"></div>
                 }
 
             </div>

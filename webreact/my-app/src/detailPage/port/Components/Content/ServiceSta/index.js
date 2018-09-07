@@ -19,6 +19,7 @@ class ServiceSta extends Component{
     constructor(){
         super();
         this.tabFunForServiceSta = this.tabFunForServiceSta.bind(this);
+        this.monthChange = this.monthChange.bind(this);
         this.state = {
             tabServiceSta:1,
             //分页初始化参数
@@ -28,12 +29,14 @@ class ServiceSta extends Component{
             //每页显示多少条
             pageNumber:4,
             //年切换
-            year:'2017'
+            year:'2017',
+            month:1
         }
     }
     componentDidMount(){
         //年份切换
         $(".service_sta_timeTab>span").on("click",this.yearTimeTab.bind(this));
+        //
     }
     //年切换
     yearTimeTab(e){
@@ -44,6 +47,9 @@ class ServiceSta extends Component{
     //服务水平切换
     tabFunForServiceSta(data){
         this.setState({tabServiceSta:Number(data)});
+    }
+    monthChange(m){
+        this.setState({month:m});
     }
     render(){
         /**
@@ -61,18 +67,18 @@ class ServiceSta extends Component{
                     </div>
                     {/*柱状图*/}
                     <div>
-                        <HistroyServiceStaEchart_bar year={this.state.year} portId={this.props.portId}/>
+                        <HistroyServiceStaEchart_bar year={this.state.year} portId={this.props.portId} clickBar={this.monthChange}/>
                     </div>
                     {/*折线图*/}
                     <div>
-                        <HistroyServiceStaEchart_line year={this.state.year} portId={this.props.portId}/>
+                        <HistroyServiceStaEchart_line year={this.state.year} portId={this.props.portId} month={this.state.month}/>
                     </div>
                 </div>
             </div>)
         }else if(this.state.tabServiceSta==2){//每月船舶停靠次数
             tabContentServiceSta=(<div>
                 <div className="service_sta_echart">
-                    <MonthStopCountEchart/>
+                    <MonthStopCountEchart portId={this.props.portId} year={this.state.year}/>
                 </div>
             </div>)
         }else if(this.state.tabServiceSta==3){//每月停靠数量
@@ -100,9 +106,9 @@ class ServiceSta extends Component{
                         </div>
                         <div className="service_sta_stopAndRate_box">
                             {/*待泊时长*/}
-                            <StopTimeEchart/>
+                            <StopTimeEchart portId={this.props.portId}/>
                             {/*作业效率*/}
-                            <TaskRateEchart/>
+                            <TaskRateEchart portId={this.props.portId}/>
                         </div>
                         <TabComponent
                             tabName={["历史服务水平","每月船舶停靠次数","每月停靠数量","装卸效率"]}

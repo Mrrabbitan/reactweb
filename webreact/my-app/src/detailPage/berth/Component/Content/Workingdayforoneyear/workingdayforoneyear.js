@@ -4,6 +4,7 @@ import WorkingoneyearEchart from '../Echarts/WorkingoneyearEchart/workingoneyear
 import './index.css'
 
 
+
 class workingdayforoneyear extends Component{
     render(){
         return(

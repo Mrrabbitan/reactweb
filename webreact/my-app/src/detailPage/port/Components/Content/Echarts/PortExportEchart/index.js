@@ -5,17 +5,53 @@ import server from '../../../../../../axios/portAndBerthServer';
 import './index.css';
 
 class PortExportEchart extends Component{
-    constructor(){
-        super();
-        this.state = {
-
-        }
-    }
+    state = {
+        data1:[],
+        type1:[],
+        data2:[],
+        type2:[]
+    };
+    static defaultProps = {
+        portId:'27999'
+    };
     componentDidMount(){
+        this.getPortExportCountServer()
+    }
+    getPortExportCountServer(){
+        server.getPortExportCount({id:this.props.portId},(data)=>{
+            if(data){
+                this.getPortExportCountData(data);
+            }
+        })
+    }
+    getPortExportCountData(data){
+        let data1 = [];
+        let type1 = [];
+        let data2 = [];
+        let type2 = [];
+        for(let i=0;i<data.typeCount.length;i++){
+            type1.push(data.typeCount[i].type);
+            data1.push({
+                value:data.typeCount[i].sum,
+                name:data.typeCount[i].type
+            })
+        }
+        for(let i=0;i<data.monthCount.length;i++){
+            type2.push(data.monthCount[i].month+"月");
+            data2.push(data.monthCount[i].volume);
+        }
+        this.setState({data1,type1,data2,type2});
     }
     getOption1(){
         return {
             color:color,
+            title : {
+                text: '近一年进口',
+                x:'left',
+                textStyle:{
+                    color:'#56daff'
+                }
+            },
             tooltip: {
                 trigger: 'item',
                 formatter: "{a} <br/>{b}: {c} ({d}%)"
@@ -25,7 +61,7 @@ class PortExportEchart extends Component{
                 textStyle:{
                     color:'#ffffff',
                 },
-                data:['直接访问','邮件营销','联盟广告','视频广告','搜索引擎']
+                data:this.state.type1
             },
             series: [
                 {
@@ -51,13 +87,7 @@ class PortExportEchart extends Component{
                             show: false
                         }
                     },
-                    data:[
-                        {value:335, name:'直接访问'},
-                        {value:310, name:'邮件营销'},
-                        {value:234, name:'联盟广告'},
-                        {value:135, name:'视频广告'},
-                        {value:1548, name:'搜索引擎'}
-                    ]
+                    data:this.state.data1
                 }
             ]
         }
@@ -80,7 +110,7 @@ class PortExportEchart extends Component{
                         color: "#0b6ead",
                     }
                 },
-                data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+                data: this.state.type2
             },
             yAxis: {
                 type: 'value',
@@ -102,7 +132,7 @@ class PortExportEchart extends Component{
                 }
             },
             series: [{
-                data: [820, 932, 901, 934, 1290, 1330, 1320],
+                data: this.state.data2,
                 type: 'line'
             }]
         };

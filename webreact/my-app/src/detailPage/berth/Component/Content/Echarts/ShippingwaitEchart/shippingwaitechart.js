@@ -14,7 +14,7 @@ class shippingwaitEchart extends Component{
                 textStyle: {
                     color: '#fff',
                 },
-                data: ['100-200', '200-400', '400-600']
+                data: ['100-200', '200-400', '400-600','完成率']
             },
             grid: {
                 left: '3%',
@@ -104,7 +104,8 @@ class shippingwaitEchart extends Component{
                 },
         
             ],
-            series: [{
+            series: [
+               {
                     type: 'bar',
                     xAxisIndex: 1,
                     zlevel: 1,
@@ -240,7 +241,18 @@ class shippingwaitEchart extends Component{
                     zlevel: 2,
                     barGap: '100%',
                     data: [280, 330, 170]
-                }
+                }, {
+                    name: '平均时长',
+                    type: 'line',
+                    data: [100,250,450],
+                    itemStyle: {
+                      normal: {
+                        show: true,
+                        color: '#53d0ff'
+                      }
+                    },
+                    smooth: true
+                  },
         
             ]
         }

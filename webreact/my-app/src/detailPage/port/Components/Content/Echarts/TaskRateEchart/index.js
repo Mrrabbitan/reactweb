@@ -12,6 +12,8 @@ class TaskRateEchart extends Component{
         }
     }
     componentDidMount(){
+        server.getPortWorkEfficiency({id:this.props.portId},(data)=>{
+        })
     }
     getOption(){
         return {

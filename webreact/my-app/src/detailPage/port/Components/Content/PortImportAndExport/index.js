@@ -21,6 +21,7 @@ class PortImportAndExport extends Component {
     componentWillMount() {
 
     }
+
     tabFunForPortFlow(n){
         this.setState({module:Number(n)});
     }
@@ -30,10 +31,10 @@ class PortImportAndExport extends Component {
             portImportAndExportComponent = (
                 <div className="piaec_cargo">
                     <div className="piaec_cargo_import">
-                        <PortImportEchart/>
+                        <PortImportEchart portId={this.props.portId}/>
                     </div>
                     <div className="piaec_cargo_export">
-                        <PortExportEchart/>
+                        <PortExportEchart portId={this.props.portId}/>
                     </div>
                 </div>
             )
@@ -98,6 +99,7 @@ class PortImportAndExport extends Component {
                 </div>
             )
         }
+        console.log("render")
         return (
             <div id="piae_box">
                 <ModuleTitle title="港口进出口" type="2"/>
@@ -116,3 +118,10 @@ class PortImportAndExport extends Component {
 }
 
 export default PortImportAndExport;
+
+
+
+
+
+
+

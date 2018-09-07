@@ -92,12 +92,8 @@ getOption2(){
                 fontSize:'12',
                 fontWeight:'normal',
                 align:'top',
-            },
-            rich:{
-                subtextStyle:{
-                backgroundColor:'#004ba7',
-                }
             }
+           
         },
         tooltip: {
             trigger: 'axis',
