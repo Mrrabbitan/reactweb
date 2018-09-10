@@ -359,6 +359,38 @@ const portAndBerthService = {
             .catch(function (error) {
                 console.log(error);
             });
+    },
+    /*
+     * 进出口货物-港口
+     * */
+    getPortGoodsCountOfPort(params, callback){
+        /*setTimeout(function(){
+         var a = [[{"country":"中国"},{"count":85,"facility_type":"Both"},{"count":473,"facility_type":"Tanker"},{"count":1028,"facility_type":"Dry Cargo"}],[{"country":"法国"},{"count":218,"facility_type":"Dry Cargo"},{"count":89,"facility_type":"Tanker"},{"count":32,"facility_type":"Both"}],[{"country":"挪威"},{"count":300,"facility_type":"Dry Cargo"},{"count":92,"facility_type":"Tanker"},{"count":52,"facility_type":"Both"}],[{"country":"美国"},{"count":209,"facility_type":"Both"},{"count":1053,"facility_type":"Dry Cargo"},{"count":709,"facility_type":"Tanker"}],[{"country":"日本"},{"count":705,"facility_type":"Dry Cargo"},{"count":321,"facility_type":"Tanker"},{"count":93,"facility_type":"Both"}],[{"country":"加拿大"},{"count":312,"facility_type":"Dry Cargo"},{"count":118,"facility_type":"Tanker"},{"count":51,"facility_type":"Both"}],[{"country":"德国"},{"count":286,"facility_type":"Dry Cargo"},{"count":83,"facility_type":"Tanker"},{"count":29,"facility_type":"Both"}],[{"country":"印度尼西亚"},{"count":184,"facility_type":"Dry Cargo"},{"count":211,"facility_type":"Tanker"},{"count":35,"facility_type":"Both"}],[{"country":"英国"},{"count":391,"facility_type":"Dry Cargo"},{"count":172,"facility_type":"Tanker"},{"count":43,"facility_type":"Both"}],[{"country":"意大利"},{"count":28,"facility_type":"Both"},{"count":229,"facility_type":"Dry Cargo"},{"count":117,"facility_type":"Tanker"}]];
+         callback(a);
+         },300);*/
+        axios.get(sever.portAddress + "portInfo/getPortGoodsCountOfPort/" + params.id)
+            .then(function (res) {
+                callback(res.data);
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+    },
+    /*
+     * 进出口货物-国家
+     * */
+    getPortGoodsCountOfCountry(params, callback){
+        /*setTimeout(function(){
+         var a = [[{"country":"中国"},{"count":85,"facility_type":"Both"},{"count":473,"facility_type":"Tanker"},{"count":1028,"facility_type":"Dry Cargo"}],[{"country":"法国"},{"count":218,"facility_type":"Dry Cargo"},{"count":89,"facility_type":"Tanker"},{"count":32,"facility_type":"Both"}],[{"country":"挪威"},{"count":300,"facility_type":"Dry Cargo"},{"count":92,"facility_type":"Tanker"},{"count":52,"facility_type":"Both"}],[{"country":"美国"},{"count":209,"facility_type":"Both"},{"count":1053,"facility_type":"Dry Cargo"},{"count":709,"facility_type":"Tanker"}],[{"country":"日本"},{"count":705,"facility_type":"Dry Cargo"},{"count":321,"facility_type":"Tanker"},{"count":93,"facility_type":"Both"}],[{"country":"加拿大"},{"count":312,"facility_type":"Dry Cargo"},{"count":118,"facility_type":"Tanker"},{"count":51,"facility_type":"Both"}],[{"country":"德国"},{"count":286,"facility_type":"Dry Cargo"},{"count":83,"facility_type":"Tanker"},{"count":29,"facility_type":"Both"}],[{"country":"印度尼西亚"},{"count":184,"facility_type":"Dry Cargo"},{"count":211,"facility_type":"Tanker"},{"count":35,"facility_type":"Both"}],[{"country":"英国"},{"count":391,"facility_type":"Dry Cargo"},{"count":172,"facility_type":"Tanker"},{"count":43,"facility_type":"Both"}],[{"country":"意大利"},{"count":28,"facility_type":"Both"},{"count":229,"facility_type":"Dry Cargo"},{"count":117,"facility_type":"Tanker"}]];
+         callback(a);
+         },300);*/
+        axios.get(sever.portAddress + "portInfo/getPortGoodsCountOfCountry/" + params.id)
+            .then(function (res) {
+                callback(res.data);
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
     }
 };
 

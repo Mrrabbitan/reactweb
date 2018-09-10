@@ -1,11 +1,12 @@
 import React, {Component} from 'react';
-import ModuleTitle from '../PublicComponent/ModuleTitle'
-import TableBox from '../PublicComponent/TableBox'
-import TabComponent from '../PublicComponent/TabComponent'
+import ModuleTitle from '../PublicComponent/ModuleTitle';
+import TableBox from '../PublicComponent/TableBox';
+import TabComponent from '../PublicComponent/TabComponent';
 import PageEasy from '../PublicComponent/PageEasy';
 import server from '../../../../../axios/portAndBerthServer';
-import PortImportEchart from '../Echarts/PortImportEchart'
-import PortExportEchart from '../Echarts/PortExportEchart'
+import PortImportEchart from '../Echarts/PortImportEchart';
+import PortExportEchart from '../Echarts/PortExportEchart';
+import TableSpecial from '../PublicComponent/TableSpecial';
 import '../../../style/page.css';
 import './index.css';
 
@@ -14,20 +15,75 @@ class PortImportAndExport extends Component {
         super();
         this.tabFunForPortFlow = this.tabFunForPortFlow.bind(this);
         this.state = {
+            dataForCountry:{
+                exportCount:[],
+                importCount:[]
+            }
+        }
+        this.staticData = {
             module:1,
+            fileNameEmptyArriveCountry:{"volume":0,"arrive_country":"","type":"","voyage":0},
+            fileNameEmptyStartCountry:{"volume":0,"start_country":"","type":"","voyage":0}
         }
     }
+
 
     componentWillMount() {
 
     }
+    getPortGoodsCountOfCountryServer(){
+        server.getPortGoodsCountOfCountry({id:this.props.portId},(data)=>{
+            if(data){
+                this.getPortGoodsCountOfCountryData(data,"country")
+            }
+        })
+    }
+    getPortGoodsCountOfPortServer(){
+        server.getPortGoodsCountOfPort({id:this.props.portId},(data)=>{
+            if(data){
+                this.getPortGoodsCountOfCountryData(data,"port")
+            }
+        })
+    }
+    getPortGoodsCountOfCountryData(data,type){
+        let dataForCountry = {
+            type,
+            name:null,
+            exportCount:[],
+            importCount:[]
+        };
+        if(data.exportCount.length==0){
+            dataForCountry.name = data.importCount[0].start_country?data.importCount[0].start_country:data.importCount[0].arrive_port;
+            for(let i=0;i<data.importCount.length;i++){
+                dataForCountry.exportCount.push({...this.staticData.fileNameEmptyArriveCountry});
+                dataForCountry.importCount.push(data.importCount[i]);
+            }
+        }else{
+            dataForCountry.name = data.exportCount[0].arrive_country?data.exportCount[0].arrive_country:data.importCount[0].start_port;
+            for(let i=0;i<data.exportCount.length;i++){
+                dataForCountry.importCount.push({...this.staticData.fileNameEmptyStartCountry});
+                dataForCountry.exportCount.push(data.exportCount[i]);
+            }
+        }
+        this.setState({dataForCountry});
 
+    }
     tabFunForPortFlow(n){
-        this.setState({module:Number(n)});
+        this.staticData.module = Number(n);
+        if(n==2){
+            //进出口国家数据请求
+            this.getPortGoodsCountOfCountryServer();
+        }
+        if(n==3){
+            //进出口港口数据请求
+            this.getPortGoodsCountOfPortServer();
+        }
     }
     render() {
         let portImportAndExportComponent;
-        if(this.state.module==1){//货物
+        let mo = this.staticData.module;
+        if(mo==1){//货物
+            console.log("货物")
             portImportAndExportComponent = (
                 <div className="piaec_cargo">
                     <div className="piaec_cargo_import">
@@ -38,61 +94,25 @@ class PortImportAndExport extends Component {
                     </div>
                 </div>
             )
-        }else if(this.state.module==2){//国家
+        }else if(mo==2){//国家
             portImportAndExportComponent = (
                 <div className="piaec_country">
-                    <table>
-                        <thead>
-                        <tr>
-                            <td rowSpan="2">国家</td>
-                            <td colSpan="3">进口</td>
-                            <td colSpan="3">出口</td>
-                        </tr>
-                        <tr>
-                            <td>货物</td>
-                            <td>航次</td>
-                            <td>货量</td>
-                            <td>货物</td>
-                            <td>航次</td>
-                            <td>货量</td>
-                        </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>1</td>
-                                <td>1</td>
-                                <td>1</td>
-                                <td>1</td>
-                                <td>1</td>
-                                <td>1</td>
-                            </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>2</td>
-                                <td>2</td>
-                                <td>2</td>
-                                <td>2</td>
-                                <td>2</td>
-                                <td>1</td>
-                            </tr>
-                        </tbody>
-                    </table>
+                    <TableSpecial data={this.state.dataForCountry}/>
                 </div>
             )
-        }else if(this.state.module==3){//港口
+        }else if(mo==3){//港口
+            portImportAndExportComponent = (
+                <div className="piaec_country">
+                    <TableSpecial data={this.state.dataForCountry}/>
+                </div>
+            )
+        }else if(mo==4){//公司
             portImportAndExportComponent = (
                 <div className="piaec_country">
                     111
                 </div>
             )
-        }else if(this.state.module==4){//公司
-            portImportAndExportComponent = (
-                <div className="piaec_country">
-                    111
-                </div>
-            )
-        }else if(this.state.module==5){//航线
+        }else if(mo==5){//航线
             portImportAndExportComponent = (
                 <div className="piaec_country">
                     111

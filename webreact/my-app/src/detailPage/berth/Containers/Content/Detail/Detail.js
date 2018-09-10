@@ -7,6 +7,7 @@ import Berthserve from '../../../Component/Content/BerthServe/berthserve';
 import Workingdayforoneyear
     from '../../../Component/Content/Workingdayforoneyear/workingdayforoneyear';
 import Workingforthismouth from '../../../Component/Content/Workingdayforthismouth/workingdayforthismouth';
+import BerthwithportRelation from '../../../Component/Content/BerthwithportRelation/berthwithportrelation';
 
 
 class Detail extends Component{
@@ -23,6 +24,8 @@ class Detail extends Component{
                 <Workingdayforoneyear/>  
                 {/* 当月工作时长 */}
                 <Workingforthismouth/>  
+                {/* 泊位与其他港口的关联关系 */}
+                <BerthwithportRelation/>
             </div>
 
         )
