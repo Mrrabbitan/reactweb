@@ -1,0 +1,10 @@
+#historyship_box{
+    padding:10px 0px;
+
+}
+.historyship_box_content{
+    height:400px;
+    width:100%;
+    border:1px solid #53d0ff;
+    border-top:none;
+}

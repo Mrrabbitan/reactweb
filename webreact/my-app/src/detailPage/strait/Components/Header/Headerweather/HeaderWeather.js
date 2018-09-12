@@ -1,13 +1,13 @@
-import React,{Component} from 'react';
+import React from 'react';
 import './index.css'
 
 
-class HeaderWeather extends Component{
-    render(){
+const HeaderWeather =(props)=>{
+   
         return (
             <div id="hw_box">
                 <span className="hw_title">今日天气</span>
-                <div className="hw_icon"><img src="img/weather/sunny_cloud.png"/></div>
+                <div className="hw_icon"><img src='img/weather/sunny_cloud.png'/></div>
                 <div className="hw_temp"><span>15</span>℃<span>～</span><span>22</span>℃</div>
                 <div className="hw_info_box">
                     <span className="hw_line"></span>
@@ -38,6 +38,6 @@ class HeaderWeather extends Component{
                 </div>
             </div>
         )
-    }
+    
 }
 export default HeaderWeather;

@@ -18,8 +18,6 @@ class BerthEchart extends Component{
         let self = this;
         portAndBerthService.getPortDistribution({},(data)=>{
             self.doDataPortDistribution(data);
-            console.log("111111")
-            console.log(data)
         })
     }
     // 港区分布数据处理
@@ -62,7 +60,6 @@ class BerthEchart extends Component{
                 ]
             })
         })
-        console.log(dataItem)
         this.setState({dataItem,country})
     }
     getOption (){

@@ -1,0 +1,69 @@
+#bi_box{
+    width:710px;
+    height:100%;
+}
+.bi_basicInfo{
+    height:227px;
+}
+.bi_port_status{
+    height:140px;
+}
+.bi_basicInfo_box{
+    height:calc(65% - 35px);
+    width:100%;
+    display:flex;
+    flex-wrap: wrap;
+    padding:15px 28px;
+}
+.bi_port_status_box{
+    height:calc(100% - 35px);
+    width:100%;
+    display:flex;
+    align-items: center;
+    border-bottom:1px solid #2c80d6;
+}
+.bi_port_status_box>div{
+    margin-left:50px;
+}
+.bi_basicInfo_box>ul{
+    width:100%;
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+    color:#a3cdff;
+    font-size:18px;
+}
+.bi_basicInfo_box>ul>li{
+    width:50%;
+    height:30px;
+
+}
+.bi_basicInfo_box_item_k{
+    color:#53d0ff;
+}
+.basicinfo_description_indent{
+    width:100%;
+    height:30%;
+    color:#a3cdff;
+    padding:0px 28px;
+    line-height:22px;
+    font-size:18px;
+}
+.bi_basicInfo_desc{
+    width:100%;
+    display:flex;
+    justify-content: flex-start;
+    align-items: center;
+    color:#45b7dc;
+}
+
+.bi_port_status_box{
+    font-size:20px;
+    color:#a3cdff;
+    padding:15px 28px;
+    line-height:22px;
+    font-size:18px;
+}
+
+

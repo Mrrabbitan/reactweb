@@ -22,15 +22,9 @@ class TabComponent extends Component {
                 {this.state.tabName.map((item,index)=>{
                     if(this.state.active-1==index){
                         return (
-                            <div 
-                            key={index} 
-                            className="active" 
-                            style={{
+                            <div key={index} className="active" style={{
                                 width:(100/this.state.tabName.length)+"%"
-                            }} 
-                            onClick={this.tabClick}>
-                                {item}
-                            </div>
+                            }} onClick={this.tabClick}>{item}</div>
                         )
                     }
                     return (

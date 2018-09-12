@@ -1,13 +1,19 @@
-import React,{Component} from 'react';
+import React from 'react';
+import HeaderTitle from '../../Components/Header/Headertitle/HeaderTitle';
+import HeaderWeather from '../../Components/Header/Headerweather/HeaderWeather';
+import "./index.css"
 
-class header extends Component{
-    render(){
-
+const header =(props)=>{
         return(
-            <div></div>
+            <div id="header">
+                <div className="wrap">
+                    <div className="header_box">
+                        <HeaderTitle/>
+                        <HeaderWeather/>
+                    </div>
+                </div>
+            </div>
         )
-    }
-
 }
 
 export default header;
