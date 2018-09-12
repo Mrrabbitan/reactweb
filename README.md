@@ -29,4 +29,4 @@ Layers and content based on openlayer's react framework
 
 9-10 Add a new page, build a new page structure, improve the system routing, configure webpack
 
-9-11 Add a new page's structrue and update team's work from svn ,to ensure every func run smoothly and make a new commit with fontpage and add a new echart content.
+9-11/12 Add a new page's structrue and update team's work from svn ,to ensure every func run smoothly and make a new commit with fontpage and add a new echart content.
