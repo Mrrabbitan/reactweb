@@ -391,7 +391,33 @@ const portAndBerthService = {
             .catch(function (error) {
                 console.log(error);
             });
-    }
+    },
+
+    /**
+     * 获取所有国家
+     */
+    getAllCountry: function(params, callback) {
+        axios.get(sever.portAddress + "/portInfo/getAllCountry", {params})
+        .then(function(res) {
+            callback(res.data);
+        })
+        .catch(function(error) {
+            console.log(error);
+        });
+    },
+
+    /**
+     * 根据国家查询港口
+     */
+    getPortByCountry: function(params, callback) {
+        axios.get(sever.portAddress + "/portInfo/getPortInfoByCountry", {params})
+        .then(function(res) {
+            callback(res.data);
+        })
+        .catch(function(error) {
+            console.log(error);
+        });
+    },
 };
 
 export default portAndBerthService;

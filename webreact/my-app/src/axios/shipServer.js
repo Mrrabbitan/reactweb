@@ -21,7 +21,7 @@ const shipServer = {
             callback(a);
         },300)*/
         axios
-            .get(sever.portAddress + "shiptail/service/shipInfo/getShipDetail/", {params})
+            .get(sever.portAddress + "shiptail/service/shipInfo/getShipDetail", {params})
             .then(function (res) {
                 callback(res.data);
             })
@@ -29,7 +29,57 @@ const shipServer = {
                 console.log(error);
             });
     },
-
+    // 异常事件表格
+    getShipInfoListAnormalEvent(params, callback) { 
+        //http://192.168.11.202:7075/shiptail/service/shipInfo/getShipInfoListAnormalEvent?mmsi=997754063&pagesize=4&currentpage=1
+        axios
+            .get(sever.portAddress + "shiptail/service/shipInfo/getShipInfoListAnormalEvent", { params })
+            .then(function (res) {
+                callback(res.data);
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+    },
+    //异常事件报表
+    getShipInfoEcharsAnormalEvent(params, callback) {
+        //http://192.168.11.202:7075/shiptail/service/shipInfo/getShipInfoEcharsAnormalEvent?mmsi=997754063
+        axios
+            .get(sever.portAddress + "shiptail/service/shipInfo/getShipInfoEcharsAnormalEvent", { params })
+            .then(function (res) {
+                callback(res.data);
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+    },
+    
+    //历史航次四个统计图
+    getShipInfoEcharsHistroyHC(params, callback) {
+        //http://192.168.11.202:7075/shiptail/service/shipInfo/getShipInfoEcharsHistroyHC?shipid=205335490
+        axios
+            .get(sever.portAddress + "shiptail/service/shipInfo/getShipInfoEcharsHistroyHC", { params })
+            .then(function (res) {
+                callback(res.data);
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+    },
+    //历史航次表格
+    getShipInfoListHistroyHC(params, callback) {
+        //http://192.168.11.202:7075/shiptail/service/shipInfo/getShipInfoListHistroyHC?shipid=205335490&pagesize=4&currentpage=1
+        axios
+            .get(sever.portAddress + "shiptail/service/shipInfo/getShipInfoListHistroyHC", { params })
+            .then(function (res) {
+                callback(res.data);
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+    }
+    
+    
 };
 
 export default shipServer;

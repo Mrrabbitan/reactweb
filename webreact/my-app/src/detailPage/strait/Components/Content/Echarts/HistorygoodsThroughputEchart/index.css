@@ -1,0 +1,33 @@
+.history_goods_box{
+    height:100%;
+    width:100%;
+    display:flex;
+    flex-wrap:wrap;
+    justify-content: space-between;
+}
+
+.history_goods_content1{
+    height:100%;
+    width:33%;
+}
+
+.history_goods_content2{
+    height:100%;
+    width:33%;
+}
+.history_goods_content3{
+    height:100%;
+    width:33%;
+}
+
+.Goodstype{
+    margin-left:180px;
+}
+
+.startCountry{
+    margin-left:180px;
+}
+
+.aimCountry{
+    margin-left:180px;
+}

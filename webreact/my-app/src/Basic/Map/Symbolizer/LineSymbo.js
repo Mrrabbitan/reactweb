@@ -62,6 +62,16 @@ var lineSymbo = {
             width: 4
         }),
         zIndex: 50
+    }),
+    /**
+     * 轨迹线
+     */
+    'trajectoryLine': new ol.style.Style({
+        stroke: new ol.style.Stroke({
+            color: '#FFFF00',
+            width: 4
+        }),
+        zIndex: 60
     })
 
 }

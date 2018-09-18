@@ -7,4 +7,37 @@
     width:100%;
     border:1px solid #53d0ff;
     border-top:none;
+    color:white;
+}
+
+.history_shipping_flow{
+    height:400px;
+    width:100%;
+}
+
+.history_shipping_flow1{
+    height:400px;
+    width:100%;
+}
+
+#history_ship_flow>span{
+    height:30px;
+    width:280px;
+    background: #0046a5;
+    font-size:16px;
+    text-align: center;
+    line-height:30px;
+    display:block;
+    float:left;
+    border:1px solid #53d0ff;
+    border-top:none;
+    border-left:none;
+    cursor:pointer;
+    position:relative;
+    z-index:100;
+}
+
+#history_ship_flow>.active{
+    background:#0060e3;
+    
 }

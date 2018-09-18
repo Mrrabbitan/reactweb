@@ -1,4 +1,5 @@
 import * as popupEvent from "./PopupEvent";
+import MapEvent from '../../../Basic/Tool/event/MapEvent';
 /***
  * 弹出框的html模板
  */
@@ -303,6 +304,21 @@ class HtmlTemplate {
         return disInfo;
      }
 
+     /**
+      * 显示船舶轨迹
+      */
+     createTrajectoryDisInfo(data){
+        //1536229536
+        var disInfo="<div>";
+        disInfo+="<div>MMSI:"+data.M+"</div>"
+        disInfo+="<div>采集时间:"+MapEvent.transTime(data.U)+"</div>"
+        disInfo+="<div>节点总数:"+data.R+"</div>"
+        disInfo+="<div>经度:"+data.X/1000000+"</div>"
+        disInfo+="<div>纬度:"+data.Y/1000000+"</div>"
+        disInfo+="<div>速度:"+data.S+"节</div>"
+        disInfo+="</div>";      
+        return disInfo;
+     }
 
 }
 

@@ -34,11 +34,18 @@
     margin-top:10px;
 }
 .ps_con_box{
-    display:flex;
+    position: absolute;
+    background-color: #0048a6;
+    display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    visibility: hidden;
+}
+.ps_con_box.active{
+    visibility: visible;
 }
 .ps_con_box>.common_btn{
     width:50%;
-    margin-bottom:10px;
+    margin-top:10px;
+    margin-bottom:20px;
 }

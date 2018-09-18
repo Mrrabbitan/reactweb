@@ -475,6 +475,51 @@ class MapListener {
     } */
 
 
+     //修改地图中心点
+     serMapCenterPort(coord,i) {
+        if(i == "null"){
+            this.mapObj.map.getView().setCenter(coord);
+        } else {
+            this.mapObj.map.getView().setCenter(coord);
+            this.mapObj.map.getView().setZoom(i);     
+        }
+    }
+
+    getPortFeatrue(selectPortId){
+        var portSource=this.mapObj.portSource;
+        var selectFeature;
+        $.each(portSource.getFeatures(),function(i,item){
+            //console.log(item);
+            var portId=item.get('portId');
+            if(portId==selectPortId){
+                selectFeature=item;
+            }
+        })
+        this.portClick(selectFeature,"",this.mapObj.popupOverlay.getElement(), this.mapObj.popupOverlay);
+        return selectFeature;
+    }
+
+    /**
+     * 加载船舶轨迹
+     */
+    getShipTrajectoryFeature(disInfo,coord,data,i){
+        var tailSource=this.mapObj.tailSource;
+        $("#popup-content").html(disInfo);
+        $("#popup").removeClass('popup-seaarea');
+        this.mapObj.popupOverlay.setPosition(coord);
+        simpleFeature.createAndAddPointFeature(tailSource,"shipTrajectoryPoint", disInfo, coord);
+        if(i > 0){
+            var fromCoord = toolMap.transform(data[i-1].X/1000000,data[i-1].Y/1000000);
+            var toCoord = coord;
+            simpleLine.createAndAddSourceLine(disInfo,tailSource,fromCoord,toCoord,"trajectoryLine","trajectory");
+        }
+    }
+    /**
+     * 清除船舶轨迹图层
+     */
+    clearShipTrajectory(){
+        this.mapObj.tailSource.clear();
+    }
 
 
 

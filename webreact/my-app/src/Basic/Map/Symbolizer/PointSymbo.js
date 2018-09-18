@@ -125,6 +125,13 @@ var pointSymbo = {
             src : process.env.PUBLIC_URL +'img/ship/s_hong.png'
         })
     }),
+    'shipTrajectoryPoint' : new ol.style.Style({
+        image : new ol.style.Icon({
+            scale:0.5,
+            anchor : [0.5, 0.5 ],
+            src : process.env.PUBLIC_URL +'img/ship/y_hui.png'
+        })
+    }),
 }
 
 export  default  pointSymbo;

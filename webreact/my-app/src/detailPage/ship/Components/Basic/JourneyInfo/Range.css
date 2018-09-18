@@ -1,0 +1,51 @@
+.range_box {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    line-height: 80px;
+}
+
+.range_icon {
+    position: absolute;
+    top: 34px;
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: 1px solid #b2f0f9;
+    background-color: #29edff;
+    z-index:2;
+}
+
+.range_icon_left {
+    left: 0;
+}
+
+.range_icon_right {
+    right: 0;
+}
+
+.range_fill_bg {
+    display: inline-block;
+    width: 20px;
+    height: 2px;
+    background-color: #29edff;
+    vertical-align: top;
+    margin-top:0px;
+}
+
+.range_bar {
+    position: absolute;
+    top: 39px;
+    left: 0;
+    display: inline-block;
+    width: 100%;
+    height: 2px;
+    background-color: #0073ff;
+}
+
+.range_move {
+    position: absolute;
+    top: 34px;
+    left: 0;
+}

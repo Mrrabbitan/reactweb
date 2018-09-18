@@ -1,4 +1,5 @@
 import React,{Component} from 'react';
+import $ from 'jquery';
 import './index.css';
 
 export default class Select extends Component{
@@ -7,7 +8,8 @@ export default class Select extends Component{
         this.change = this.change.bind(this);
     }
     change(){
-        this.props.getValue({[this.props.name]:this.refs.thisSelect.value});
+        let name = $(this.refs.thisSelect).find("option[value="+this.refs.thisSelect.value+"]").html();
+        this.props.getSelectValue({[this.props.name]:{id:this.refs.thisSelect.value,name}});
     }
     render(){
         return (

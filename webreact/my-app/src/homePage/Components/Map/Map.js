@@ -70,6 +70,8 @@ class Map extends Component {
         let [berthSource, berthLayer] = simpleLayer.sourceLayer(map, true);
         //添加船舶图层,默认不展示
         let [shipSource, shipLayer] = simpleLayer.sourceLayer(map, false);
+        //添加船舶轨迹图层
+        let [tailSource, tailLayer] = simpleLayer.sourceLayer(map, true);
 
         this.mapObj = {
             "map": map,
@@ -91,7 +93,9 @@ class Map extends Component {
             ChinadischargeSource,
             ChinadischargeLayer,
             berthSource,
-            berthLayer,   
+            berthLayer, 
+            tailSource,
+            tailLayer  
             //relationSource, 
             //relationLayer,  首页不需要展示网络      //TODO
 

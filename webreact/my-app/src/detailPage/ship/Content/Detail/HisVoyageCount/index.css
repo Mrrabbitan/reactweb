@@ -1,0 +1,45 @@
+.hisVoyageCount_box {
+    width: 100%;
+    border: 1px solid #1abceb;
+    border-top: none;
+    padding: 8px 5px;
+}
+
+.hvc_chart_top {
+    width: 100%;
+    height: 239px;
+    border-bottom: 1px solid #1abceb;
+    display: flex;
+}
+
+.hvc_chart_center {
+    height: 480px;
+    display:flex;
+}
+.hvc_chart_center>div{
+    width:50%;
+    height:100%;
+    position: relative;
+}
+
+.hvc_table {
+    height: 256px;
+}
+.hvc_table_box{
+    height:206px;
+}
+.hvc_chart_top>div {
+    width: 50%;
+    height: 100%;
+    position: relative;
+}
+
+.btn_title_cargo,
+.btn_title_trend,
+.btn_title_port,
+.btn_title_country {
+    position: absolute;
+    top: 5px;
+    left: 50%;
+    transform: translate(-50%, 0);
+}

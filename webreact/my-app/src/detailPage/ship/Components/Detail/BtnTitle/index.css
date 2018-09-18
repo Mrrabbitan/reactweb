@@ -1,0 +1,12 @@
+.btn_title{
+    display:inline-block;
+    padding:0 10px;
+    height:34px;
+    border:1px solid #00abff;
+    box-shadow: 0 0 8px #00abff inset;
+    text-align:center;
+    background-color: #0d234a;
+    color: #00b2fe;
+    font-size:18px;
+    line-height:33px;
+}

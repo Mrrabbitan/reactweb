@@ -1,0 +1,7 @@
+.runDuration_ofYear_box,
+.runDuration_ofMonth_box {
+    width: 100%;
+    height: 390px;
+    margin-bottom: 5px;
+    border: 1px solid #1abceb;
+}

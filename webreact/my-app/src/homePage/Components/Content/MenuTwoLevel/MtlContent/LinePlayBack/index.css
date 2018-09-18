@@ -15,9 +15,16 @@
     width:100%;
     height:120px;
     border:1px solid white;
-    
+    z-index: 2;
+    overflow:auto;
+}
+#overviewbox div:hover{
+    background: #a5a7c4;
 }
 
+.addMmsi{
+    background-color: #a5a7c4;
+}
 #tailreviewan .common_btn{
     margin:5px 0;
 }
@@ -29,7 +36,7 @@
     margin-left:6px;
 }
 #startbutton{
-    background: url(../../../../../../Assets/image/shipping_pic/big_button.png) no-repeat;
+    background: url("../../../../../../Assets/image/shipping_pic/big_button.png") no-repeat;
     width: 100%;
     height:28px;
     margin-top:6px;
@@ -63,6 +70,9 @@
 }
 #spotbox>p{
     margin:0;
+}
+#shipInfo{
+    color:#edf10a;
 }
 .ranger>div{
     position: relative;
@@ -103,8 +113,8 @@
     float:right;
     width:12px;
     height:12px;
-    background: url(../../../../../../Assets/image/shipping_pic/list.png);
-    display:inline-block;
+    background: url("../../../../../../Assets/image/shipping_pic/list.png");
+    display:block;
     margin-top:-18px;
     margin-right:6px;
 }
