@@ -1,0 +1,95 @@
+/* http://meyerweb.com/eric/tools/css/reset/ */
+/* v1.0 | 20080212 */
+/*货物详情页初始化css样式
+*公用样式
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    background: transparent;
+    box-sizing: border-box;
+}
+body {
+    line-height: 1;
+}
+ol, ul {
+    list-style: none;
+}
+blockquote, q {
+    quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+
+/* remember to define focus styles! */
+:focus {
+    outline: 0;
+}
+
+/* remember to highlight inserts somehow! */
+ins {
+    text-decoration: none;
+}
+del {
+    text-decoration: line-through;
+}
+
+/* tables still need 'cellspacing="0"' in the markup */
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+html,body{
+    width:100%;
+    height:100%;
+    background-color: #072352;
+}
+#root{
+    width:100%;
+    height:100%;
+}
+#body{
+    width:100%;
+    height:100%;
+}
+
+/*
+公用样式
+*/
+.wrap{
+    width:1442px;
+    margin:0 auto;
+}
+
+/*滑块*/
+body::-webkit-scrollbar-thumb {
+    background-color: #072352;
+    border-radius: 10px;
+}
+
+body::-webkit-scrollbar-thumb:hover {
+    background-color: #777;
+}
+
+
+/*滑道*/
+body::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px #333;
+    border-radius: 10px;
+}

@@ -17,6 +17,7 @@ class BerthEchart extends Component{
     componentWillMount(){
         let self = this;
         portAndBerthService.getPortDistribution({},(data)=>{
+            console.log("data",data);
             self.doDataPortDistribution(data);
         })
     }

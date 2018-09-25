@@ -1,0 +1,29 @@
+.table{
+    width:100%;
+}
+.table table{
+    width:100%;
+}
+.table tbody td{
+    border:1px solid #0353be;
+    height:42px;
+    text-align:center;
+    line-height:42px;
+    color:#9ef0ff;
+    font-size:10px;
+}
+.table thead td{
+    height:32px;
+    border:1px solid #2adfff;
+    background-color: #0047a7;
+    color:#56daff;
+    text-align:center;
+    line-height:32px;
+    font-size:16px;
+}
+.table thead{
+    height:32px;
+}
+.table .active{
+    color:#0dd788;
+}

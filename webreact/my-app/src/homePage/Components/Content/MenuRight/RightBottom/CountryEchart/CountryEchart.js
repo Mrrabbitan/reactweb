@@ -2,8 +2,7 @@ import React,{Component} from 'react';
 import EchartTopTitle from '../../EchartTopTitle/EchartTopTitle';
 import "./index.css"
 import ReactEcharts from 'echarts-for-react';
-import legend from '../../../../../../Assets/image/shipping_pic/legend.png';
-import { Tooltip } from 'bootstrap';
+
 import color from '../color';
 
 

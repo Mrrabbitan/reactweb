@@ -1,0 +1,10 @@
+.tableSpecial{
+    width:100%;
+}
+.piaec_country .tableSpecial td{
+    height:30px;
+    vertical-align: middle;
+    text-align: center;
+    border-color:#1abceb;
+    color:#45c1dc;
+}

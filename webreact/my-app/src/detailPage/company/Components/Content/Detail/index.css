@@ -1,0 +1,108 @@
+#company_detail_box{
+    margin-top:23px;
+    display: flex;
+    flex-wrap:wrap;
+    justify-content: center;
+    height:180px;
+    width:100%;
+}
+.bi_basicInfo_box>ul>li>span:last-child{
+    font-size:16px;
+    color:#fff;
+}
+.bi_basicInfo_box_item_k{
+    font-size:16px;
+    color:#53d9ff;
+    height:24px;
+    width:100px;
+}
+.bi_basicInfo_box>ul{
+    height: 100%;
+    width:  1440px;
+    
+    display:flex;
+    flex-wrap:wrap;
+}
+.bi_basicInfo_box>ul>li{
+height:24px;
+width:45%;
+text-align:left;
+margin-left:30px;
+overflow: hidden;
+}
+
+#company_tele_box{
+    margin-top:13px;
+    display: flex;
+    flex-wrap:wrap;
+    justify-content: center;
+    height:140px;
+    width:100%;
+}
+
+#shipteam_box{
+    margin-top:13px;
+    display: flex;
+    flex-wrap:wrap;
+    justify-content: center;
+    height:320px;
+    width:100%;
+}
+
+#runvoyage_box{
+    margin-top:13px;
+    display: flex;
+    flex-wrap:wrap;
+    justify-content: center;
+    height:695px;
+    width:100%;
+}
+.runningvoyage_content{
+    height:675px;
+    width:100%;
+}
+
+#relationshipandcomp_box{
+    margin-top:13px;
+    display: flex;
+    flex-wrap:wrap;
+    justify-content: center;
+    height:1200px;
+    width:100%;
+}
+.shipteam_table{
+    height:300px;
+    width:100%;
+}
+
+.ship_table_title{
+    height:30px;
+    width:1130px;
+    position:relative;
+    display:flex;
+    flex-wrap:wrap;
+}
+
+.ship_table_title>span{
+    height:30px;
+    width:280px;
+    background:#0046a5;
+    display:block;
+    color:white;
+    font-size:16px;
+    border:1px solid #15a7df;
+    border-top:none;
+    border-left:none;
+    text-align:center;
+    line-height:30px;
+    cursor:pointer;
+}
+
+.ship_table_title>.active{
+    background:#0054c6;
+}
+
+#relation_content{
+    height:1180px;
+    width:100%;
+}

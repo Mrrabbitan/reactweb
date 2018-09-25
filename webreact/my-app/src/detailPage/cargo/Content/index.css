@@ -1,0 +1,7 @@
+#content {
+    width: 100%
+}
+
+#content .wrap>div {
+    margin-top: 10px;
+}
