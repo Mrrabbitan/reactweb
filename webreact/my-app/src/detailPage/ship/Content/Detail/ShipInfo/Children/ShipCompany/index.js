@@ -13,4 +13,5 @@ class ShipCompany extends Component {
         )
     }
 }
+
 export default ShipCompany;

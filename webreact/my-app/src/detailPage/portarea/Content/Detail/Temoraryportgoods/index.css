@@ -1,0 +1,12 @@
+#Temporaryportgoods_box{
+    height:830px;
+    width:100%;
+    margin-top:10px;
+}
+
+.Temporaryportgoods_content{
+    height:800px;
+    width:100%;
+    border:1px solid #2adfff;
+    border-top:none;
+}

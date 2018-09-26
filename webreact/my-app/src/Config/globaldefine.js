@@ -12,7 +12,7 @@ class Server {
         /* this.portAddress = "http://192.168.11.198:9072/"; */
         //地图地址
         this.webAddress = "http://192.168.11.140:2010";
-        //ws_Mosaic地址
+        //ws_Mosaic地址海图地址
         this.mosaicAddress = this.webAddress + "/geoserver/ws_Mosaic/wms";
 
         //this.portAddress = "http://192.168.11.134:9072/";

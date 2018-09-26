@@ -37,7 +37,7 @@ class relationbottomchart extends React.Component{
                     lineStyle:{
                         color:'#029def',
                         width:1,
-                        curveness:0.5,
+                        curveness:0.7,
                     },
                     data:[this.state.data],
                     top: '1%',
@@ -49,7 +49,8 @@ class relationbottomchart extends React.Component{
                     label: {
                             position: 'right',
                             verticalAlign: 'middle',
-                            align: 'left'
+                            align: 'left',
+                            color:'#fff',
                     },
                     leaves: {
                         label: {
