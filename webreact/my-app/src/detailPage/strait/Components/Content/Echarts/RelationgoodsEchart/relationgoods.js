@@ -7,7 +7,6 @@ class relationgoods extends React.Component{
     }
     
     getoption(){
-       
         var data = {
             id: 'echartPie',
             value: [12, 32, 54, 12],
@@ -15,7 +14,6 @@ class relationgoods extends React.Component{
             color: ['#3FA7DC', '#7091C4', '#5170A2', '#E1CA74'],
             // tooltipShow:false,    //设置悬浮提示显示              --默认显示true
             // hoverAnimation:false, //设置鼠标悬浮点击饼图动画效果  --默认开启动画true
-            
         }
         
         ////////////////////////////////////////
@@ -51,7 +49,6 @@ class relationgoods extends React.Component{
                 },
                 borderRadius: 6,
                 data: data.legend,
-                
             },
             series: [{
                 type: 'pie',

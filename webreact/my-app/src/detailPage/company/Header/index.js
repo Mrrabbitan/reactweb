@@ -4,6 +4,13 @@ import './index.css'
 
 
 class Header extends Component{
+    state = {
+        code:''
+    }
+    componentDidMount(){
+        //获取地址栏code
+        
+    }
     render(){
         return (
             <div id="header">

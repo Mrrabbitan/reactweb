@@ -11,13 +11,17 @@ class RelateCountry extends Component {
         importType: [],
         importData: [],
         exportType: [],
-        exportData: []
+        exportData: [],
+        tableData:[],
+        total:0
     }
     componentDidMount() {
         //进口港口请求数据
         this.getGoodImporteCountryServer();
         //出口港口请求数据
         this.getGoodExitCountryServer();
+        //表格数据请求
+        this.getGoodsImportExitTotalServer(1);
     }
     //进口港口请求数据
     getGoodImporteCountryServer() {
@@ -32,6 +36,14 @@ class RelateCountry extends Component {
         server.getGoodExitCountry({ type: this.props.cargoType, year: 2017 }, (data) => {
             if (data) {
                 this.getGoodExitCountryData(data);
+            }
+        })
+    }
+    //表格数据请求
+    getGoodsImportExitTotalServer(pageNum){
+        server.getGoodsImportExitTotal({type:this.props.cargoType,year:2017,pageSize:4,pageNum},(data)=>{
+            if (data) {
+                this.getGoodsImportExitTotalData(data);
             }
         })
     }
@@ -65,12 +77,19 @@ class RelateCountry extends Component {
             exportType, exportData
         })
     }
-
-    handlePageChanged = () => { 
-
+    //请求表格数据处理
+    getGoodsImportExitTotalData(data){
+        this.setState({
+            tableData:data.data,
+            total:data.pageInfo.pages
+        })
+    }
+    handlePageChanged = (n) => { 
+        //表格数据请求
+        this.getGoodsImportExitTotalServer(Number(n));
     }
     render() {
-        const { importType, importData, exportData, exportType } = this.state;
+        const { importType, importData, exportData, exportType,tableData,total } = this.state;
         return (
             <div className="rc_box">
                 <div className="rc_chart_box">
@@ -92,13 +111,13 @@ class RelateCountry extends Component {
                         <TableBox
                             list={4}
                             active={2}
-                            thead={["行为类型", "发生海域", "持续时长", "开始时间", "开始位置（经度/纬度）", "结束时间", "结束位置（经度/纬度）"]}
-                            fileName={["act_type", "sea_area", "duration_time", "start_datetime", "startlatlng", "end_datetime", "endlatlng"]}
-                            data={[]}
+                            thead={["国家", "进口货量（吨）", "出口货量（吨）"]}
+                            fileName={["country_cn_name","import","exit"]}
+                            data={tableData}
                         />
                     </div>
                     <PageEasy
-                        total={20}
+                        total={total}
                         current={1}
                         pageId="rc_page"
                         onPageChanged={this.handlePageChanged}

@@ -13,12 +13,11 @@ class basic extends React.Component{
             data:null,
         }
     }
-    componentWillMount(){
+    componentDidMount(){
         let self = this;
         server.getCompanybycompname({code:'0000249'},(data)=>{
-            if(data){
-                self.setState({data})
-                console.log(this.state.data.data.address.fulladdress);
+            if(data.data){
+                self.setState({data:data.data})
             }
         })
         

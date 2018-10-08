@@ -1,18 +1,48 @@
 import React from 'react';
 import ReactEcharts from 'echarts-for-react';
 import server from '../../../../../../axios/CompanyServer'
+import globaldefine from '../../../../../../Config/globaldefine';
 class relationbottomchart extends React.Component{
     state={
         data:{},
+        code:globaldefine.getUrlParmsCode()
     }
     componentDidMount(){
         this.loadAllrelationlinkserver();
     }
     loadAllrelationlinkserver(){
-        server.loadAllrelationlink({},(data)=>{
-            this.setState({data});
-            console.log(data);
+        server.relationshipandcomp({code:this.state.code},(data)=>{
+            // this.setState({data});
+            this.loadAllrelationlinkData(data.data);
         })
+    }
+    //数据处理
+    loadAllrelationlinkData(data){
+        // 按照所需要的数据格式进行数据处理
+        let dataAll = {
+            name:this.state.code,
+            children:[]
+        }
+        
+        for(let i=0;i<10;i++){//防止数据过多引起数据爆炸，可以限制i的最大值
+            dataAll.children.push({
+                name:data[i].shipname,
+                children:[]
+            })
+            for(var key in data[i]){
+                if(key.endsWith('company')){//.indexof('')>0表示存在某些字符内容显示，endswith表示以...结尾的函数
+                    dataAll.children[i].children.push({
+                        name:data[i][key]
+                    })
+                }
+            }
+        }
+        console.log(dataAll)
+        // 一定要将数据封装一下，使得最外层state中可以获取到state的变化
+        this.setState({
+            data:dataAll
+        })
+
     }
 
     getoption(){
@@ -40,23 +70,31 @@ class relationbottomchart extends React.Component{
                         curveness:0.7,
                     },
                     data:[this.state.data],
-                    top: '1%',
+                    top: '10%',
                     left: '1%',
-                    bottom: '1%',
+                    bottom: '15%',
                     right: '1%',
                     symbolSize: 17,
-                    orient: 'LR',
+                    orient: 'vertical',
                     label: {
-                            position: 'right',
+                        normal: {
+                            position: 'top',
+                            rotate: -90,
                             verticalAlign: 'middle',
-                            align: 'left',
-                            color:'#fff',
+                            align: 'right',
+                            fontSize: 14,
+                            color:'white'
+                        }
                     },
+    
                     leaves: {
                         label: {
-                                position: 'left',
+                            normal: {
+                                position: 'bottom',
+                                rotate: -90,
                                 verticalAlign: 'middle',
-                                align: 'right'
+                                align: 'left'
+                            }
                         }
                     },
     

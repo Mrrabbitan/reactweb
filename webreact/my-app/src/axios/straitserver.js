@@ -10,14 +10,55 @@ const Straitserver={
 
         },300)*/
        axios
-            .get(sever.portAddress + "shiptail/service/strait/getAll", params)
+            .get(sever.portAddress + "shiptail/service/strait/getAll", {params})
             .then(function(res) {
                 callback(res.data);
             })
             .catch(function(error) {
                 console.log(error);
             });
-    }
+    },
+    allstraitDetail:function(params,callback){
+        
+        axios.get(sever.portAddress + "shiptail/service/strait/selectAllAndBasic", {params})
+             .then(function(res) {
+                 callback(res.data);
+             })
+             .catch(function(error) {
+                 console.log(error);
+             });
+     },
+
+     Temporaryship:function(params,callback){
+         axios.get(sever.portAddress+"shiptail/service/strait/currShips",{params})
+         .then(function(res){
+             callback(res.data);
+         })
+         .catch(function(error){
+             console.log('error');
+         })
+     },
+
+     stratigyindex:function(params,callback){
+         axios.get(sever.portAddress+"shiptail/service/strait/selectBasicStrategicIndex",{params})
+         .then(function(pa){
+            callback(pa.data);
+         })
+         .catch(function(error){
+             console.log("error");
+         })
+     },
+
+     relationwithother:function(params,callback){
+         axios.get(sever.portAddress+'shiptail/service/strait/selectGLCountry',{params})
+         .then(function(pa){
+             callback(pa.data);
+         })
+         .catch(function(error){
+             console.log('error');
+         })
+     },
+
 }
 
 

@@ -52,6 +52,15 @@ const Companydata={
             console.log("error");
         })
     },
+    relationshipandcomp:function(params, callback){
+        axios.get(server.portAddress+'shiptail/service/company/getRelationFleetEcharts',{params})
+        .then(function(res){
+            callback(res.data);
+        })
+        .catch(function(error){
+            console.log("error");
+        })
+    },
 }
 
 export default Companydata;

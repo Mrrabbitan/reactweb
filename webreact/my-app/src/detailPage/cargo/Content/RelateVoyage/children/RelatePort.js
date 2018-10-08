@@ -11,13 +11,20 @@ class RelatePort extends Component {
         importType: [],
         importData: [],
         exportType: [],
-        exportData: []
+        exportData: [],
+        tableData:[],
+        total:0
     }
     componentDidMount() {
+        if(this._ismount){
         //进口港口请求数据
         this.getGoodImportePortServer();
         //出口港口请求数据
         this.getGoodExitPortServer();
+        //表格数据请求
+        this.getGoodsDetailByPortServer(1);
+        }
+        
     }
     //进口港口请求数据
     getGoodImportePortServer() {
@@ -32,6 +39,14 @@ class RelatePort extends Component {
         server.getGoodExitPort({ type: this.props.cargoType, year: 2017 }, (data) => {
             if (data) {
                 this.getGoodExitPortData(data);
+            }
+        })
+    }
+    //表格数据请求
+    getGoodsDetailByPortServer(pageNum){
+        server.getGoodsDetailByPort({type:this.props.cargoType,year:2017,pageSize:4,pageNum},(data)=>{
+            if (data) {
+                this.getGoodsDetailByPortData(data);
             }
         })
     }
@@ -65,11 +80,29 @@ class RelatePort extends Component {
             exportType, exportData
         })
     }
-    handlePageChanged = () => {
-
+    //请求表格数据处理
+    getGoodsDetailByPortData(data){
+        let d = data.data;
+        let tableData = [];
+        for(let i=0;i<d.length;i++){
+            tableData.push({
+                ...d[i],
+                globalproportion:d[i].globalproportion?d[i].globalproportion*100+'%':0,
+                countryproportion:d[i].countryproportion?d[i].countryproportion*100+'%':0
+            })
+        }
+        this.setState({
+            tableData,
+            total:data.pageInfo.pages
+        })
+        console.log(data.pageInfo.pages)
+    }
+    handlePageChanged = (n) => {
+        //表格数据请求
+        this.getGoodsDetailByPortServer(Number(n));
     }
     render() {
-        const { importType, importData, exportData, exportType} = this.state;
+        const { importType, importData, exportData, exportType,tableData,total} = this.state;
         return (
             <div className="rp_box">
                 <div className="rp_chart_box">
@@ -91,13 +124,13 @@ class RelatePort extends Component {
                         <TableBox
                             list={4}
                             active={2}
-                            thead={["行为类型", "发生海域", "持续时长", "开始时间", "开始位置（经度/纬度）", "结束时间", "结束位置（经度/纬度）"]}
-                            fileName={["act_type", "sea_area", "duration_time", "start_datetime", "startlatlng", "end_datetime", "endlatlng"]}
-                            data={[]}
+                            thead={["港口名称", "所属国家", "经度", "纬度", "进口货量（吨）", "出口货量（吨）", "全球占比","所属国家占比"]}
+                            fileName={["port", "country_cn_name", "longitudedecimal", "latitudedecimal", "import", "exit", "globalproportion","countryproportion"]}
+                            data={tableData}
                         />
                     </div>
                     <PageEasy
-                        total={20}
+                        total={total}
                         current={1}
                         pageId="rp_page"
                         onPageChanged={this.handlePageChanged}

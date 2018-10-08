@@ -7,11 +7,11 @@ class relationport extends React.Component{
     }
     
     getoption(){
-       
+       let newportarr=this.props.data?this.props.data:{};
         var data = {
             id: 'echartPie',
-            value: [12, 32, 54, 12],
-            legend: ['中国', '美国', '日本', '英国'],
+            value: newportarr.portvoyage,
+            legend: newportarr.portcountry,
             color: ['#3FA7DC', '#7091C4', '#5170A2', '#E1CA74'],
             // tooltipShow:false,    //设置悬浮提示显示              --默认显示true
             // hoverAnimation:false, //设置鼠标悬浮点击饼图动画效果  --默认开启动画true

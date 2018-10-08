@@ -66,4 +66,7 @@
     font-size:18px;
 }
 
-
+.important_words{
+    color:red;
+    font-weight:bold;
+}

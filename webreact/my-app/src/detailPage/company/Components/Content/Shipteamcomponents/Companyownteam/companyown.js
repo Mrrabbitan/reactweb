@@ -1,6 +1,7 @@
 import React from 'react';
 import TableBox from '../../PublicComponent/TableBox';
 import PageEasy from '../../PublicComponent/PageEasy';
+import globaldefine from '../../../../../../Config/globaldefine';
 import server from '../../../../../../axios/CompanyServer';
 
 class companyown extends React.Component{
@@ -9,13 +10,14 @@ class companyown extends React.Component{
     }
     state={
         /* 表格数据初始化 */
-        dataTable:[]
+        dataTable:[],
+        code:globaldefine.getUrlParmsCode()
     }
     componentDidMount(){
         this.getCompanytableallteamserver(1);//必须调一下
     }
     getCompanytableallteamserver(currentpage){
-        server.getCompanytableallteam({ code: '0000249', currentpage, pagesize: this.props.pageSize }, (data) => { 
+        server.getCompanytableallteam({ code: this.state.code, currentpage, pagesize: this.props.pageSize }, (data) => { 
             if (data.data) { 
                 this.setState({
                     total: data.data.count,

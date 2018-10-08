@@ -5,7 +5,7 @@ import './index.css'
 const HeaderTitle =(props)=> {
         return (
             <div id="ht_box">
-                台湾海峡
+                白令海峡
             </div>
         )
 }

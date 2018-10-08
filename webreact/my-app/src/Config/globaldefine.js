@@ -24,7 +24,41 @@ class Server {
         return unescape(r[2]);
         return null;
     }
-    
+    getUrlParmsCode(name){
+        // var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+        // var r = window.location.search.substr(1).match(reg);
+        // if(r!=null)
+        // return unescape(r[2])("code");
+        
+        return '0003376'
+    }
+
+    getUrlParmsStrait(name){
+        // var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+        // var r = window.location.search.substr(1).match(reg);
+        // if(r!=null)
+        // return unescape(r[2])("code");
+        
+        return 'bering strait'
+    }
+
+    getUrlParmsStraitrelationcountry(name){
+        // var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+        // var r = window.location.search.substr(1).match(reg);
+        // if(r!=null)
+        // return unescape(r[2])("code");
+        
+        return '04'
+    }
+
+    getUrlParmsStraitrelationport(name){
+        // var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+        // var r = window.location.search.substr(1).match(reg);
+        // if(r!=null)
+        // return unescape(r[2])("code");
+        
+        return '05'
+    }
 
 }
 

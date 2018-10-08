@@ -20,7 +20,8 @@ class relationtoptable extends React.Component{
             if (data.data) { 
                 this.setState({
                     total: data.data.count,
-                    dataTable:data.data.list
+                    dataTable:data.data.list,
+                    
                 })
             }
             

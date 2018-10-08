@@ -6,18 +6,20 @@ constructor(){
     super();
 }
 
-getoption(){
+componentDidMount(){
    
+}
+getoption(){
+    var relachartdata=this.props.data?this.props.data:{};
     var data = {
         id: 'echartPie',
-        value: [12, 32, 54, 12],
-        legend: ['中国', '美国', '日本', '英国'],
-        color: ['#3FA7DC', '#7091C4', '#5170A2', '#E1CA74'],
+        value: relachartdata.voyage,
+        legend: relachartdata.country,
+        color:['#3FA7DC', '#7091C4'],
+        // color: ['#3FA7DC', '#7091C4', '#5170A2', '#E1CA74'],
         // tooltipShow:false,    //设置悬浮提示显示              --默认显示true
         // hoverAnimation:false, //设置鼠标悬浮点击饼图动画效果  --默认开启动画true
-        
     }
-    
     ////////////////////////////////////////
     
     /**
@@ -26,7 +28,7 @@ getoption(){
     var seriesData = []
     data.value.forEach(function(item, index) {
         seriesData.push({
-            value: item,
+            value:item,
             name: data.legend[index]
         })
     })
@@ -96,6 +98,7 @@ getoption(){
 }
 
 render(){
+    
     return(
 
         <div id="countryEchart_relation">

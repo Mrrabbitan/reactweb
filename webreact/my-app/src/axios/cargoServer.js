@@ -72,7 +72,58 @@ const shipServer = {
             .catch(function (error) {
                 console.log(error);
             });
+    },
+    //关联国家表格数据请求
+    getGoodsImportExitTotal(params, callback) {
+        //http://192.168.11.198:9072/portInfo/getGoodsImportExitTotal?type=iron&year=2017&pageNum=1&pageSize=5
+        axios
+            .get(server.portAddress + "portInfo/getGoodsImportExitTotal", { params })
+            .then(function (res) {
+                callback(res.data);
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+    },
+    //关联港口表格数据请求
+    getGoodsImportExitTotalByType(params, callback) {
+        //http://192.168.11.198:9072/portInfo/getGoodsImportExitTotalByType?type=iron&year=2017
+        axios
+            .get(server.portAddress + "portInfo/getGoodsImportExitTotalByType", { params })
+            .then(function (res) {
+                callback(res.data);
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+    },
+    //关联港口表格数据请求
+    getGoodsDetailByPort(params, callback) {
+        //http://192.168.11.198:9072/portInfo/getGoodsDetailByPort?type=iron&year=2017&pageNum=1&pageSize=5
+        axios
+            .get(server.portAddress + "portInfo/getGoodsDetailByPort", { params })
+            .then(function (res) {
+                callback(res.data);
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+    },
+    //关联国家图表数据请求
+    getGoodsImportExitTotalByCompany(params, callback) { 
+        //http://192.168.11.198:9072/portInfo/getGoodsImportExitTotalByCompany?type=iron&year=2017
+        axios
+            .get(server.portAddress + "portInfo/getGoodsImportExitTotalByCompany", { params })
+            .then(function (res) {
+                callback(res.data);
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
     }
+    
+    
+    
     
 };
 
