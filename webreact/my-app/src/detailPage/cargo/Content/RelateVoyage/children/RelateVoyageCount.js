@@ -21,7 +21,7 @@ class RelateVoyageCount extends Component {
     }
     //航行趋势数据请求
     getGoodTypeVoyageServer() { 
-        server.getGoodTypeVoyage({ type: this.props.cargoType, year: "2017" }, (data) => { 
+        server.getGoodTypeVoyage({ type: this.props.cargoType, year: this.props.year }, (data) => { 
             if (data) { 
                 this.getGoodTypeVoyageData(data);
             }

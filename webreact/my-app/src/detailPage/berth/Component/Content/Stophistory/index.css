@@ -1,3 +1,17 @@
-.port_dis_box{
+#portdetail_mode{
     padding:10px 0;
+    height:auto;
+    width:100%;
+    display:flex;
+    flex-wrap: wrap;
+}
+
+#stop_his_echart_pp{
+    height:300px;
+    width:100%;
+}
+
+#stop_his_table_pp{
+    height:auto;
+    width:100%;
 }

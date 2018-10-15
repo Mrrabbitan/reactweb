@@ -17,7 +17,7 @@ class RelateCompany extends Component {
     }
     //两个图表数据请求
     getGoodsImportExitTotalByCompanyServer() { 
-        server.getGoodsImportExitTotalByCompany({ type: this.props.cargoType, year: 2017 }, (data) => { 
+        server.getGoodsImportExitTotalByCompany({ type: this.props.cargoType, year: this.props.year }, (data) => { 
             if (data) { 
                 this.getGoodsImportExitTotalByCompanyData(data);
             }
@@ -25,7 +25,6 @@ class RelateCompany extends Component {
     }
     //数据处理
     getGoodsImportExitTotalByCompanyData(data) { 
-        
         let importData = data.importTotal.map((item) => { 
             return {
                 value: item.volume,

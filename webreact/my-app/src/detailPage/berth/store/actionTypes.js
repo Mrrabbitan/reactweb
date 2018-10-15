@@ -1,0 +1,1 @@
+export const GET_EVERYDAY = 'get_everyday';

@@ -27,7 +27,7 @@ const httpServer = {
             var a = {"data":{"richSapacity":{"HXP":6874952.0,"QTC":657622.0,"GZC":26712.0,"QTGHC":14565.0,"YL":3.5745016E7,"YHQ":1469284.0,"JZXC":2796918.0,"PTHC":2521783.0,"LCC":29871.0,"SHC":4.2967748E7},"richShip":{"HXP":212.0,"QTC":21.0,"GZC":3.0,"QTGHC":2.0,"YL":344.0,"YHQ":37.0,"JZXC":55.0,"PTHC":227.0,"LCC":4.0,"SHC":541.0},"workShip":{"YHQ":1474,"HXP":3865,"YL":4208,"QTYT":24,"SHC":9256,"PTHC":5562,"JZXC":4547,"LCC":488,"GZC":1643,"QTGHC":227,"OTHER":173946,"ALL":205240,"UpdateTime":1533792725426}},"status":10000}
             callback(a);
         },300)*/
-         axios.get(sever.portAddress + "/shiptail/service/shipInfo/getRealtimeShipStatistics", {params})
+         axios.get(sever.portAddress + "shipInfo/getRealtimeShipStatistics", {params})
          .then(function(res) {
             callback(res.data);
          })

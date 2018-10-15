@@ -6,7 +6,9 @@ import PageEasy from '../PublicComponent/PageEasy';
 
 
 class tempship extends React.Component{
-    
+    handleClick = (n)=>{//父子组件间传递方法的途径
+        this.props.func(n)
+    }
     render(){
         
       let newarr=this.props.data;
@@ -26,7 +28,7 @@ class tempship extends React.Component{
                         total={Math.ceil(newarr.data.count / newarr.pageSize)}
                         current={1}
                         pageId="mtb_page"
-                        onPageChanged={this.handlePageChanged}
+                        onPageChanged={this.props.handleClick}//父子组件间传递方法的途径
                     /> 
         </div>
     )}

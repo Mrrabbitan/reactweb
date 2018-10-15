@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Basic from './Basic';
 import Detail from './Detail';
 import './index.css'

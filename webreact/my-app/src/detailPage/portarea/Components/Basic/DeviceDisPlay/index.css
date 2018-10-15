@@ -1,0 +1,75 @@
+.service_sta_deviceAndStopType_box{
+    width:100%;
+    height:196px;
+    display:flex;
+}
+.service_sta_deviceAndStopType_box>div{
+    width:50%;
+    height:100%;
+}
+.device_box{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.stopType_box{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.device_img_list_box{
+    height:140px;
+    width:100%;
+    display:flex;
+    padding:10px 0;
+    justify-content: center;
+}
+.stopType_btn_box{
+    height:140px;
+    width:100%;
+    display:flex;
+    flex-wrap: wrap;
+    padding:10px 0;
+    justify-content: center;
+}
+.dii_box{
+    width:70px;
+    height:120px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-size:14px;
+}
+.dii_name{
+    color:#b0ebff;
+    line-height:30px;
+}
+.dii_count{
+    color: #4bc7fc;
+}
+.typeBtn{
+    width:70px;
+    height:24px;
+    border:1px solid #8ba0a9;
+    background-color: #849299;
+    color:#fff;
+    border-radius: 2px;
+    text-align: center;
+    line-height: 24px;
+    margin:5px 20px;
+}
+.typeBtn.active{
+    border:1px solid #1ecdff;
+    background-color: #00a0e9;
+}
+
+.service_sta_stopAndRate_box{
+    width:100%;
+    height:297px;
+    display:flex;
+    justify-content: space-between;
+    margin-bottom:10px;
+}

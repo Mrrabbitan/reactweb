@@ -3,47 +3,68 @@ import server from '../Config/globaldefine';
 
 const Companydata={
     getCompanybycompname:function(params,callback){
-        axios.get(server.portAddress+'shiptail/service/company/getCompanyDetail',{params})
+        axios.get(server.portAddress+'company/getCompanyDetail',{params})
         .then(function(res){
             callback(res.data);
         }).catch(function(error){
             console.log('error');
         })
     },
-
+    /* 
+    公司拥有船队
+    */
     getCompanytableallteam:function(params,callback){
-        axios.get(server.portAddress+'shiptail/service/company/getOwerFleet',{params})
+        axios.get(server.portAddress+'company/getOwerFleet',{params})
         .then(function(res){
             callback(res.data);
         }).catch(function(error){
             console.log('error');
         })
     },
+    /* 
+    管理船队
+    */
     getManageshipteam:function(params,callback){
-        axios.get(server.portAddress+'shiptail/service/company/getManagerFleet',{params})
+        axios.get(server.portAddress+'company/getManagerFleet',{params})
         .then(function(res){
             callback(res.data);
         }).catch(function(error){
             console.log('error');
         })
     },
+    /* 
+    经营船队
+    */
     getOperateFleet:function(params,callback){
-        axios.get(server.portAddress+'shiptail/service/company/getOperatorFleet',{params})
+        axios.get(server.portAddress+'company/getOperatorFleet',{params})
         .then(function(res){
             callback(res.data);
         }).catch(function(error){
             console.log('error');
         })
     },
+    /* 
+    注册船队
+    */
+   getSighupFleet:function(params,callback){
+    axios.get(server.portAddress+'company/getRegisterFleet',{params})
+    .then(function(res){
+        callback(res.data);
+    })
+    .catch(function(error){
+        console.log('error');
+    })
+   },
+
     getRegisterFleet:function(params,callback){
-        axios.get(server.portAddress+'shiptail/service/company/getRegisterFleet',{params})
+        axios.get(server.portAddress+'company/getRegisterFleet',{params})
         .then(function(res){
             callback(res.data);
         }).catch(function(error){
             console.log('error');
         })
     },
-    loadAllrelationlink:function(params, callback){
+    loadAllrelationlink:function(params, callback){//添加全部关系网络
         axios.get('http://localhost:3000/JSONdoc/test.json',{params})
         .then(function(res){
             callback(res.data);
@@ -53,12 +74,24 @@ const Companydata={
         })
     },
     relationshipandcomp:function(params, callback){
-        axios.get(server.portAddress+'shiptail/service/company/getRelationFleetEcharts',{params})
+        axios.get(server.portAddress+'company/getRelationFleetEcharts',{params})
         .then(function(res){
             callback(res.data);
         })
         .catch(function(error){
             console.log("error");
+        })
+    },
+/* 
+关联公司的表格展示
+*/
+    relationtable:function(params,callback){
+        axios.get(server.portAddress+'company/getRelationFleet',{params})
+        .then(function(res){
+            callback(res.data);
+        })
+        .catch(function(error){
+            console.log('error');
         })
     },
 }

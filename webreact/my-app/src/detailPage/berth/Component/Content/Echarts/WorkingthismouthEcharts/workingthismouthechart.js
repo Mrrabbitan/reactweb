@@ -1,5 +1,6 @@
 import React,{Component} from 'react';
 import ReactEcharts from 'echarts-for-react';
+import {connect} from 'react-redux';
 import './index.css'
 
 
@@ -45,7 +46,7 @@ class workingthismouth extends Component{
                 axisTick: {
                     show: false
                 },
-                data: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10','11', '12', '13', '14', '15', '16', '17', '18', '19','20','21', '22', '23', '24', '25', '26', '27', '28', '29','30']
+                data: this.props.dataAndValue?this.props.dataAndValue.day:[],
             }, {
                 axisPointer: {
                     show: false
@@ -89,7 +90,7 @@ class workingthismouth extends Component{
             series: [{
                 left:'20',
                 top:'50',
-                name: '移动',
+                name: '工作时长',
                 type: 'line',
                 smooth: true,
                 stack: '总量',
@@ -150,13 +151,14 @@ class workingthismouth extends Component{
         
                     }
                 },
-                data: [220, 182, 191, 134, 250, 120, 110, 125, 145, 122, 165, 122,220, 182, 191, 134, 250, 120, 110, 125, 145, 122, 165, 122,220, 182, 191, 134, 250, 120, 110, 125, 145, 122, 165, 122]
+                data:this.props.dataAndValue?this.props.dataAndValue.value:[],
             }, ]
     
         }
     }
 
     render(){
+        console.log(this.props);
         return(
             <div className="workingthismouth_echarts">
                 <ReactEcharts
@@ -169,4 +171,10 @@ class workingthismouth extends Component{
     }
 }
 
-export default workingthismouth;
+export default connect(//数据接收
+    (state)=>{
+        return {
+            dataAndValue:state.data
+        }
+    }
+)(workingthismouth);

@@ -1,12 +1,26 @@
-#Temporaryportgoods_box{
-    height:830px;
-    width:100%;
-    margin-top:10px;
+#TemporaryPortGoods_box {
+    width: 100%;
+    margin-top: 10px;
 }
 
-.Temporaryportgoods_content{
-    height:800px;
-    width:100%;
-    border:1px solid #2adfff;
-    border-top:none;
+.TemporaryPortGoods_content {
+    width: 100%;
+    border: 1px solid #2adfff;
+    border-top: none;
+}
+
+.tpg_table_box {
+    height: 245px;
+}
+
+.tpg_chart_box {
+    height: 536px;
+}
+
+.tpg_table_box_box {
+    height: 182px;
+}
+
+.tpg_table_box_box .table{      
+    height:205px;
 }

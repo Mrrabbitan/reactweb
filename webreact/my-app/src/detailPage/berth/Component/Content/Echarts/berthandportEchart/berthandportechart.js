@@ -49,50 +49,50 @@ class berthandportechart extends Component{
                             }
                         },
                     },{
-                        name : "上海港",//data[4].anchname + "号锚地",
+                        name : this.props.data.orginal_port_name[0],//data[4].anchname + "号锚地",
                         pname : "shanghai port",//data[4].anchname,
                         draggable: "true",
-                        symbolSize : 40,
+                        symbolSize : this.props.data.voyage[0]*2,
                         itemStyle : {
                             normal : {
                                 color : [ '#546570' ],
                             }
                         },
                     }, {
-                        name : "常州港",//data[0].anchname + "号锚地",
+                        name : this.props.data.orginal_port_name[1],//data[0].anchname + "号锚地",
                         pname : "changzhou port",//data[0].anchna,
                         draggable: "true",
-                        symbolSize : 80,
+                        symbolSize : this.props.data.voyage[1]*2,
                         itemStyle : {
                             normal : {
                                 color : [ '#6aa7e4' ],
                             }
                         },
                     }, {
-                        name : "九龙港",//data[1].anchname + "号锚地",
+                        name : this.props.data.orginal_port_name[2],//data[1].anchname + "号锚地",
                         pname : "konglong port",//data[1].anchname,
                         draggable: "true",
-                        symbolSize : 70,
+                        symbolSize : this.props.data.voyage[2]*2,
                         itemStyle : {
                             normal : {
                                 color : [ '#6e7074' ],
                             }
                         },
                     }, {
-                        name : "天津港",//data[2].anchname + "号锚地",
+                        name : this.props.data.orginal_port_name[3],//data[2].anchname + "号锚地",
                         pname : "tianjin port",//data[2].anchname,
                         draggable: "true",
-                        symbolSize : 60,
+                        symbolSize : this.props.data.voyage[3]*2,
                         itemStyle : {
                             normal : {
                                 color : [ '#bda29a' ],
                             }
                         },
                     }, {
-                        name : '东京港',//data[3].anchname + "号锚地",
+                        name : this.props.data.orginal_port_name[4],//data[3].anchname + "号锚地",
                         pname : 'Tokyo port',//data[3].anchname,
                         draggable: "true",
-                        symbolSize : 55,
+                        symbolSize : this.props.data.voyage[4]*2,
                         itemStyle : {
                             normal : {
                                 color : [ '#6aa7e4' ],
@@ -102,19 +102,19 @@ class berthandportechart extends Component{
                     // links: [],
                     links: [ {
                         source : '上海港0525号泊位',
-                        target : "上海港"
+                        target : this.props.data.orginal_port_name[0]
                     }, {
                         source : '上海港0525号泊位',
-                        target : "常州港"
+                        target : this.props.data.orginal_port_name[1]
                     }, {
                         source : '上海港0525号泊位',
-                        target : "九龙港"
+                        target : this.props.data.orginal_port_name[2]
                     }, {
                         source : '上海港0525号泊位',
-                        target : "天津港"
+                        target : this.props.data.orginal_port_name[3]
                     }, {
                         source : '上海港0525号泊位',
-                        target : '东京港'
+                        target : this.props.data.orginal_port_name[4]
                     } ],
                     lineStyle: {
                         normal: {
@@ -133,6 +133,7 @@ class berthandportechart extends Component{
     
 
     render(){
+        console.log(this.props.data.voyage[1]);
         return(
             <div className="Echart_total_bprelation">
                 <EchartsReact

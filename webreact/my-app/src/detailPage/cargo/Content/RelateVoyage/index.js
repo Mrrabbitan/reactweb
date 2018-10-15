@@ -53,7 +53,8 @@ class RelateVoyage extends Component {
 export default connect(
     state => {
         return {
-            cargoType:state.cargoType
+            cargoType: state.cargoType,
+            year: state.year
         }
     }
 )(RelateVoyage);

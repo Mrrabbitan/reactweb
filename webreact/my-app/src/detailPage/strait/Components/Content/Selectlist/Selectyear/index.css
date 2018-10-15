@@ -1,0 +1,10 @@
+.four_select_mode>select{
+   
+   
+}
+
+.four_select_mode{
+   position: flex;
+   flex-wrap: wrap;
+
+}

@@ -5,7 +5,8 @@ class Server {
         //殷朝宇
        /*  this.portAddress = "http://192.168.11.134:9072/"; */
         //张攀凯
-         this.portAddress = "http://192.168.11.202:7075/";
+        this.portAddress = "http://192.168.11.202:7075/shiptail/service/";
+        //  this.portAddress = "http://192.168.11.202:7075/";
         //服务器
          /* this.portAddress = "http://192.168.11.142:7075/"; */
         //张方宇
@@ -60,6 +61,9 @@ class Server {
         return '05'
     }
 
+    getBerthshiphistoryparams(name){
+        return '8741'
+    }
 }
 
 export default new Server();

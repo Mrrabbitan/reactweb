@@ -1,14 +1,18 @@
 import React from 'react';
 import color from '../../style/color';
 import ReactEcharts from 'echarts-for-react';
+import './index.css';
 
 const YearForWeekTrendChartForLine = (props) => {
     return (
-        <ReactEcharts
-            option={getOption({ ...props })}
-            style={{ height: '100%', width: '100%' }}
-            className='react_for_echarts'
-        />
+        <div className="yfwtcl_box">
+            <ReactEcharts
+                option={getOption({ ...props })}
+                style={{ height: '100%', width: '100%' }}
+                className='react_for_echarts'
+            />
+        </div>
+        
     )
 }
 const getOption = ({ type, data }) => {
@@ -16,9 +20,9 @@ const getOption = ({ type, data }) => {
         color: color,
         backgroundColor: "transparent",
         title: {
-            text: '最近一年',
+            text: '全年周走势图',
             textStyle: {
-                fontSize: '16px',
+                fontSize: '18px',
                 color: '#fff'
             }
         },
@@ -26,7 +30,7 @@ const getOption = ({ type, data }) => {
             trigger: 'axis'
         },
         legend: {
-            data: type,
+            data: ['进口','出口'],
             textStyle: {
                 color: '#ffffff',
             },
@@ -40,7 +44,7 @@ const getOption = ({ type, data }) => {
         xAxis: {
             type: 'category',
             boundaryGap: false,
-            data: ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月'],
+            data: type,
             axisLabel: {
                 show: true,
                 textStyle: {

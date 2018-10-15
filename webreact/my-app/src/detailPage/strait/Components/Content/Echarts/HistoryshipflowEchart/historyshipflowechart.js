@@ -1,6 +1,12 @@
 import React from 'react';
 import ReactEcharts from 'echarts-for-react';
 import './index.css'
+import Selectyear from '../../Selectlist/Selectyear/selectyear';
+import HistorygoodsThroughputEchart
+    from '../../Echarts/Historycommonpies';
+import {connect} from 'react-redux';
+
+
 
 class historyshipflow extends React.Component{
 constructor(){
@@ -46,7 +52,7 @@ getOption(){
             axisTick: {
                 show: false
             },
-            data: ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月']
+            data: this.props.historyflowdata?this.props.historyflowdata.mouth:[]
         }, {
             axisPointer: {
                 show: false
@@ -151,23 +157,35 @@ getOption(){
     
                 }
             },
-            data: [220, 182, 191, 134, 250, 120, 110, 125, 145, 122, 165, 122]
+            data:this.props.historyflowdata?this.props.historyflowdata.dataan:[],
         }, ]
 
     }
 }
 
 render(){
+    console.log(this.props.historyflowdata);
     return(
         <div className="history_chart_content">
+            <div className="select_content">
+                <Selectyear/>
+                
+            </div>
             <ReactEcharts
                 option={this.getOption()}
-                style={{height:'130%',width:'100%'}}
+                style={{height:'100%',width:'100%'}}
                 className='react_for_echart'
             />
+            <HistorygoodsThroughputEchart/>
         </div>
         )
     }
 }
 
-export default historyshipflow;
+export default connect(
+    (state)=>{
+        return{
+            historyflowdata:state.data
+        }
+    }
+)(historyshipflow);

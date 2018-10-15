@@ -10,15 +10,16 @@ class management extends React.Component{
 
     state={
         /* 初始化表 */
-        dataTable:[],
+        total:[],
+        datatable:[],
     }
     componentDidMount(){
         this.getManageshipteamServer(1);
     }
 
     getManageshipteamServer(currentpage){
-        server.getManageshipteam({code:'0000249',currentpage,pagesize:this.props.Pagesize}, (data)=>{
-            if(data.data){
+        server.getManageshipteam({code:'0000249',currentpage,pagesize:this.state.Pagesize}, (data)=>{
+            if(data){
                 this.setState({
                     total:data.data.count,
                     datatable:data.data.list
@@ -26,20 +27,23 @@ class management extends React.Component{
             }
         })
     }
+    handlePageChanged =(n)=>{
+        this.getManageshipteamServer(Number(n));
+    }
     render(){
         return(
             <div className="mtb_table">
                 <div className="mtb_table_box">
                     <TableBox
                         list={this.props.Pagesize}
-                        active={2}
+                        active={1}
                         thead={["船舶IMO", "船名", "船籍", "船舶状态", "载重/吨", "总吨", "船舶类型","建造日期","主机型号","主机数量","异常事件","更新时间"]}
                         fileName={["imo", "shipname", "flagcountry", "shipstatus", "deadweight", "grosstonnage", "shiptype","builddate","fueltype2","mainnumberofcylinders","shipstatuseffectivedate","dataupdatetime"]}
                         data={this.state.datatable}
                     />
                 </div>
                 <PageEasy
-                    total={Math.ceil(this.state.total/this.props.Pagesize)}
+                    total={Math.ceil(this.state.total/4)}
                     current={1}
                     pageId="mtb_page"
                     onPageChanged={this.handlePageChanged}

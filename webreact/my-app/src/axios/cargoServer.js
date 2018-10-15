@@ -120,7 +120,20 @@ const shipServer = {
             .catch(function (error) {
                 console.log(error);
             });
+    },
+    //全年走势图
+    getWeekTend(params, callback) {
+        //http://192.168.11.198:9072/portInfo/getWeekTend?type=iron&year=2017
+        axios
+            .get(server.portAddress + "portInfo/getWeekTend", { params })
+            .then(function (res) {
+                callback(res.data);
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
     }
+    
     
     
     

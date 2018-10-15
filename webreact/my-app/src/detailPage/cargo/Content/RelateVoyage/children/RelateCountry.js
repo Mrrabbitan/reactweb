@@ -25,7 +25,7 @@ class RelateCountry extends Component {
     }
     //进口港口请求数据
     getGoodImporteCountryServer() {
-        server.getGoodImporteCountry({ type: this.props.cargoType, year: 2017 }, (data) => {
+        server.getGoodImporteCountry({ type: this.props.cargoType, year: this.props.year }, (data) => {
             if (data) {
                 this.getGoodImporteCountryData(data)
             }

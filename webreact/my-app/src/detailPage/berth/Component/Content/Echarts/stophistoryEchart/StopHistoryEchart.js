@@ -2,18 +2,45 @@ import React,{Component} from 'react';
 import ReactEchart from 'echarts-for-react';
 import color from '../color';
 import './index.css'
-
+import server from '../../../../../../axios/berthDetail'
+import globaldefine from '../../../../../../Config/globaldefine'
 
 class shiphistoryEchart extends Component{
     constructor(){
         super();
         this.state={
+            dataazp:[],
             dataan:[],
+            berthId:globaldefine.getBerthshiphistoryparams()
         }
         
     }
 
+    componentDidMount(){
+        this.selectshiphistorybrokenlineServer()
+
+    }
+
+    selectshiphistorybrokenlineServer(){
+        server.selectshiphistorybrokenline({berthId:this.state.berthId},(data)=>{
+            if(data){
+                this.findallvalue(data)
+            }
+        })
+    }
+
+    findallvalue(data){
+        let arr=[];
+        let datanew=data.data
+        for(var i in datanew){
+            arr.push(datanew[i].mmsi)
+        }
+     this.setState({
+         dataazp:arr
+     })
+    }
 getOption1(){
+    
     return {
         color:color,
         title : {
@@ -235,7 +262,7 @@ getOption2(){
     
                 }
             },
-            data: [220, 182, 191, 134, 250, 120, 110, 125, 145, 122, 165, 122]
+            data: this.state.dataazp
         }, ]
 
     }
@@ -256,7 +283,7 @@ getOption2(){
                     <ReactEchart
                         option={this.getOption2()}
                         style={{height:'134%', width:'100%'}}
-                        className='react_for_echarts'                    
+                        className='react_for_echarts'    
                     />
                 </div>
             </div>

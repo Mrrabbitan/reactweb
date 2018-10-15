@@ -1,13 +1,23 @@
-#Berthtype_box{
-    height:500px;
-    width:100%;
-    
+#BerthType_box {
+    height: 500px;
+    width: 100%;
 }
 
-.berthtype_content{
-height:467px;
-width:100%;
-border:1px solid #2adfff;
-border-top:none;
+.berthType_content {
+    width: 100%;
+    border: 1px solid #2adfff;
+    border-top: none;
 }
 
+.berth_class_echart {
+    height: 255px;
+}
+
+.berth_class_table_box {
+    width: 100%;
+    height: 182px;
+}
+
+.berth_class_table .table{
+    height:203px;
+}

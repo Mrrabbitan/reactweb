@@ -17,11 +17,15 @@ class relationwithother extends React.Component{
     constructor(){
         super();
         this.state={
+            data:[],
+            data1:[],
             country:[],
             voyage:[],
             portcountry:[],
             portvoyage:[],
             aimtarget:1,
+            total:1,
+            pageSize:4,
             type1:globaldefine.getUrlParmsStraitrelationcountry(),
             type2:globaldefine.getUrlParmsStraitrelationport(),
             relationship:globaldefine.getUrlParmsStrait()
@@ -32,7 +36,17 @@ class relationwithother extends React.Component{
         this.relationwithotherServer();
         this.relationwithportServer();
         this.relationwithlocalportserver();
+        this.relationallaboveServer();
     }
+// 获取数据内全部信息的内容
+    relationallaboveServer(){
+        server.relationwithother({type:this.state.type1,relationship:this.state.relationship},(data)=>{
+            if(data){
+                this.setState({data:data.data});
+            }
+        })
+    }
+
 // 数据获取经济体内国家的内容
     relationwithotherServer(){
         server.relationwithother({type:this.state.type1,relationship:this.state.relationship},(data)=>{
@@ -57,6 +71,7 @@ class relationwithother extends React.Component{
     relationwithlocalportserver(){
         server.relationwithother({type:this.state.type2,relationship:this.state.relationship},(data)=>{
             if(data){
+                this.setState({data1:data.data});
                 this.localportType(data.data);
                 this.localportvoyaType(data.data);
             }
@@ -107,7 +122,6 @@ class relationwithother extends React.Component{
         for(var i=0;i<data.length;i++){
             arr.push(data[i].voyage);
         }
-        console.log(arr);
        // 一定要将数据封装一下，使得最外层state中可以获取到state的变化
        this.setState({
         portvoyage:arr,
@@ -125,6 +139,7 @@ class relationwithother extends React.Component{
 render(){
         let relationwithother;
         let tableinfo;
+        
 if(this.state.aimtarget===1){
     relationwithother=(
         <div className="relation_country_Echart">
@@ -133,7 +148,7 @@ if(this.state.aimtarget===1){
     )
     tableinfo=(
         <div className="relation_country_table">
-            <Countrytable/>
+            <Countrytable  data={this.state}/>
         </div>
     )
 }else if(this.state.aimtarget===2){
@@ -144,7 +159,7 @@ if(this.state.aimtarget===1){
     )
     tableinfo=(
         <div className="relation_country_table">
-            <Porttable/>
+            <Porttable data={this.state}/>
         </div>
     )
 }else if(this.state.aimtarget===3){
@@ -169,8 +184,11 @@ if(this.state.aimtarget===1){
                         <span onClick={(e)=>this.changetabstate(e,2)}>关联港口</span>
                         <span onClick={(e)=>this.changetabstate(e,3)}>关联货物</span>
                     </div>
-                 {relationwithother}
-                 {tableinfo}
+                 <div className="rela_table_chart">
+                    {relationwithother}
+                    {tableinfo}
+                </div>   
+                 
                 </div>
             </div>
         )

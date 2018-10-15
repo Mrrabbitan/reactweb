@@ -27,7 +27,11 @@ class companyown extends React.Component{
             
         })
     }
-    render(){
+
+    handlePageChanged =(n)=>{
+        this.getCompanytableallteamserver(Number(n));
+    }
+     render(){
         return(
             <div className="mtb_table">
                     <div className="mtb_table_box">

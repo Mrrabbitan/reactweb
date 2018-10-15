@@ -37,7 +37,6 @@ class relationbottomchart extends React.Component{
                 }
             }
         }
-        console.log(dataAll)
         // 一定要将数据封装一下，使得最外层state中可以获取到state的变化
         this.setState({
             data:dataAll

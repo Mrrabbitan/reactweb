@@ -10,13 +10,14 @@ class relationtoptable extends React.Component{
     }
     state={
         /* 表格数据初始化 */
-        dataTable:[]
+        dataTable:[],//不声明没有容器来承载数据，这个容器就是一个数组
+        count:[]
     }
     componentDidMount(){
-        this.getCompanytableallteamserver(1);//必须调一下
+        this.relationtableserver(1);//必须调一下
     }
-    getCompanytableallteamserver(currentpage){
-        server.getCompanytableallteam({ code: '0000249', currentpage, pagesize: this.props.pageSize }, (data) => { 
+    relationtableserver(currentpage){
+        server.relationtable({ code: '0003376', currentpage, pagesize: this.props.pageSize }, (data) => { 
             if (data.data) { 
                 this.setState({
                     total: data.data.count,
@@ -27,20 +28,24 @@ class relationtoptable extends React.Component{
             
         })
     }
+
+    handlePageChanged=(n)=>{
+        this.relationtableserver(Number(n));
+    }
     render(){
         return(
             <div className="relationtop_table">
                     <div className="relation_table_box">
                         <TableBox
-                            list={this.props.pageSize}
-                            active={2}
-                            thead={["船舶IMO", "船名", "船籍", "船舶状态", "载重/吨", "总吨", "船舶类型","建造日期","主机型号","主机数量","异常事件","更新时间"]}
-                            fileName={["imo", "shipname", "flagcountry", "shipstatus", "deadweight", "grosstonnage", "shiptype","builddate","fueltype2","mainnumberofcylinders","shipstatuseffectivedate","dataupdatetime"]}
+                            list={4}
+                            active={1}
+                            thead={["船队类型", "MMSI", "呼号", "IMO", "类型", "关联公司", "关联公司船队类型"]}
+                            fileName={["shiptypegroup", "mmsi", "callsign", "imo", "type", "doccompany", "shiptypelevel5subgroup"]}
                             data={this.state.dataTable}
                         />
                     </div>
                     <PageEasy
-                        total={Math.ceil(this.state.total / this.props.pageSize)}
+                        total={Math.ceil(this.state.total / 4)}
                         current={1}
                         pageId="mtb_page"
                         onPageChanged={this.handlePageChanged}

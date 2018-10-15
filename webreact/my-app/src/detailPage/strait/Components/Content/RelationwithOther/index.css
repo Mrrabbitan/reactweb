@@ -1,3 +1,5 @@
+
+
 .relation_content{
     height:400px;
     width:100%;
@@ -28,20 +30,30 @@
     background:#0060e3;
     
 }
-
+.rela_table_chart{
+    height:100%;
+    width:100%;
+    display:flex;
+    flex-wrap: wrap;
+}
 
 .relation_country_Echart{
     height:400px;
-    width:40%;
-    
+    width:33%;
 }
+.relation_country_table{
+    height:400px;
+    width:65%;
+    margin-top:30px;
+}
+
 .relation_port_Echart{
     height:400px;
-    width:40%;
-    
+    width:33%;
+    margin-top:30px;
 }
 .relation_goods_Echart{
     height:400px;
-    width:40%;
-    
+    width:33%;
+    margin-top:30px;
 }

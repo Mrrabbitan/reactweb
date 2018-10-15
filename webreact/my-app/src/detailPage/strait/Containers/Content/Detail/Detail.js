@@ -30,11 +30,15 @@ class detail extends React.Component{
         })
     }
 
+    handlePageChanged = (n)=>{
+        this.TemporaryshipServer(Number(n));
+    }
+
     render(){
         return(
             <div id="detail_box">
             {/* 实时船舶模块 */}
-                <Tempship data={this.state}/>
+                <Tempship data={this.state} func={this.handlePageChanged}/>{/* //父子组件间传递方法的途径 */}
             {/* 历史船舶流量 */}
                 <Historyshipflow/>
             {/* 关联关系 */}

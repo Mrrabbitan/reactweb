@@ -1,34 +1,16 @@
-import { GET_MMSI, GET_SHIP_ID, SHIP_INFO } from './actionTypes';
-import server from '../../../axios/shipServer';
-//全局mmsi
-export const getMmsi = (mmsi) => { 
+import { GET_PORT_AREA_ID, GET_YEAR  } from './actionTypes';
+// import server from '../../../axios/shipServer';
+//全局portAreaId
+export const portAreaId = (portAreaId) => {
     return {
-        type: GET_MMSI,
-        mmsi
+        type: GET_PORT_AREA_ID,
+        portAreaId
     }
 }
-//全局shipId
-export const getShipId = (shipId) => {
+//全局年份
+export const getYear = (year) => {
     return {
-        type: GET_SHIP_ID,
-        shipId
-    }
-}
-//船舶基本信息获取
-export const getShipInfo = (mmsi) => {
-    return (dispatch) => {
-        server.getShipDetail({ mmsi }, (data) => {
-            if (data.data) {
-                dispatch({
-                    type: SHIP_INFO,
-                    data:data.data
-                });
-            } else { 
-                dispatch({
-                    type: SHIP_INFO,
-                    data: null
-                })
-            }
-        })
+        type: GET_YEAR,
+        year
     }
 }

@@ -14,7 +14,7 @@ class shippingwaitEchart extends Component{
                 textStyle: {
                     color: '#fff',
                 },
-                data: ['100-200', '200-400', '400-600','完成率']
+                data: ['小型', '中型', '大型']
             },
             grid: {
                 left: '3%',
@@ -31,7 +31,7 @@ class shippingwaitEchart extends Component{
                 extraCssText: 'box-shadow: 0 0 3px rgba(255, 255, 255, 0.4);', //添加阴影
                 formatter: function(params) {
                     if (params.seriesIndex === "3" || params.seriesIndex === "4" || params.seriesIndex === "5") {
-                        return params.name + '<br>' + params.seriesName + ' ： 第 ' + params.value + ' 名';
+                        return params.name + '<br>' + params.seriesName + ' ： 待舶时长 ' + params.value + ' 时间';
                     }
                 }
             },
@@ -62,8 +62,9 @@ class shippingwaitEchart extends Component{
             },
             xAxis: [{
                     type: 'category',
+                    name: 'mmsi',
                     axisTick: {
-                        show: false
+                        show: true
                     },
                     axisLine: {
                         show: true,
@@ -78,11 +79,8 @@ class shippingwaitEchart extends Component{
                             fontWeight: 'normal',
                             fontSize: '12',
                         },
-                        // formatter:function(val){
-                        //     return val.split("").join("\n")
-                        // },
                     },
-                    data: ['散货船', '集装箱', '油气船']
+                    data: this.props.data.name
                 }, {
                     type: 'category',
                     axisLine: {
@@ -100,7 +98,7 @@ class shippingwaitEchart extends Component{
                     splitLine: {
                         show: false
                     },
-                    data: ['散货船', '集装箱', '油气船']
+                    data:this.props.data.name
                 },
         
             ],
@@ -122,12 +120,12 @@ class shippingwaitEchart extends Component{
                         }
                     },
                     barWidth: '10%',
-                    data: [600, 600, 600]
+                    data: [1600, 1600, 1600]
                 }, {
                     type: 'bar',
                     xAxisIndex: 1,
                     barGap: '100%',
-                    data: [600, 600, 600],
+                    data: [1600, 1600, 1600],
                     zlevel: 1,
                     barWidth: '10%',
                     itemStyle: {
@@ -146,7 +144,7 @@ class shippingwaitEchart extends Component{
                     type: 'bar',
                     xAxisIndex: 1,
                     barGap: '100%',
-                    data: [600, 600, 600],
+                    data: [1600, 1600, 1600],
                     zlevel: 1,
                     barWidth: '10%',
                     itemStyle: {
@@ -162,7 +160,7 @@ class shippingwaitEchart extends Component{
                         }
                     },
                 }, {
-                    name: '100-200',
+                    name: '小型',
                     type: 'bar',
                     itemStyle: {
                         normal: {
@@ -186,9 +184,9 @@ class shippingwaitEchart extends Component{
                     },
                     zlevel: 2,
                     barWidth: '10%',
-                    data: [180, 350, 400]
+                    data:this.props.data.value,
                 }, {
-                    name: '200-400',
+                    name: '中型',
                     type: 'bar',
                     barWidth: '10%',
                     itemStyle: {
@@ -213,9 +211,9 @@ class shippingwaitEchart extends Component{
                     },
                     zlevel: 2,
                     barGap: '100%',
-                    data: [280, 370, 460]
+                    data: this.props.data.value,
                 }, {
-                    name: '400-600',
+                    name: '大型',
                     type: 'bar',
                     barWidth: '10%',
                     itemStyle: {
@@ -240,11 +238,11 @@ class shippingwaitEchart extends Component{
                     },
                     zlevel: 2,
                     barGap: '100%',
-                    data: [280, 330, 170]
+                    data: this.props.data.value,
                 }, {
                     name: '平均时长',
                     type: 'line',
-                    data: [100,250,450],
+                    data: this.props.data.value,
                     itemStyle: {
                       normal: {
                         show: true,

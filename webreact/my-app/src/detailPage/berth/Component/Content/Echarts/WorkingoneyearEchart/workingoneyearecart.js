@@ -1,11 +1,14 @@
 import React,{Component} from 'react';
 import ReactEcharts from 'echarts-for-react';
 import './index.css'
+import server from '../../../../../../axios/berthDetail'
+import * as actions from '../../../../store/actions'//要把这个模块中的所有内容引入
+import {connect} from 'react-redux'
 
 class workingoneyearechart extends Component{
     constructor(){
         super();
-
+       
 
     }
 
@@ -21,7 +24,7 @@ getOption(){
             splitArea: {
                 show: false
             },
-            data: ['1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月'],
+            data: ['1','2','3','4','5','6','7','8','9','10','11','12'],
             axisLabel: {
                 formatter: function(value) {
                     var ret = ""; //拼接加\n返回的类目项
@@ -40,7 +43,7 @@ getOption(){
                         }
                         return ret;
                     } else {
-                        return value;
+                        return value+'月';
                     }
                 },
                 interval: 0,
@@ -48,7 +51,6 @@ getOption(){
                 fontWeight: 100,
                 textStyle: {
                     color: '#53d0ff',
-    
                 }
             },
             axisLine: {
@@ -106,24 +108,55 @@ getOption(){
                 }
             },
             barWidth: 27,
-            data: [12,13,22,30,29,22,18,22,26,27,18,30]
+            data: this.props.data.data1
         }
     }
 }
 
+Clicktoshow = (e) =>{//绑定的事件全都要使用箭头函数，目的是将全局的this可以绑定到当前的内容下
+    server.getcurrentmouthworkingday({berthId:'67182',month:e.name},(data)=>{
+        if(data){
+            this.changedatasuitable(data);
+        }
+    })
+}
+changedatasuitable(data){
+    let arr=[];
+    let arr1=[];
+    let datanew=data.data
+    for(var i in datanew){
+        let obj = {};//针对对象进行拆分，类似于数组的内容
+        obj['name'] = i;
+        obj['value'] = datanew[i];
+        arr.push(i);
+        arr1.push(datanew[i]);
+    }
+    this.props.dispatch(actions.getEveryday({//dispatch封装action的必须途径
+        day:arr,
+        value:arr1
+         }))
+       }
     render(){
+        let onEvents = {
+            click:this.Clicktoshow,
+        }
         return(
             <div className="workoneyear_echarts">
                 <ReactEcharts
                     option={this.getOption()}
                     style={{height:'100%',width:'103%'}}
                     className={'echarts_for_react'}
+                    onEvents={onEvents}//增加事件点击方法等！
                 />
-
             </div>
         )
-
     }
 }
 
-export default workingoneyearechart;
+export default connect(//数据传出
+    (state)=>{
+        return {
+            dataAndValues:state.data
+        }
+    }
+)(workingoneyearechart);

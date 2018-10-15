@@ -1,3 +1,2 @@
-export const GET_MMSI = 'get_mmsi';
-export const GET_SHIP_ID = 'get_ship_id';
-export const SHIP_INFO = 'ship_info';
+export const GET_PORT_AREA_ID = 'get_port_area_id';
+export const GET_YEAR = 'get_year';

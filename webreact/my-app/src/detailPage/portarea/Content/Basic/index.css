@@ -7,7 +7,26 @@
     margin-bottom: 10px;
 }
 
-.basic_box{
-    width:710px;
-    height:100%;
+.basic_box {
+    width: 710px;
+    height: 100%;
+}
+
+.basic_info_box {
+    width: 100%;
+    height: 192px;
+    color:#fff;
+    display:flex;
+    flex-wrap:wrap;
+}
+.basic_info_box>div{
+    width:50%;
+    height:46px;
+    display:flex;
+    align-items: center;
+    padding-left:30px;
+}
+
+.basic_info_box>div>span:first-child{
+    color:#53d9ff;
 }

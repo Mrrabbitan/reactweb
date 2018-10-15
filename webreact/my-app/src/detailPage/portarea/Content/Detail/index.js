@@ -1,22 +1,30 @@
 import React from 'react'
 import './index.css'
-import Berthtype from './Berthtype';
-import Temporaryportgoods from './Temoraryportgoods';
-import Exportandingoods from './Exportandingoods';
+import BerthType from './BerthType';
+import TemoraryPortGoods from './TemoraryPortGoods';
+import ExportAndInGoods from './ExportAndInGoods';
+import { connect } from 'react-redux';
 
-const Detail=(props)=>{
-    
+const Detail = (props) => {
+    console.log(props)
         return(
             <div>
                 {/* 泊位分类 */}
-                <Berthtype {...props}/>
+                <BerthType {...props}/>
                 {/* 实时港货 */}
-                <Temporaryportgoods {...props}/>
+                <TemoraryPortGoods {...props}/>
                 {/* 进出口货物 */}
-                <Exportandingoods {...props}/>
+                <ExportAndInGoods {...props}/>
             </div>
         )
     
 }
 
-export default Detail;
+export default connect(
+    state => { 
+        return {
+            portAreaId: state.portAreaId,
+            year:state.year
+        }
+    }
+)(Detail);

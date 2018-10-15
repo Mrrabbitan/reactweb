@@ -7,7 +7,7 @@ const shipServer = {
             callback(a);
         },300)*/
         axios
-            .post(sever.portAddress + "shiptail/service/shipInfo/findByType/", params)
+            .post(sever.portAddress + "shipInfo/findByType/", params)
             .then(function (res) {
                 callback(res.data);
             })
@@ -21,7 +21,7 @@ const shipServer = {
             callback(a);
         },300)*/
         axios
-            .get(sever.portAddress + "shiptail/service/shipInfo/getShipDetail", {params})
+            .get(sever.portAddress + "shipInfo/getShipDetail", {params})
             .then(function (res) {
                 callback(res.data);
             })
@@ -33,7 +33,7 @@ const shipServer = {
     getShipInfoListAnormalEvent(params, callback) { 
         //http://192.168.11.202:7075/shiptail/service/shipInfo/getShipInfoListAnormalEvent?mmsi=997754063&pagesize=4&currentpage=1
         axios
-            .get(sever.portAddress + "shiptail/service/shipInfo/getShipInfoListAnormalEvent", { params })
+            .get(sever.portAddress + "shipInfo/getShipInfoListAnormalEvent", { params })
             .then(function (res) {
                 callback(res.data);
             })
@@ -45,7 +45,7 @@ const shipServer = {
     getShipInfoEcharsAnormalEvent(params, callback) {
         //http://192.168.11.202:7075/shiptail/service/shipInfo/getShipInfoEcharsAnormalEvent?mmsi=997754063
         axios
-            .get(sever.portAddress + "shiptail/service/shipInfo/getShipInfoEcharsAnormalEvent", { params })
+            .get(sever.portAddress + "shipInfo/getShipInfoEcharsAnormalEvent", { params })
             .then(function (res) {
                 callback(res.data);
             })
@@ -58,7 +58,7 @@ const shipServer = {
     getShipInfoEcharsHistroyHC(params, callback) {
         //http://192.168.11.202:7075/shiptail/service/shipInfo/getShipInfoEcharsHistroyHC?shipid=205335490
         axios
-            .get(sever.portAddress + "shiptail/service/shipInfo/getShipInfoEcharsHistroyHC", { params })
+            .get(sever.portAddress + "shipInfo/getShipInfoEcharsHistroyHC", { params })
             .then(function (res) {
                 callback(res.data);
             })
@@ -70,7 +70,7 @@ const shipServer = {
     getShipInfoListHistroyHC(params, callback) {
         //http://192.168.11.202:7075/shiptail/service/shipInfo/getShipInfoListHistroyHC?shipid=205335490&pagesize=4&currentpage=1
         axios
-            .get(sever.portAddress + "shiptail/service/shipInfo/getShipInfoListHistroyHC", { params })
+            .get(sever.portAddress + "shipInfo/getShipInfoListHistroyHC", { params })
             .then(function (res) {
                 callback(res.data);
             })

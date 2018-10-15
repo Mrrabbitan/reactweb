@@ -28,7 +28,7 @@ class RelatePort extends Component {
     }
     //进口港口请求数据
     getGoodImportePortServer() {
-        server.getGoodImportePort({ type: this.props.cargoType, year: 2017 }, (data) => {
+        server.getGoodImportePort({ type: this.props.cargoType, year: this.props.year }, (data) => {
             if (data) {
                 this.getGoodImportePortData(data)
             }

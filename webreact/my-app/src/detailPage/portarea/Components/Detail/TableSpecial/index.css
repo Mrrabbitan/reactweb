@@ -1,0 +1,10 @@
+.tableSpecial{
+    width:100%;
+}
+.tableSpecial td{
+    height:30px;
+    vertical-align: middle;
+    text-align: center;
+    border:1px solid #1abceb;
+    color:#45c1dc;
+}

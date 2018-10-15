@@ -10,7 +10,7 @@ const Straitserver={
 
         },300)*/
        axios
-            .get(sever.portAddress + "shiptail/service/strait/getAll", {params})
+            .get(sever.portAddress + "strait/getAll", {params})
             .then(function(res) {
                 callback(res.data);
             })
@@ -20,7 +20,7 @@ const Straitserver={
     },
     allstraitDetail:function(params,callback){
         
-        axios.get(sever.portAddress + "shiptail/service/strait/selectAllAndBasic", {params})
+        axios.get(sever.portAddress + "strait/selectAllAndBasic", {params})
              .then(function(res) {
                  callback(res.data);
              })
@@ -30,7 +30,7 @@ const Straitserver={
      },
 
      Temporaryship:function(params,callback){
-         axios.get(sever.portAddress+"shiptail/service/strait/currShips",{params})
+         axios.get(sever.portAddress+"strait/currShips",{params})
          .then(function(res){
              callback(res.data);
          })
@@ -40,7 +40,7 @@ const Straitserver={
      },
 
      stratigyindex:function(params,callback){
-         axios.get(sever.portAddress+"shiptail/service/strait/selectBasicStrategicIndex",{params})
+         axios.get(sever.portAddress+"strait/selectBasicStrategicIndex",{params})
          .then(function(pa){
             callback(pa.data);
          })
@@ -50,7 +50,7 @@ const Straitserver={
      },
 
      relationwithother:function(params,callback){
-         axios.get(sever.portAddress+'shiptail/service/strait/selectGLCountry',{params})
+         axios.get(sever.portAddress+'strait/selectGLCountry',{params})
          .then(function(pa){
              callback(pa.data);
          })
@@ -58,6 +58,74 @@ const Straitserver={
              console.log('error');
          })
      },
+
+     /* 
+    货物种类百分比饼状图
+     */
+
+    goodstypepercentpie:function(params,callback){
+        axios.get(sever.portAddress+'strait/selectTotalTonBaiFenBi',{params})
+        .then(function(res){
+            callback(res.data)
+        })
+        .catch(function(error){
+            console.log('error');
+        })
+    },
+/* 
+货船种类百分比饼状图
+*/
+    shipstypepercentpie:function(params,callback){
+        axios.get(sever.portAddress+'strait/selectVoyageBaiFenBi',{params})
+        .then(function(res){
+            callback(res.data)
+        })
+        .catch(function(error){
+            console.log('error');
+        })
+    },
+
+
+/* 
+startcountry起始国家
+*/
+    startcountrypie:function(params,callback){
+        axios.get(sever.portAddress+'strait/selectStartOrEnd',{params})
+        .then(function(res){
+            callback(res.data);
+        })
+        .catch(function(error){
+            console.log('error');
+        })
+    },
+
+/* 
+终止国家
+*/
+
+    endcountrypie:function(params,callback){
+        axios.get(sever.portAddress+'service/strait/selectStartOrEnd',{params})
+        .then(function(res){
+            callback(res.data);
+        })
+        .catch(function(error){
+            console.log('error');
+        })
+    },
+
+/* 
+历史航运曲线图部分
+
+*/
+    selectQuxiantuline:function(params,callback){
+        axios.get(sever.portAddress+'strait/selectQuXianTu',{params})
+        .then(function(res){
+            callback(res.data);
+        })
+        .catch(function(error){
+            console.log('error');
+        })
+    },
 
 }
 

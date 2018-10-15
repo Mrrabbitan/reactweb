@@ -19,7 +19,7 @@ class shippingworkEchart extends Component{
                 textStyle: {
                     color: '#fff',
                 },
-                data: ['100-200', '200-400', '400-600']
+                data: ['小型', '中型', '大型']
             },
             grid: {
                 left: '3%',
@@ -36,7 +36,7 @@ class shippingworkEchart extends Component{
                 extraCssText: 'box-shadow: 0 0 3px rgba(255, 255, 255, 0.4);', //添加阴影
                 formatter: function(params) {
                     if (params.seriesIndex == "3" || params.seriesIndex == "4" || params.seriesIndex == "5") {
-                        return params.name + '<br>' + params.seriesName + ' ： 第 ' + params.value + ' 名';
+                        return params.name + '<br>' + params.seriesName + ' ： 装卸速度' + params.value + '百分比';
                     }
                 }
             },
@@ -87,7 +87,7 @@ class shippingworkEchart extends Component{
                         //     return val.split("").join("\n")
                         // },
                     },
-                    data: ['散货船', '集装箱', '油气船']
+                    data: this.props.data.cargo_type
                 }, {
                     type: 'category',
                     axisLine: {
@@ -105,7 +105,7 @@ class shippingworkEchart extends Component{
                     splitLine: {
                         show: false
                     },
-                    data: ['散货船', '集装箱', '油气船']
+                    data:this.props.data.cargo_type,
                 },
         
             ],
@@ -166,7 +166,7 @@ class shippingworkEchart extends Component{
                         }
                     },
                 }, {
-                    name: '100-200',
+                    name: '小型',
                     type: 'bar',
                     itemStyle: {
                         normal: {
@@ -190,9 +190,9 @@ class shippingworkEchart extends Component{
                     },
                     zlevel: 2,
                     barWidth: '10%',
-                    data: [80, 150, 100]
+                    data: this.props.data.load_efficiency
                 }, {
-                    name: '200-400',
+                    name: '中型',
                     type: 'bar',
                     barWidth: '10%',
                     itemStyle: {
@@ -217,9 +217,9 @@ class shippingworkEchart extends Component{
                     },
                     zlevel: 2,
                     barGap: '100%',
-                    data: [80, 170, 260]
+                    data: this.props.data.load_efficiency
                 }, {
-                    name: '400-600',
+                    name: '大型',
                     type: 'bar',
                     barWidth: '10%',
                     itemStyle: {
@@ -244,11 +244,11 @@ class shippingworkEchart extends Component{
                     },
                     zlevel: 2,
                     barGap: '100%',
-                    data: [80, 170, 260]
+                    data:this.props.data.load_efficiency
                 },{
                     name: '平均时长',
                     type: 'line',
-                    data: [100,250,450],
+                    data:this.props.data.load_efficiency,
                     itemStyle: {
                       normal: {
                         show: true,

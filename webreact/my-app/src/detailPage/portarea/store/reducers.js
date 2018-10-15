@@ -1,25 +1,18 @@
 const defaultState = {
-    mmsi: '201100149',
-    // mmsi: '997754063',
-    shipId: '212848000',
-    shipInfo:null
+    portAreaId: "41558",
+    year:'2017'
 }
 const App = (state = defaultState, actions = {}) => {
     switch (actions.type) { 
-        case 'get_mmsi':
+        case 'get_port_area_id':
             return {
                 ...state,
-                mmsi:actions.mmsi
+                shipId: actions.portAreaId
             }
-        case 'get_ship_id':
+        case 'get_year':
             return {
                 ...state,
-                shipId: actions.shipId
-            }
-        case 'ship_info':
-            return {
-                ...state,
-                shipInfo: actions.data
+                year: actions.year
             }
         default:
             return state;
