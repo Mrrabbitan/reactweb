@@ -13,7 +13,7 @@
 
 ### [See what's new in Chalk 2](https://github.com/chalk/chalk/releases/tag/v2.0.0)
 
-<img src="https://cdn.rawgit.com/chalk/ansi-styles/8261697c95bf34b6c7767e2cbe9941a851d59385/screenshot.svg" alt="" width="900">
+<img src="https://cdn.jsdelivr.net/gh/chalk/ansi-styles@8261697c95bf34b6c7767e2cbe9941a851d59385/screenshot.svg" alt="" width="900">
 
 
 ## Highlights
